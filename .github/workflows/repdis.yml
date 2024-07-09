@@ -11,3 +11,4 @@ jobs:
         with:
           repository: ${{ github.event.client_payload.repo }}
           ref: ${{ github.event.client_payload.ref }}
+          path: ${{ github.event.client_payload.repo }}
