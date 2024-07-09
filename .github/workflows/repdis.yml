@@ -6,8 +6,8 @@ jobs:
   myEvent:
     runs-on: self-hosted
     steps:
-      - run: echo "${{ github.event.client_payload.repository }}"
+      - run: echo "${{ github.event.client_payload.repo }}"
       - uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.client_payload.repository }}
+          repository: ${{ github.event.client_payload.repo }}
           ref: ${{ github.event.client_payload.ref }}
