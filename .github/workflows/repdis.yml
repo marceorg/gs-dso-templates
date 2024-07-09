@@ -4,7 +4,8 @@ on:
     types: [my-event]
 jobs:
   myEvent:
-    runs-on: MARWIN11
+    runs-on: 
+      name: MARWIN11
     steps:
       - uses: actions/checkout@v3
         with:
