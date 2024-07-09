@@ -1,0 +1,23 @@
+name: dotnet build
+
+on:
+  workflow_call:  
+    inputs:
+      dotnet-version:
+        description: Dotnet version
+        default: "8"
+        type: string
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Setup dotnet ${{ inputs.dotnet-version }}
+       uses: actions/setup-dotnet@v3
+       with:
+         dotnet-version: ${{ inputs.dotnet-version }}
+     
+     - name: Display dotnet version
+       run: dotnet --version
