@@ -59,10 +59,10 @@ jobs:
     environment: dev
 
     steps:
-     - name: Dump job context
-       env:
-         JOB_CONTEXT: ${{ toJson(job) }}
-       run: echo "$JOB_CONTEXT"
+     # - name: Dump job context
+       # env:
+         # JOB_CONTEXT: ${{ toJson(job) }}
+       # run: echo "$JOB_CONTEXT"
         
      - name: Download artifact from build job
        uses: actions/download-artifact@v4
@@ -90,6 +90,12 @@ jobs:
          #destBase: ./
          target: ./
          
+     - uses: cschleiden/replace-tokens@v1
+       with:
+         files: 'Dockerfile'
+       env:
+         APP_NAME: ${{ inputs.app-name }}
+                  
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
          docker push ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}

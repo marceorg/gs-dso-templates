@@ -3,4 +3,4 @@ EXPOSE 80
 WORKDIR /app
 COPY drop .
 USER $APP_UID
-ENTRYPOINT ["./testrepo"]
+ENTRYPOINT ["dotnet", "#{APP_NAME}#.dll"]
