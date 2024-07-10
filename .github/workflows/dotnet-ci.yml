@@ -76,7 +76,7 @@ jobs:
      - name: Get dockerfile
        uses: canastro/copy-file-action@master
        with:
-         source: "gs-dso-templates/dockerfiles/net${{ inputs.dotnet-version }}/Dockerfile"
+         source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
          target: "Dockerfile"
          
      - run: |
