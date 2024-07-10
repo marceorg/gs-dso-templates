@@ -14,13 +14,12 @@ jobs:
     runs-on: self-hosted
 
     steps:
+     - uses: tiacsys/clean-after-action@v3
      - name: Dump GitHub context
        env:
          GITHUB_CONTEXT: ${{ toJson(github) }}
        run: echo "$GITHUB_CONTEXT"
-       
-     - uses: tiacsys/clean-after-action@v3
-
+     
      - uses: actions/checkout@v4
      - uses: actions/checkout@v4
        with:
