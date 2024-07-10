@@ -64,7 +64,7 @@ jobs:
        with:
          repository: ${{ github.repository_owner }}/gs-dso-templates
          ref: master
-         clean: false
+         path: './gs-dso-templates'
          
   TEST:
     if: ${{ contains(github.ref, 'release') }}
