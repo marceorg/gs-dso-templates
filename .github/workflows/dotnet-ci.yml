@@ -21,7 +21,7 @@ jobs:
        
      - uses: actions/checkout@v4
 
-     - name: Dump 
+     - name: Debug 
        run: |
             echo "FEED = ${{ vars.FEED_GS_REPOSITORY }}"
             echo "PAT = ${{ secrets.PAT_GS_REPOSITORY }}"
@@ -39,5 +39,23 @@ jobs:
        
      - name: Publish
        run: dotnet publish -c release --property:PublishDir=publish
+       
+     - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: drop
+          path: publish
+          
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    environment: dev
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: drop
+
      
      
