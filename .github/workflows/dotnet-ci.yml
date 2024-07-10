@@ -47,6 +47,8 @@ jobs:
          path: publish
           
   deploy:
+    if: contains('${{ github.ref }}', 'develop')
+    name: DEV
     runs-on: self-hosted
     needs: build
     environment: dev
@@ -56,6 +58,7 @@ jobs:
        uses: actions/download-artifact@v4
        with:
          name: drop
+         path: drop
 
      
      
