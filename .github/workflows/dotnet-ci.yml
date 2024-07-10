@@ -59,6 +59,20 @@ jobs:
        with:
          name: drop
          path: drop
+         
+  deploy:
+    if: contains('${{ github.ref }}', 'release')
+    name: TEST
+    runs-on: self-hosted
+    needs: build
+    environment: tst
+
+    steps:
+     - name: Download artifact from build job
+       uses: actions/download-artifact@v4
+       with:
+         name: drop
+         path: drop
 
      
      
