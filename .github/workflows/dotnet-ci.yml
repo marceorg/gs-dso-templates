@@ -18,6 +18,10 @@ jobs:
        env:
          GITHUB_CONTEXT: ${{ toJson(github) }}
        run: echo "$GITHUB_CONTEXT"
+     - name: Dump 
+       run: |
+            echo "FEED = ${{ vars.FEED_GS_REPOSITORY }}"
+            echo "PAT = ${{ secrets.PAT_GS_REPOSITORY }}"
      - name: Setup dotnet ${{ inputs.dotnet-version }}
        uses: actions/setup-dotnet@v4
        with:
