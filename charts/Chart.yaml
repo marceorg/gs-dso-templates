@@ -1,0 +1,6 @@
+name: #{app_name}#
+version: 0.0.1
+description: #{app_name}#
+keywords:
+  - #{app_name}#
+engine: gotpl

@@ -1,0 +1,10 @@
+app_name: #{app_name}#
+release: 
+  deploy: true
+  namespace: default
+  image: #{image}#
+  apiServicePort: 80
+  apiContainerPort: 80
+  replicas: 1
+  envvars:
+    KEY: value
