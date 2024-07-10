@@ -20,7 +20,7 @@ jobs:
        run: echo "$GITHUB_CONTEXT"
        
      - name: 'Cleanup build folder'
-      run: |
+       run: |
         ls -la ./
         rm -rf ./* || true
         rm -rf ./.??* || true
