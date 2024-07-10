@@ -77,7 +77,7 @@ jobs:
        uses: Lyoko-Jeremie/js-copy-github-action@master
        with:
          source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         target: "."
+         target: "/"
          
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
