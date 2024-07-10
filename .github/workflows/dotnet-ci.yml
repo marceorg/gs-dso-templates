@@ -78,8 +78,8 @@ jobs:
        with:
          srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
          source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         destBase: /
-         target: /
+         destBase: ./
+         target: ./
          
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
