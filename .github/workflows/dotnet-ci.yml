@@ -56,7 +56,8 @@ jobs:
     steps:
      - uses: actions/checkout@v4
        with:
-         repository: ${{ github.repository_owner }}/gs-dso-templates@master
+         repository: ${{ github.repository_owner }}/gs-dso-templates
+         ref: master
          
      - name: Download artifact from build job
        uses: actions/download-artifact@v4
@@ -73,7 +74,8 @@ jobs:
     steps:
      - uses: actions/checkout@v4
        with:
-         repository: ${{ github.repository_owner }}/gs-dso-templates@master 
+         repository: ${{ github.repository_owner }}/gs-dso-templates
+         ref: master
          
      - name: Download artifact from build job
        uses: actions/download-artifact@v4
