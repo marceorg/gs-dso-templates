@@ -66,6 +66,23 @@ jobs:
          repository: ${{ github.repository_owner }}/gs-dso-templates
          ref: master
          path: './gs-dso-templates'
+     
+     - uses: azure/docker-login@v2
+       with:
+         login-server: ${{ vars.ACR_LAB_SERVER }}
+         username: ${{ vars.ACR_LAB_USER }}
+         password: ${{ secrets.ACR_LAB_PASSWORD }}
+         
+     - name: Get dockerfile
+       uses: canastro/copy-file-action@master
+       with:
+         source: "gs-dso-templates/dockerfiles/net${{ inputs.dotnet-version }}/Dockerfile"
+         target: "Dockerfile"
+         
+     - run: |
+         docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
+         docker push ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
+
          
   TEST:
     if: ${{ contains(github.ref, 'release') }}
