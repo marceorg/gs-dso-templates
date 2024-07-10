@@ -76,8 +76,10 @@ jobs:
      - name: Get dockerfile
        uses: Lyoko-Jeremie/js-copy-github-action@master
        with:
+         srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
          source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         target: "/"
+         destBase: /
+         target: /
          
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
