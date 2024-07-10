@@ -8,6 +8,10 @@ on:
         default: "8"
         type: string
         required: false
+      app-name:
+        description: App name
+        type: string
+        required: true
 
 jobs:
   build:
