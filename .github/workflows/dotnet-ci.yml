@@ -46,9 +46,8 @@ jobs:
          name: drop
          path: publish
           
-  deploy:
+  deploy DEV:
     if: contains('${{ github.ref }}', 'develop')
-    name: DEV
     runs-on: self-hosted
     needs: build
     environment: dev
@@ -60,9 +59,8 @@ jobs:
          name: drop
          path: drop
          
-  deploy:
+  deploy TEST:
     if: contains('${{ github.ref }}', 'release')
-    name: TEST
     runs-on: self-hosted
     needs: build
     environment: tst
