@@ -18,10 +18,14 @@ jobs:
        env:
          GITHUB_CONTEXT: ${{ toJson(github) }}
        run: echo "$GITHUB_CONTEXT"
+       
+     - uses: actions/checkout@v4
+
      - name: Dump 
        run: |
             echo "FEED = ${{ vars.FEED_GS_REPOSITORY }}"
             echo "PAT = ${{ secrets.PAT_GS_REPOSITORY }}"
+            
      - name: Setup dotnet ${{ inputs.dotnet-version }}
        uses: actions/setup-dotnet@v4
        with:
@@ -29,8 +33,10 @@ jobs:
          source-url: ${{ vars.FEED_GS_REPOSITORY }}
        env:
          NUGET_AUTH_TOKEN: ${{secrets.PAT_GS_REPOSITORY}}
+         
      - name: Display dotnet version
        run: dotnet --version
+       
      - name: Publish
        run: dotnet publish -c release --property:PublishDir=publish
      
