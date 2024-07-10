@@ -85,9 +85,9 @@ jobs:
      - name: Get dockerfile
        uses: Lyoko-Jeremie/js-copy-github-action@master
        with:
-         #srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
+         srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
          source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         #destBase: ./
+         destBase: ./
          target: ./
          
      - uses: cschleiden/replace-tokens@v1
