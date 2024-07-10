@@ -74,10 +74,10 @@ jobs:
          password: ${{ secrets.ACR_LAB_PASSWORD }}
          
      - name: Get dockerfile
-       uses: canastro/copy-file-action@master
+       uses: Lyoko-Jeremie/js-copy-github-action@master
        with:
          source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         target: "Dockerfile"
+         target: "."
          
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo:${{ github.sha }}
