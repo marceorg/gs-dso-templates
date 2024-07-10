@@ -19,7 +19,7 @@ jobs:
          GITHUB_CONTEXT: ${{ toJson(github) }}
        run: echo "$GITHUB_CONTEXT"
        
-     - uses: AutoModality/action-clean@v1
+     - uses: tiacsys/clean-after-action@v3
 
      - uses: actions/checkout@v4
      - uses: actions/checkout@v4
