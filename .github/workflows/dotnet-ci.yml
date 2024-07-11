@@ -101,19 +101,19 @@ jobs:
          docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
          
      - uses: ejhayes/action-argocd-deploy@releases/v1
-        with:
-          accessToken: ${{ secrets.ACR_LAB_PASSWORD }}
-          baseUrl: http://localhost:8888/
-          name: testrepo
-          namespace: marcelo
-          project: default
-          tokens: |
-            REPLICAS: 2
-            IMAGE: ${{ vars.ACR_LAB_SERVER }}/testrepo-dev
-            TAG: ${{ github.sha }}
-          valuesFile: gs-dso-templates/charts/helm-testrepo/values.yaml
-          info: |
-            environment: dev
+       with:
+         accessToken: ${{ secrets.ARGOCD_TOKEN }}
+         baseUrl: http://localhost:8888/
+         name: testrepo
+         namespace: marcelo
+         project: default
+         tokens: |
+           REPLICAS: 2
+           IMAGE: ${{ vars.ACR_LAB_SERVER }}/testrepo-dev
+           TAG: ${{ github.sha }}
+         valuesFile: gs-dso-templates/charts/helm-testrepo/values.yaml
+         info: |
+           environment: dev
 
          
   TEST:
