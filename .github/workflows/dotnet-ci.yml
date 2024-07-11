@@ -112,6 +112,7 @@ jobs:
            REPLICAS: 2
            IMAGE: ${{ vars.ACR_LAB_SERVER }}/testrepo-dev
            TAG: ${{ github.sha }}
+         path: gs-dso-templates/charts/helm-testrepo
          valuesFile: gs-dso-templates/charts/helm-testrepo/values.yaml
          info: |
            environment: dev
