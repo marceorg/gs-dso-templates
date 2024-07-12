@@ -117,17 +117,17 @@ jobs:
          # info: |
            # environment: dev
      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.PAT }}
-          repository: ${{ github.repository_owner }}/gs-dso-templates
-          event-type: my-event
-          client-payload: |-
-            {
-              "image": "${{ vars.ACR_LAB_SERVER }}/testrepo-dev",
-              "tag": "${{ github.sha }}",
-              "replicas": "2"
-            }
+       uses: peter-evans/repository-dispatch@v3
+       with:
+         token: ${{ secrets.PAT }}
+         repository: ${{ github.repository_owner }}/gs-dso-templates
+         event-type: my-event
+         client-payload: |-
+           {
+             "image": "${{ vars.ACR_LAB_SERVER }}/testrepo-dev",
+             "tag": "${{ github.sha }}",
+             "replicas": "2"
+           }
 
          
   TEST:
