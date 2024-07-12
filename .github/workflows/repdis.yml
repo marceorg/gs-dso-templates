@@ -1,4 +1,6 @@
 name: Repository Dispatch
+run-name: "${{github.repository}} #${{github.run_number}} - Building ${{github.ref_name}} by @${{github.actor}}"
+
 on:
   repository_dispatch:
     types: [my-event]
@@ -6,6 +8,11 @@ jobs:
   myEvent:
     runs-on: self-hosted
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+       
       - run: echo "${{ github.event.client_payload.image }}"
       - run: echo "${{ github.event.client_payload.tag }}"
       - uses: actions/checkout@v4
@@ -19,7 +26,7 @@ jobs:
         with:
           accessToken: ${{ secrets.ARGOCD_TOKEN }}
           baseUrl: http://localhost:8888/
-          clusterName: in-cluster
+          clusterName: default
           name: testrepo
           namespace: marcelo
           project: default
