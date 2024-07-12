@@ -108,8 +108,8 @@ jobs:
          name: testrepo
          namespace: marcelo
          project: default
-         gitRef: master
-         gitRepo: https://github.com/marceorg/gs-dso-templates.git
+         gitRef: refs/heads/master
+         gitRepo: marceorg/gs-dso-templates
          tokens: |
            REPLICAS: 2
            IMAGE: ${{ vars.ACR_LAB_SERVER }}/testrepo-dev
