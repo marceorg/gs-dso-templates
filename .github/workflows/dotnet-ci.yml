@@ -104,7 +104,7 @@ jobs:
        with:
          accessToken: ${{ secrets.ARGOCD_TOKEN }}
          baseUrl: http://localhost:8888/
-         clusterName: default
+         clusterName: in-cluster
          name: testrepo
          namespace: marcelo
          project: default
