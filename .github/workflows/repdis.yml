@@ -6,9 +6,27 @@ jobs:
   myEvent:
     runs-on: self-hosted
     steps:
-      - run: echo "${{ github.event.client_payload.repo }}"
-      - uses: actions/checkout@v4
+      - run: echo "${{ github.event.client_payload.image }}"
+      - run: echo "${{ github.event.client_payload.tag }}"
+
+      # - uses: actions/checkout@v4
+        # with:
+          # repository: ${{ github.event.client_payload.repo }}
+          # ref: ${{ github.event.client_payload.ref }}
+          # path: ${{ github.event.client_payload.repo }}
+      - uses: ejhayes/action-argocd-deploy@releases/v1
         with:
-          repository: ${{ github.event.client_payload.repo }}
-          ref: ${{ github.event.client_payload.ref }}
-          path: ${{ github.event.client_payload.repo }}
+          accessToken: ${{ secrets.ARGOCD_TOKEN }}
+          baseUrl: http://localhost:8888/
+          clusterName: in-cluster
+          name: testrepo
+          namespace: marcelo
+          project: default
+          tokens: |
+            REPLICAS: ${{ github.event.client_payload.replicas }
+            IMAGE: ${{ github.event.client_payload.image }}
+            TAG: ${{ github.event.client_payload.tag }}
+          path: charts/helm-testrepo
+          valuesFile: charts/helm-testrepo/values.yaml
+          info: |
+            environment: dev
