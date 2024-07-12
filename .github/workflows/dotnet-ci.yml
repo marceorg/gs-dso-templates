@@ -128,7 +128,14 @@ jobs:
              "tag": "${{ github.sha }}",
              "replicas": "2"
            }
+           
+     - name: Create comment if build is ok
+       if: ${{ success() }}
+       run: echo "repository Dispatch OK"
 
+     - name: Create comment if build fails
+       if: ${{ failure() }}
+       run: echo "repository Dispatch ERROR"
          
   TEST:
     if: ${{ contains(github.ref, 'release') }}
