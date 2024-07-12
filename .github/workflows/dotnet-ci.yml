@@ -108,14 +108,12 @@ jobs:
          name: testrepo
          namespace: marcelo
          project: default
-         gitRef: refs/heads/master
-         gitRepo: marceorg/gs-dso-templates
          tokens: |
            REPLICAS: 2
            IMAGE: ${{ vars.ACR_LAB_SERVER }}/testrepo-dev
            TAG: ${{ github.sha }}
-         path: charts/helm-testrepo
-         valuesFile: charts/helm-testrepo/values.yaml
+         path: gs-dso-templates/charts/helm-testrepo
+         valuesFile: gs-dso-templates/charts/helm-testrepo/values.yaml
          info: |
            environment: dev
 
