@@ -23,7 +23,7 @@ jobs:
           namespace: marcelo
           project: default
           tokens: |
-            REPLICAS: ${{ github.event.client_payload.replicas }
+            REPLICAS: ${{ github.event.client_payload.replicas }}
             IMAGE: ${{ github.event.client_payload.image }}
             TAG: ${{ github.event.client_payload.tag }}
           path: charts/helm-testrepo
