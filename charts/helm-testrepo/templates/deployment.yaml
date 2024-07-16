@@ -32,11 +32,11 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /health
+              path: {{ .Values.health.liveness }}
               port: http
           readinessProbe:
             httpGet:
-              path: /health
+              path: {{ .Values.health.readiness }}
               port: http
           resources:
 {{ toYaml .Values.resources | indent 12 }}

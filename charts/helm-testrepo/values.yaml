@@ -8,6 +8,10 @@ image:
   repository: __IMAGE__
   tag: __TAG__
   pullPolicy: IfNotPresent
+  
+health:
+  readiness: /health
+  liveness: /health
 
 containerPort: 80
 
