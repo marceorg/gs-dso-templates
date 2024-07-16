@@ -128,7 +128,7 @@ jobs:
              # "image": "${{ vars.ACR_LAB_SERVER }}/testrepo-dev",
              # "tag": "${{ github.sha }}",
              # "replicas": "2"
-           }
+           #}
            
      - name: Create comment if build is ok
        if: ${{ success() }}
