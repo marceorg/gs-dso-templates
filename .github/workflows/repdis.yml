@@ -23,10 +23,11 @@ jobs:
           # ref: ${{ github.event.client_payload.ref }}
           # path: ${{ github.event.client_payload.repo }}
           
-          
       - uses: ejhayes/action-argocd-deploy@releases/v1
         with:
-          accessToken: ${{ secrets.ARGOCD_TOKEN }}
+          #accessToken: ${{ secrets.ARGOCD_TOKEN }}
+          clientId: admin
+          clientSecret: ${{ secrets.ARGOCD_ADMIN_PWD }}
           baseUrl: http://localhost:8888/
           clusterName: in-cluster
           name: testrepo
