@@ -28,7 +28,7 @@ jobs:
         with:
           accessToken: ${{ secrets.ARGOCD_TOKEN }}
           baseUrl: http://localhost:8888/
-          clusterName: minikube
+          clusterName: in-cluster
           name: testrepo
           namespace: marcelo
           project: default
