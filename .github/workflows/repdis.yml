@@ -29,6 +29,7 @@ jobs:
           clientId: admin
           clientSecret: ${{ secrets.ARGOCD_ADMIN_PWD }}
           action: upsert
+          dryRun: true
           baseUrl: http://localhost:8888/
           clusterName: in-cluster
           name: testrepo
