@@ -29,6 +29,7 @@ jobs:
           clientId: admin
           clientSecret: ${{ secrets.ARGOCD_ADMIN_PWD }}
           baseUrl: http://localhost:8888/
+          contentType: application/json
           clusterName: in-cluster
           name: testrepo
           namespace: marcelo
