@@ -22,6 +22,8 @@ jobs:
           # repository: ${{ github.event.client_payload.repo }}
           # ref: ${{ github.event.client_payload.ref }}
           # path: ${{ github.event.client_payload.repo }}
+          
+          
       - uses: ejhayes/action-argocd-deploy@releases/v1
         with:
           accessToken: ${{ secrets.ARGOCD_TOKEN }}
@@ -38,3 +40,21 @@ jobs:
           valuesFile: charts/helm-testrepo/values.yaml
           info: |
             environment: dev
+            
+      # - name: Deploy
+        # uses: cloudposse/github-action-deploy-argocd@main
+        # id: deploy
+        # with:
+          # cluster: in-cluster
+          # toolchain: helmfile
+          # environment: preview
+          # namespace: preview
+          # application: test-app
+          # #github-pat: ${{ secrets.GITHUB_AUTH_PAT }}
+          # repository: ${{ github.repository }}
+          # ref: ${{ github.event.pull_request.head.ref  }}
+          # image: nginx
+          # image-tag: latest
+          # operation: deploy
+          # debug: false
+          # synchronously: true
