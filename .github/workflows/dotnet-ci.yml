@@ -56,7 +56,7 @@ jobs:
     if: ${{ contains(github.ref, 'develop') }}
     runs-on: self-hosted
     needs: build
-    environment: dev
+    environment: develop
 
     steps:
      # - name: Dump job context
