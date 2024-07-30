@@ -98,7 +98,9 @@ jobs:
                   
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
-         docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
+         docker image tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+         #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
+         docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          
     #  - name: Deploy to argocd
     #    uses: ejhayes/action-argocd-deploy@releases/v1
@@ -120,18 +122,18 @@ jobs:
     #      info: |
     #        environment: dev
            
-     - name: Repository Dispatch
-       uses: peter-evans/repository-dispatch@v3
-       with:
-         token: ${{ secrets.PAT }}
-         repository: ${{ github.repository_owner }}/gs-dso-templates
-         event-type: my-event
-         client-payload: |-
-           {
-             "image": "${{ vars.ACR_LAB_SERVER }}/testrepo-dev",
-             "tag": "${{ github.sha }}",
-             "replicas": "2"
-           }
+    #  - name: Repository Dispatch
+    #    uses: peter-evans/repository-dispatch@v3
+    #    with:
+    #      token: ${{ secrets.PAT }}
+    #      repository: ${{ github.repository_owner }}/gs-dso-templates
+    #      event-type: my-event
+    #      client-payload: |-
+    #        {
+    #          "image": "${{ vars.ACR_LAB_SERVER }}/testrepo-dev",
+    #          "tag": "${{ github.sha }}",
+    #          "replicas": "2"
+    #        }
            
      - name: Create comment if build is ok
        if: ${{ success() }}
