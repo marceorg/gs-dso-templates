@@ -97,9 +97,9 @@ jobs:
          APP_NAME: ${{ inputs.app-name }}
                   
      - run: |
-         docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
-         docker image tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
-         #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.sha }}
+         docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
+         docker image tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+         #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
          docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          
     #  - name: Deploy to argocd
