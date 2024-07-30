@@ -99,8 +99,8 @@ jobs:
      - run: |
          docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
          docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
-         docker tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
-         docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+         #docker tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+         #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          
     #  - name: Deploy to argocd
     #    uses: ejhayes/action-argocd-deploy@releases/v1
