@@ -59,7 +59,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: 'https://npm.pkg.github.com/${{github.repository_owner}}'
-          token: ${{ github.token }}
+          token: "${{ secrets.PATPKG }}"
       #- run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
 
