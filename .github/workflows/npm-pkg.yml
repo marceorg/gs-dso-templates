@@ -12,8 +12,8 @@ on:
 
 jobs:
   build:
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     steps:
       - name: Dump GitHub context
         env:
@@ -33,7 +33,8 @@ jobs:
   
   publish:
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     steps:
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
       - run: npm publish
