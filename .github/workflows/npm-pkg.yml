@@ -65,7 +65,7 @@ jobs:
           done
 
         env:
-          NODE_AUTH_TOKEN: "${{ secrets.PATPKG }}"
+          NODE_AUTH_TOKEN: "${{ github.token }}"
       #- run: npm publish 
       #  env:
       #    NODE_AUTH_TOKEN: ${{ github.token }}
