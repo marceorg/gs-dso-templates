@@ -32,8 +32,8 @@ jobs:
         if: ${{ contains(github.ref, 'develop') }}
         run: npm version prerelease --preid=dev --allow-same-version
       - run: npm run build
-      - run: npm pack
-      - run: mv dist drop/dist
+      #- run: npm pack
+      - run: mv dist drop/
       - run: mv package.json drop
       - name: Upload artifact for publish
         uses: actions/upload-artifact@v4
