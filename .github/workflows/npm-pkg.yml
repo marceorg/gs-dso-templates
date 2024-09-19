@@ -59,11 +59,13 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: 'https://npm.pkg.github.com'
-          token: "${{ secrets.PATPKG }}"
+          #token: "${{ secrets.PATPKG }}"
           scope: "@${{github.repository_owner}}"
       #- run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
       - run: npm publish marceorg-my-first-npm-package-1.0.10.tgz
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
       #- run: |
       #    for file in ${{ github.workspace }}/*.tgz; do
       #      echo "$file"
