@@ -43,17 +43,18 @@ jobs:
   
   publish:
     needs: build
-    runs-on: ubuntu-latest
-    #runs-on: self-hosted
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Download artifact from build
         uses: actions/download-artifact@v4
         with:
           name: drop
-      - run: |
-            for file in ${{ github.workspace }}; do
-              echo "$file"
-            done
+      - run: dir
+      #- run: |
+      #      for file in ${{ github.workspace }}; do
+      #        echo "$file"
+      #      done
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
       #- run: npm publish 
       #  env:
