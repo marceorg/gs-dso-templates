@@ -63,7 +63,7 @@ jobs:
           scope: "@${{github.repository_owner}}"
       #- run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
-       - run: npm publish marceorg-my-first-npm-package-1.0.10.tgz
+      - run: npm publish marceorg-my-first-npm-package-1.0.10.tgz
       #- run: |
       #    for file in ${{ github.workspace }}/*.tgz; do
       #      echo "$file"
