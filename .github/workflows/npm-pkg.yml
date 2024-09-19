@@ -23,7 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
-          registry-url: 'https://npm.pkg.github.com/${{github.repository_owner}}'
+          #registry-url: 'https://npm.pkg.github.com/${{github.repository_owner}}'
+          #token: ${{ github.token }}
       - run: npm i
       - run: npm test
       - run: npm pkg set name=@${{github.repository}}
