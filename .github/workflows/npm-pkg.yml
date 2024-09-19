@@ -55,6 +55,11 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          registry-url: 'https://npm.pkg.github.com/${{github.repository_owner}}'
+          #token: ${{ github.token }}
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
 
@@ -65,7 +70,7 @@ jobs:
           done
 
         env:
-          NODE_AUTH_TOKEN: "${{ secrets.PATPKG }}"
+          NPM_AUTH_TOKEN: "${{ secrets.PATPKG }}"
       #- run: npm publish 
       #  env:
       #    NODE_AUTH_TOKEN: ${{ github.token }}
