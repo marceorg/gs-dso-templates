@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
       - run: npm i
+      - run: npm test
       - run: npm pkg set name=@${{github.repository}}
       - name: Add suffix prerelease
         if: ${{ contains(github.ref, 'develop') }}
