@@ -65,7 +65,7 @@ jobs:
           done
 
         env:
-          NODE_AUTH_TOKEN: "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"
+          NODE_AUTH_TOKEN: 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
       #- run: npm publish 
       #  env:
       #    NODE_AUTH_TOKEN: ${{ github.token }}
