@@ -32,14 +32,14 @@ jobs:
         if: ${{ contains(github.ref, 'develop') }}
         run: npm version prerelease --preid=dev --allow-same-version
       - run: npm run build
-      #- run: npm pack
-      - run: mv dist drop/dist/
-      - run: mv package.json drop
+      - run: npm pack
+      #- run: mv dist drop/dist/
+      #- run: mv package.json drop
       - name: Upload artifact for publish
         uses: actions/upload-artifact@v4
         with:
           name: drop
-          path: drop
+          path: *.tgz
   
   publish:
     needs: build
@@ -50,7 +50,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: drop
+      - run: |
+            for file in ${{ github.workspace }}; do
+              echo "$file"
+            done
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
-      - run: npm publish 
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
+      #- run: npm publish 
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ github.token }}
