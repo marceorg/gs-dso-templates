@@ -33,12 +33,13 @@ jobs:
         run: npm version prerelease --preid=dev --allow-same-version
       - run: npm run build
       - run: npm pack
-      - run: cp package.json dist
+      - run: cp package.json drop
+      - run: cp dist drop
       - name: Upload artifact for publish
         uses: actions/upload-artifact@v4
         with:
           name: drop
-          path: dist
+          path: drop
   
   publish:
     needs: build
