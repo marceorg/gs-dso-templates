@@ -15,7 +15,7 @@ jobs:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
     steps:
-      - uses: tiacsys/clean-after-action@v3
+      #- uses: tiacsys/clean-after-action@v3
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -51,15 +51,19 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: drop
-      #- run: dir
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
 
       - run: |
-            for file in ${{ github.workspace }}/*.tgz; do
-              echo "$file"
-              npm publish "$file"
-            done
+          for file in ${{ github.workspace }}/*.tgz; do
+            echo "$file"
+            npm publish "$file"
+          done
+
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
       #- run: npm publish 
