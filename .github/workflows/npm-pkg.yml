@@ -58,7 +58,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
-          registry-url: 'https://npm.pkg.github.com/${{github.repository_owner}}'
+          registry-url: 'https://npm.pkg.github.com'
           token: "${{ secrets.PATPKG }}"
       #- run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
