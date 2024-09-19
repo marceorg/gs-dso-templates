@@ -62,10 +62,11 @@ jobs:
           #token: "${{ secrets.PATPKG }}"
           #scope: "@${{github.repository_owner}}"
       - run: echo "@${{github.repository_owner}}:registry=https://npm.pkg.github.com" >> .npmrc
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PATPKG }}" >> .npmrc
         continue-on-error: false
       - run: npm publish marceorg-my-first-npm-package-1.0.10.tgz
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PATPKG }}
+        #env:
+        #  NODE_AUTH_TOKEN: ${{ secrets.PATPKG }}
       #- run: |
       #    for file in ${{ github.workspace }}/*.tgz; do
       #      echo "$file"
