@@ -58,10 +58,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
-          registry-url: 'https://npm.pkg.github.com'
+          #registry-url: 'https://npm.pkg.github.com'
           #token: "${{ secrets.PATPKG }}"
-          scope: "@${{github.repository_owner}}"
-      #- run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
+          #scope: "@${{github.repository_owner}}"
+      - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
         continue-on-error: false
       - run: npm publish marceorg-my-first-npm-package-1.0.10.tgz
         env:
