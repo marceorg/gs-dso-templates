@@ -52,11 +52,14 @@ jobs:
         with:
           name: drop
       #- run: dir
+      - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
       - run: |
             for file in ${{ github.workspace }}/*.tgz; do
               echo "$file"
+              npm publish "$file"
             done
-      - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
       #- run: npm publish 
       #  env:
       #    NODE_AUTH_TOKEN: ${{ github.token }}
