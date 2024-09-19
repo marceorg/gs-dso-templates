@@ -53,6 +53,8 @@ jobs:
           name: drop
       #- run: dir
       - run: echo registry=https://npm.pkg.github.com/${{github.repository_owner}} >> .npmrc
+        continue-on-error: false
+
       - run: |
             for file in ${{ github.workspace }}/*.tgz; do
               echo "$file"
