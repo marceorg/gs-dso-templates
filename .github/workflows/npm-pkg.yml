@@ -29,6 +29,7 @@ jobs:
       - run: npm i
       - run: npm test
       - run: npm pkg set name=@${{github.repository}}
+      - run: npm pkg set repository=@${{github.repositoryUrl}}
       - name: Add suffix prerelease
         if: ${{ contains(github.ref, 'develop') }}
         run: npm version prerelease --preid=dev --allow-same-version
@@ -71,7 +72,7 @@ jobs:
       - run: |
           for file in ${{ github.workspace }}/*.tgz; do
             npm publish "$file"
-            break
+            #break
           done
 
         env:
