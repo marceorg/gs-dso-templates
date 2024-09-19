@@ -70,8 +70,8 @@ jobs:
       #    NODE_AUTH_TOKEN: ${{ secrets.PATPKG }}
       - run: |
           for file in ${{ github.workspace }}/*.tgz; do
-            echo "$file"
             npm publish "$file"
+            break
           done
 
         env:
