@@ -15,7 +15,7 @@ jobs:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
     steps:
-      - uses: tiacsys/clean-after-action@v3
+      #- uses: tiacsys/clean-after-action@v3
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -29,7 +29,7 @@ jobs:
       - run: npm i
       - run: npm test
       - run: npm pkg set name=@${{github.repository}}
-      - run: npm pkg set repository=@${{github.repositoryUrl}}
+      - run: npm pkg set repository=https://github.com/${{github.repository}}
       - name: Add suffix prerelease
         if: ${{ contains(github.ref, 'develop') }}
         run: npm version prerelease --preid=dev --allow-same-version
