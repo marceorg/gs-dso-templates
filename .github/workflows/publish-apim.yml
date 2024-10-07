@@ -24,6 +24,10 @@ jobs:
       - run: echo "${{ github.event.client_payload.api_id }}"
       - run: echo "${{ github.event.client_payload.environment }}"
       
+      - name: Sleep 2 minutes until argocd synchronizes
+        run: sleep 120s
+        shell: bash
+      
       - name: Set apim dev/testing/staging
         if: ${{ github.event.client_payload.environment == 'dev' || github.event.client_payload.environment == 'testing' || github.event.client_payload.environment == 'staging'}}
         run: |
