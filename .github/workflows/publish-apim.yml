@@ -1,10 +1,10 @@
-name: Publishing in apim
+name: Publishing an API
 run-name: "${{github.repository}} #${{github.run_number}} - Building ${{github.ref_name}} by @${{github.actor}}"
 
 env:
-  api_id_dev:  "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-dev-gs/apis/"
+  apim_id_dev: "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-dev-gs/apis/"
   
-  api_id_prod:   "/subscriptions/417aa725-413a-4317-81aa-a35c91a6400f/resourceGroups/rg-prd-apim-eastus/providers/Microsoft.ApiManagement/service/apim-prd-gs/apis/"
+  apim_id_prod: "/subscriptions/417aa725-413a-4317-81aa-a35c91a6400f/resourceGroups/rg-prd-apim-eastus/providers/Microsoft.ApiManagement/service/apim-prd-gs/apis/"
 
 on:
   repository_dispatch:
