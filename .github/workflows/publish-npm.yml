@@ -30,6 +30,7 @@ jobs:
       - run: npm test
       - run: npm pkg set name=@${{github.repository}}
       - run: npm pkg set repository=https://github.com/${{github.repository}}
+      - run: npm pkg set author=${{github.actor}}
       - name: Add suffix prerelease
         if: ${{ contains(github.ref, 'develop') }}
         run: npm version prerelease --preid=dev --allow-same-version
