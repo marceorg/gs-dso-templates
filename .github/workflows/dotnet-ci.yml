@@ -76,31 +76,31 @@ jobs:
          ref: master
          path: './gs-dso-templates'
      
-     - uses: azure/docker-login@v2
-       with:
-         login-server: ${{ vars.ACR_LAB_SERVER }}
-         username: ${{ vars.ACR_LAB_USER }}
-         password: ${{ secrets.ACR_LAB_PASSWORD }}
+     # - uses: azure/docker-login@v2
+       # with:
+         # login-server: ${{ vars.ACR_LAB_SERVER }}
+         # username: ${{ vars.ACR_LAB_USER }}
+         # password: ${{ secrets.ACR_LAB_PASSWORD }}
          
-     - name: Get dockerfile
-       uses: Lyoko-Jeremie/js-copy-github-action@master
-       with:
-         srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
-         source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
-         destBase: ./
-         target: ./
+     # - name: Get dockerfile
+       # uses: Lyoko-Jeremie/js-copy-github-action@master
+       # with:
+         # srcBase: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/"
+         # source: "gs-dso-templates/dockerfiles/dotnet.${{ inputs.dotnet-version }}/Dockerfile"
+         # destBase: ./
+         # target: ./
          
-     - uses: cschleiden/replace-tokens@v1
-       with:
-         files: 'Dockerfile'
-       env:
-         APP_NAME: ${{ inputs.app-name }}
+     # - uses: cschleiden/replace-tokens@v1
+       # with:
+         # files: 'Dockerfile'
+       # env:
+         # APP_NAME: ${{ inputs.app-name }}
                   
-     - run: |
-         docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
-         docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
-         #docker tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
-         #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+     # - run: |
+         # docker build . -t ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
+         # docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
+         # #docker tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
+         # #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          
      - uses: Azure/k8s-set-context@v3
        with:
