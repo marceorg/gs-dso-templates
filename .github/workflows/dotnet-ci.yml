@@ -102,6 +102,14 @@ jobs:
          #docker tag ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }} ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          #docker push ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:latest
          
+     - uses: Azure/k8s-set-context@v3
+       with:
+         kubeconfig: ${{ secrets.KUBE_CONFIG }}
+         
+     - name: Debug 
+       run: |
+            kubens
+         
     #  - name: Deploy to argocd
     #    uses: ejhayes/action-argocd-deploy@releases/v1
     #    with:
