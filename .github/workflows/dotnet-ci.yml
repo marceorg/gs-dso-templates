@@ -109,6 +109,29 @@ jobs:
      - name: Debug 
        run: |
             kubens
+     
+     - uses: azure/k8s-bake@v3
+       with:
+         renderEngine: 'helm'
+         helmChart: './gs-dso-templates/charts/helm-testrepo'
+         #overrideFiles: './aks-helloworld/values-override.yaml'
+         overrides: |
+           replicaCount:2
+           image.repository: '${{ vars.ACR_LAB_SERVER }}/testrepo-dev'
+           image.tag: ${{ github.run_id }}
+        id: bake
+        
+     - name: Debug 
+       run: |
+            echo "${{ steps.bake.outputs.manifestsBundle }}"
+
+        #- uses: Azure/k8s-deploy@v4
+        #  with:
+        #    manifests: ${{ steps.bake.outputs.manifestsBundle }}
+            #images: |
+            #  ${{ vars.ACR_LAB_SERVER }}/testrepo-dev:${{ github.run_id }}
+            #imagepullsecrets: |
+            #  demo-k8s-secret
          
     #  - name: Deploy to argocd
     #    uses: ejhayes/action-argocd-deploy@releases/v1
