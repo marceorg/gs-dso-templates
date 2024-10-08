@@ -119,7 +119,7 @@ jobs:
            replicaCount:2
            image.repository: '${{ vars.ACR_LAB_SERVER }}/testrepo-dev'
            image.tag: ${{ github.run_id }}
-        id: bake
+         id: bake
         
      - name: Debug 
        run: |
