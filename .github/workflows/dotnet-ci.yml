@@ -36,9 +36,9 @@ jobs:
        uses: actions/setup-dotnet@v4
        with:
          dotnet-version: ${{ inputs.dotnet-version }}
-         source-url: ${{ vars.FEED_GS_REPOSITORY }}
-       env:
-         NUGET_AUTH_TOKEN: ${{secrets.PAT_GS_REPOSITORY}}
+         #source-url: ${{ vars.FEED_GS_REPOSITORY }}
+       #env:
+         #NUGET_AUTH_TOKEN: ${{secrets.PAT_GS_REPOSITORY}}
          
      - name: Display dotnet version
        run: dotnet --version
