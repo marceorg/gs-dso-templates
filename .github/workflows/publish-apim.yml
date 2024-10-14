@@ -1,10 +1,18 @@
 name: Publishing an API
-run-name: "${{github.repository}} #${{github.run_number}} - Building ${{github.ref_name}} by @${{github.actor}}"
+run-name: "#${{github.run_number}} - Publishing ${{github.repository}} in ${{ github.event.client_payload.environment }} by @${{github.actor}}"
 
 env:
-  apim_id_dev: "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-dev-gs/apis/"
+  apim_dev: "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-dev-gs/apis/"
   
-  apim_id_prod: "/subscriptions/417aa725-413a-4317-81aa-a35c91a6400f/resourceGroups/rg-prd-apim-eastus/providers/Microsoft.ApiManagement/service/apim-prd-gs/apis/"
+  apim_tst:  "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-tst-gs/apis/"
+  
+  apim_stg:  "/subscriptions/b80ae9bd-4aa9-4f1e-ae01-6a08372e16e9/resourceGroups/rg-dev-apim-eastus/providers/Microsoft.ApiManagement/service/apim-stg-gs/apis/"
+  
+  apim_prd: "/subscriptions/417aa725-413a-4317-81aa-a35c91a6400f/resourceGroups/rg-prd-apim-eastus/providers/Microsoft.ApiManagement/service/apim-prd-gs/apis/"
+  
+  cluster_dev: "https://dev.svc.galiciaseguros.com.ar"
+  
+  cluster_prd: "https://prod.svc.galiciaseguros.com.ar"
 
 on:
   repository_dispatch:
@@ -19,31 +27,47 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
        
-      - run: echo "${{ github.event.client_payload.openapi_url }}"
+      - run: echo "${{ github.event.client_payload.spec_path }}"
       - run: echo "${{ github.event.client_payload.prefix }}"
-      - run: echo "${{ github.event.client_payload.api_id }}"
+      #- run: echo "${{ github.event.client_payload.api_id }}"
       - run: echo "${{ github.event.client_payload.environment }}"
       
       - name: Sleep 2 minutes until argocd synchronizes
         run: sleep 120s
         shell: bash
       
-      - name: Set apim dev/testing/staging
-        if: ${{ github.event.client_payload.environment == 'dev' || github.event.client_payload.environment == 'testing' || github.event.client_payload.environment == 'staging'}}
+      - name: Set apim dev
+        if: ${{ github.event.client_payload.environment == 'dev' }}
         run: |
-          echo "api_id=${{ apim_id_dev }}/${{ github.event.client_payload.api_id }}" >> $GITHUB_ENV
+          echo "api_id=${{ apim_dev }}/${{ github.event.client_payload.repository}}_id" >> $GITHUB_ENV
           echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_DEV }}" >> $GITHUB_ENV
+          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
+          
+      - name: Set apim testing
+        if: ${{ github.event.client_payload.environment == 'test' }}
+        run: |
+          echo "api_id=${{ apim_tst }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_TST }}" >> $GITHUB_ENV
+          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
+          
+      - name: Set apim staging
+        if: ${{ github.event.client_payload.environment == 'sta'}}
+        run: |
+          echo "api_id=${{ apim_stg }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_STG }}" >> $GITHUB_ENV
+          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
       
       - name: Set apim prod
         if: ${{ github.event.client_payload.environment == 'prod' }}
         run: |
-          echo "api_id=${{ apim_id_prod }}/${{ github.event.client_payload.api_id }}" >> $GITHUB_ENV
-          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_PROD }}" >> $GITHUB_ENV
+          echo "api_id=${{ apim_prod }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_PRD }}" >> $GITHUB_ENV
+          echo "cluster=${{ cluster_prd }}" >> $GITHUB_ENV
             
       - name: Update Azure API Management OpenAPI schema
         uses: OssiPesonen/action-update-api-management-openapi@master
         with:
-          openAPIDefinitions: ${{ github.event.client_payload.openapi_url }}
+          openAPIDefinitions: ${{ cluster }}/${{ github.event.client_payload.spec_path }}
           apiId: ${{ api_id }}
           apiUrlSuffix: ${{ github.event.client_payload.prefix }}
           credentials: ${{ apim_credential }}

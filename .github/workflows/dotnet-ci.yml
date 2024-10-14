@@ -123,7 +123,9 @@ jobs:
         
      - name: Debug 
        run: |
-            echo "${{ steps.bake.outputs.manifestsBundle }}"
+            echo "${{ steps.bake.outputs.manifestsBundle }}" >> pepe.yaml
+
+/   
 
         #- uses: Azure/k8s-deploy@v4
         #  with:
