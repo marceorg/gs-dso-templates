@@ -28,9 +28,8 @@ jobs:
 
       - uses: cschleiden/replace-tokens@v1
         with:
-          files: |
-            '**/settings.xml'
-            '**/pom.xml'
+          files: '["**/settings.xml","**/pom.xml"]'
+            
         env:
           PATPKG: ${{secrets.PATPKG}}
           ARTIFACT_VERSION: ${{env.artifact_version}}
