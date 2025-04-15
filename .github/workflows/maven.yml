@@ -13,7 +13,7 @@ on:
 
 
 env:
-  artifact_version: 1.0.0-SNAPSHOT
+  artifact_version: 1.0.1-SNAPSHOT
 
 jobs:
   build_and_test:
