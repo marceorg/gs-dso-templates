@@ -1,7 +1,7 @@
 <settings>
 <servers>
 <server>
-<id>github15</id>
+<id>github16</id>
 <username>zzzsdevopsautomation@galiciaseguros.com.ar</username>
 <password>#{PATPKG}#</password>
 </server>
