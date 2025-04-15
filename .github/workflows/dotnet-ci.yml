@@ -56,7 +56,7 @@ jobs:
     if: ${{ contains(github.ref, 'develop') }}
     runs-on: self-hosted
     needs: build
-    environment: develop
+    # environment: develop
 
     steps:
      # - name: Dump job context
@@ -118,14 +118,13 @@ jobs:
          overrides: |
            replicaCount:2
            image.repository: '${{ vars.ACR_LAB_SERVER }}/testrepo-dev'
-           image.tag: ${{ github.run_id }}
-         id: bake
+           image.tag: '${{ github.run_id }}'           
         
      - name: Debug 
        run: |
             echo "${{ steps.bake.outputs.manifestsBundle }}" >> pepe.yaml
 
-/   
+   
 
         #- uses: Azure/k8s-deploy@v4
         #  with:
@@ -180,7 +179,7 @@ jobs:
     if: ${{ contains(github.ref, 'release') }}
     runs-on: self-hosted
     needs: build
-    environment: tst
+    # environment: tst
 
     steps:
      - name: Download artifact from build job

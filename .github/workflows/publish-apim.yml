@@ -36,41 +36,41 @@ jobs:
         run: sleep 120s
         shell: bash
       
-      - name: Set apim dev
-        if: ${{ github.event.client_payload.environment == 'dev' }}
-        run: |
-          echo "api_id=${{ apim_dev }}/${{ github.event.client_payload.repository}}_id" >> $GITHUB_ENV
-          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_DEV }}" >> $GITHUB_ENV
-          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
+      # - name: Set apim dev
+      #   if: ${{ github.event.client_payload.environment == 'dev' }}
+      #   run: |
+      #     echo "api_id=${{ apim_dev }}/${{ github.event.client_payload.repository}}_id" >> $GITHUB_ENV
+      #     echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_DEV }}" >> $GITHUB_ENV
+      #     echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
           
-      - name: Set apim testing
-        if: ${{ github.event.client_payload.environment == 'test' }}
-        run: |
-          echo "api_id=${{ apim_tst }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
-          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_TST }}" >> $GITHUB_ENV
-          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
+      # - name: Set apim testing
+      #   if: ${{ github.event.client_payload.environment == 'test' }}
+      #   run: |
+      #     echo "api_id=${{ apim_tst }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+      #     echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_TST }}" >> $GITHUB_ENV
+      #     echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
           
-      - name: Set apim staging
-        if: ${{ github.event.client_payload.environment == 'sta'}}
-        run: |
-          echo "api_id=${{ apim_stg }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
-          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_STG }}" >> $GITHUB_ENV
-          echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
+      # - name: Set apim staging
+      #   if: ${{ github.event.client_payload.environment == 'sta'}}
+      #   run: |
+      #     echo "api_id=${{ apim_stg }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+      #     echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_STG }}" >> $GITHUB_ENV
+      #     echo "cluster=${{ cluster_dev }}" >> $GITHUB_ENV
       
-      - name: Set apim prod
-        if: ${{ github.event.client_payload.environment == 'prod' }}
-        run: |
-          echo "api_id=${{ apim_prod }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
-          echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_PRD }}" >> $GITHUB_ENV
-          echo "cluster=${{ cluster_prd }}" >> $GITHUB_ENV
+      # - name: Set apim prod
+      #   if: ${{ github.event.client_payload.environment == 'prod' }}
+      #   run: |
+      #     echo "api_id=${{ apim_prod }}/${{ github.event.client_payload.repository }}_id" >> $GITHUB_ENV
+      #     echo "apim_credential=${{ secrets.AZURE_APIM_CREDENTIAL_PRD }}" >> $GITHUB_ENV
+      #     echo "cluster=${{ cluster_prd }}" >> $GITHUB_ENV
             
-      - name: Update Azure API Management OpenAPI schema
-        uses: OssiPesonen/action-update-api-management-openapi@master
-        with:
-          openAPIDefinitions: ${{ cluster }}/${{ github.event.client_payload.spec_path }}
-          apiId: ${{ api_id }}
-          apiUrlSuffix: ${{ github.event.client_payload.prefix }}
-          credentials: ${{ apim_credential }}
+      # - name: Update Azure API Management OpenAPI schema
+      #   uses: OssiPesonen/action-update-api-management-openapi@master
+      #   with:
+      #     openAPIDefinitions: ${{ cluster }}/${{ github.event.client_payload.spec_path }}
+      #     apiId: ${{ api_id }}
+      #     apiUrlSuffix: ${{ github.event.client_payload.prefix }}
+      #     credentials: ${{ apim_credential }}
 
       
           
