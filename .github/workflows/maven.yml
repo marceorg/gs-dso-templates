@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-        - /gs-gmas-in-main/BancaSeguros/**
+      - gs-gmas-in-main/BancaSeguros/**
 
 
 jobs:
