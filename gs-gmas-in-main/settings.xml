@@ -3,7 +3,7 @@
 <server>
 <id>github6</id>
 <username>zzzsdevopsautomation@galiciaseguros.com.ar</username>
-<password></password>
+<password>#{PATPKG}#</password>
 </server>
 </servers>
 </settings>
