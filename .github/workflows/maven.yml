@@ -4,6 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
+      - gs-gmas-in-main/settings.xml
       - gs-gmas-in-main/BancaSeguros/**
 
 
