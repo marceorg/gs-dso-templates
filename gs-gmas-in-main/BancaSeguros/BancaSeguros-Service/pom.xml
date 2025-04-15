@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsbc.hbar.business</groupId>
 	<artifactId>bcaseg-business</artifactId>
-	<version>${env.ArtifactVersion}</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>bcaseg-svc</name>
 

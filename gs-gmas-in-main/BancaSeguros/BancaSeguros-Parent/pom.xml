@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsbc.hbar.channel</groupId>
 	<artifactId>bcaseg-parent</artifactId>
-	<version>${env.ArtifactVersion}</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>LA-WM-ON-HBAR-INSURANCE_BS-AR</name>
 	<description>Proyecto agrupador</description>
@@ -31,7 +31,7 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
+	<!-- <distributionManagement>
 		<repository>
 			<id>releases</id>
 			<url>https://nexus.gmas.com.ar/repository/maven-releases/</url>
@@ -43,5 +43,5 @@
 			<layout>default</layout>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
 </project>
