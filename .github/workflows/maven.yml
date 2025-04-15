@@ -11,9 +11,8 @@ on:
 #  run:
 #   working-directory: ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
 
-
 env:
-  artifact_version: 1.0.1-SNAPSHOT
+  artifact_version: 1.0.2-SNAPSHOT
 
 jobs:
   build_and_test:
@@ -54,9 +53,8 @@ jobs:
         with:
           artifacts: "./gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
           tag: "v${{env.artifact_version}}"
-          name: "BancaSegurosEAR"
+          name: "BancaSegurosEAR-${{env.artifact_version}}"
           
-
       # - name: Build with Maven
       #   run: mvn --batch-mode --update-snapshots verify
     #   - name: Run Formatter
