@@ -6,7 +6,10 @@ on:
     paths:
       - gs-gmas-in-main/settings.xml
       - gs-gmas-in-main/BancaSeguros/**/*
-      
+
+defaults:
+ run:
+  working-directory: ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
 
 jobs:
   build_and_test:
