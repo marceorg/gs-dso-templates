@@ -45,7 +45,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "./gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
+          artifacts: "/gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
           tag: "v${{env.artifact_version}}"
           
 
