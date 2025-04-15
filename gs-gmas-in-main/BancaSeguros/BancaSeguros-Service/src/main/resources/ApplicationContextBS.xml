@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<jee:jndi-lookup id="dsSNCV" jndi-name="jdbc/dsSNCV" />
+
+	<bean id="ParametersDao" class="com.hsbc.hbar.bancaseg.dao.impl.ParametersDaoImpl">
+		<property name="dataSource" ref="dsSNCV"></property>
+	</bean>
+
+	<bean id="UserValidationService"
+		class="com.hsbc.hbar.bancaseg.service.impl.UserValidationServiceImpl">
+	</bean>
+
+	<bean id="ParametersService" class="com.hsbc.hbar.bancaseg.service.impl.ParametersServiceImpl">
+	</bean>
+	
+	<bean id="BSService" class="com.hsbc.hbar.bancaseg.service.impl.BSServiceImpl">
+	</bean>
+	
+	<bean id="MdwService" class="com.hsbc.hbar.bancaseg.service.impl.MdwServiceImpl">
+	</bean>
+	
+	<bean id="UtilCommService" class="com.hsbc.hbar.bancaseg.service.impl.UtilCommServiceImpl">
+	</bean>
+	
+	<!-- JMS MQ -->
+	<jee:jndi-lookup id="jmsCFMQAIS" jndi-name="jms/cfMQAIS" />
+	<jee:jndi-lookup id="jmsReqQueMQASBS" jndi-name="jms/reqQueMQASBS" />
+	<jee:jndi-lookup id="jmsResQueMQASBS" jndi-name="jms/resQueMQASBS" />
+
+	<bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsCFMQAIS"></property>
+		<property name="destinationResolver" ref="jmsDestResolver"></property>
+	</bean>
+	<bean id="jmsDestResolver"
+		class=" org.springframework.jms.support.destination.JndiDestinationResolver" />
+
+	<bean id="JMSCommService" class="com.hsbc.hbar.bancaseg.service.impl.JMSCommServiceImpl">
+		<property name="jmsTemplate" ref="jmsQueueTemplate"></property>
+		<property name="requestQueue" ref="jmsReqQueMQASBS"></property>
+		<property name="responseQueue" ref="jmsResQueMQASBS"></property>
+	</bean>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
+	<display-name>PublicadorInsEAR</display-name>
+	<module id="Module_1515443337055">
+		<web>
+			<web-uri>publicins-front.war</web-uri>
+			<context-root>PublicadorIns-Front</context-root>
+		</web>
+	</module>
+	<security-role>
+		<role-name>auth</role-name>
+	</security-role>
+</application>

@@ -1,0 +1,158 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Detalle de los Endosos</font></b><br/>
+			</p>
+		</td><td width="415px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="160px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnCEDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fCEDVolver">
+						Volver a la Consulta</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCEDCont" data-dojo-type="dijit/layout/ContentPane" style="height:360px;width:970px;">
+		<div>
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		        	<!-- Datos Principales -->
+		    		<table width="100%"><tr class="filaOsc">
+		    			<td width="300px">
+		    				<label id="lblCEDCompania" style="font-weight: bold;">
+				        		&nbsp;Compa&ntilde;&iacute;a:</label>
+		    			</td><td width="230px">
+		    				<label id="lblCEDProducto" style="font-weight: bold;">
+				        		&nbsp;Producto:</label>
+		    			</td><td width="230px">
+		    				<label id="lblCEDSucursal" style="font-weight: bold;">
+				        		&nbsp;Sucursal:</label>
+		    			</td><td>
+		    				<label id="lblCEDCanal" style="font-weight: bold;">
+				        		&nbsp;Canal:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Compania -->
+		    				<label id="txtCEDCompania"></label>
+				        </td><td>
+				        	<!-- Producto -->
+		    				<label id="txtCEDProducto"></label>
+				        </td><td>
+				        	<!-- Sucursal -->
+		    				<label id="txtCEDSucursal"></label>
+				        </td><td>
+				        	<!-- Canal -->
+		    				<label id="txtCEDCanal"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCEDPoliza" style="font-weight: bold;">
+				        		&nbsp;N&uacute;mero de P&oacute;liza:</label>
+				        </td><td>
+		    				<label id="lblCEDFechaEmision" style="font-weight: bold;">
+				        		&nbsp;Fecha de Emisi&oacute;n:</label>
+		    			</td><td colspan="2">
+		    				<label id="lblCEDEstado" style="font-weight: bold;">
+				        		&nbsp;Estado:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Poliza -->
+		    				<label id="txtCEDPoliza"></label>
+		    			</td><td>
+				        	<!-- Fec.Emis. -->
+		    				<label id="txtCEDFechaEmision"></label>
+				        </td><td colspan="2">
+				        	<!-- Estado -->
+		    				<label id="txtCEDEstado"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCEDTomador" style="font-weight: bold;">
+				        		&nbsp;Nombre y Apellido del Tomador:</label>
+		    			</td><td>
+		    				<label id="lblCEDDocumento" style="font-weight: bold;">
+				        		&nbsp;Documento del Tomador:</label>
+		    			</td><td colspan="2">
+		    				<label id="lblCEDVendedor" style="font-weight: bold;">
+				        		&nbsp;Vendedor:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Tomador -->
+		    				<label id="txtCEDTomador"></label>
+				        </td><td>
+				        	<!-- Documento -->
+		    				<label id="txtCEDDocumento"></label>
+				        </td><td colspan="2">
+				        	<!-- Vendedor -->
+		    				<label id="txtCEDVendedor"></label>
+				        </td></tr>
+					</table>
+		        <br/></td></tr>
+		    </table>
+		</div>
+		<div id="tpnCEDLista" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Listado de Endosos'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td>
+		    		<!-- Parametros de la consulta -->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblCEDFecDes" style="font-weight: bold;">
+				        		Fecha desde:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCEDFecHas" style="font-weight: bold;">
+				        		Fecha hasta:</label>
+				        </td><td colspan="2"></td></tr><tr><td></td><td>
+		    				<!-- Fecha Desde -->
+							<input type="text" id="txtCEDFecDes" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>
+		    				<!-- Fecha Hasta -->
+							<input type="text" id="txtCEDFecHas" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>&nbsp;</td><td>
+			       			<button type="button" id="btnCEDBuscar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCEDBuscar">
+								Buscar</button>
+						</td></tr>
+					</table>
+				</td></tr>
+				<tr class="trClaro"><td><br/>
+					<!-- Listado de Endosos -->
+		    		<table><tr>
+		    			<td width="10px"></td><td>
+		    				<div id="_divCEDEndList" style="width: 750px; height: 100px;">
+							</div>
+						</td><td>&nbsp;</td><td valign="top">
+							<button type="button" id="btnCEDDetPol" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconCopy', onClick: fCEDDetPol">
+								Detalle P&oacute;liza</button>
+						</td></tr>
+					</table>
+				</td></tr>
+		    </table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidCEDFechaHoy" type="hidden" value="" />
+<input id="hidCEDCompaniaCod" type="hidden" value="" />
+<input id="hidCEDCompaniaDes" type="hidden" value="" />
+<input id="hidCEDPoliza" type="hidden" value="" />
+
+<input id="hidCEDTipoInforme" type="hidden" value="" />
+<input id="hidCEDFechaDesde" type="hidden" value="" />
+<input id="hidCEDFechaHasta" type="hidden" value="" />
+<input id="hidCEDCompaniaPar" type="hidden" value="" />
+<input id="hidCEDProducto" type="hidden" value="" />
+<input id="hidCEDTipDoc" type="hidden" value="" />
+<input id="hidCEDNroDoc" type="hidden" value="" />
+<input id="hidCEDApellido" type="hidden" value="" />
+<input id="hidCEDPolizaPar" type="hidden" value="" />
+<input id="hidCEDParamStart" type="hidden" value="" />

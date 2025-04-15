@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module>
+        <dependent-module archiveName="bcaseg-front.war" deploy-path="/" handle="module:/resource/BancaSeguros-Front/BancaSeguros-Front">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bcaseg-business.jar" deploy-path="/lib" handle="module:/resource/BancaSeguros-Service/BancaSeguros-Service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="filerepo-front.war" deploy-path="/" handle="module:/resource/FileRepo-Front/FileRepo-Front">
+            <dependent-object>Module_1525794477114</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="filerepo-business.jar" deploy-path="/lib" handle="module:/resource/FileRepo-Service/FileRepo-Service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

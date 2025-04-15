@@ -1,0 +1,93 @@
+<!-- Cabecera y Opciones -->
+<div style="padding-left: 10px;">
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red" size="4">Sitios</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			&nbsp;
+		</td><td></td></tr>
+	</table>
+</div>
+<div>
+	<table width="100%">
+		<tr><td>
+		<!-- Area de Trabajo -->
+		<div id="divSITCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:99%;">
+			<div id="divSITEdit" style="display:none;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			    		<table><tr>
+		        			<td width="100px"></td><td colspan="3">
+		        				&nbsp;
+		        			</td></tr><tr><td></td><td>
+			      				<label id="lblSITId" style="font-weight: bold; color: red;">Id:</label>
+			      			</td><td>&nbsp;</td><td>
+			      				<label id="txtSITId" style="font-weight: bold; color: red;"></label>
+							</td></tr><tr><td></td><td colspan="3">
+		        				&nbsp;
+							</td></tr><tr><td></td><td>
+			      				<label id="lblSITNombre" style="font-weight: bold;">Nombre:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Nombre -->
+						  		<input type="text" id="txtSITNombre" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:150, trim:true, uppercase:true, style:'width:400px;'" />
+					    	</td></tr><tr><td></td><td>
+					    		<label id="lblSITURL" style="font-weight: bold;">URL:</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- URL -->
+								<input type="text" id="txtSITURL" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:200, trim:true, uppercase:true, style:'width:400px;'" />
+							</td></tr><tr><td></td><td colspan="3">
+								&nbsp;
+							</td></tr><tr><td></td><td colspan="3" align="right">
+								<!-- Grabar -->
+								<button type="button" id="btnSITGrabar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fSITGrabar">
+									Grabar</button>
+					        	<!-- Listar -->
+		    					<button type="button" id="btnSITListar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fSITListar">
+									Listar</button>
+					    	</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<div id="divSITListado" style="display:block;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			        	<!-- Listado -->
+			    		<table><tr>
+			    			<td width="24px"></td><td>
+			    				&nbsp;
+			    			</td></tr><tr><td></td><td>
+			    				<div id="_divSITList" style="width: 575px; height: 100px;">
+								</div>
+							</td></tr><tr><td></td><td>
+								&nbsp;
+							</td></tr><tr><td></td><td align="right">
+								<!-- Editar
+								<button type="button" id="btnSITEditar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fSITEditar">
+									Editar</button> -->
+					        	<!-- Eliminar -->
+		    					<button type="button" id="btnSITEliminar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fSITEliminar">
+									Eliminar</button>
+								<!-- Nuevo -->
+								<button type="button" id="btnSITNuevo" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fSITNuevo">
+									Nuevo</button>								
+							</td></tr>
+						</table>
+			        <br/></td></tr>
+			    </table>
+			</div>
+		</div>
+		</td></tr>
+	</table>
+</div>

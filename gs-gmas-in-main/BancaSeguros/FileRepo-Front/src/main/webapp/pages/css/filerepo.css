@@ -1,0 +1,13 @@
+.trOscuro {background-color:#e6e6e6;}
+.trClaro  {background-color:#ffffff;}
+
+.filaOsc {background-color:#e6e6e6;height:20px;}
+.filaCla {background-color:#ffffff;height:20px;}
+
+.txtLabel{background-color:#ffffff;height:17px;border:1px solid #c8b6b6;display:inline-block;padding-top:3px;padding-left:3px;}
+
+.claro .dijitButton .dijitButtonNode {background-image:none;}
+
+a {color:#494949;}
+
+.tdCklBor {border: 1px solid #c8b6b6;}

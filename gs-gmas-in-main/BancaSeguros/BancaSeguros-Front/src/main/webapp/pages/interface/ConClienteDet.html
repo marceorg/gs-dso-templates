@@ -1,0 +1,145 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Detalle del Cliente</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnCCDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fCCDVolver">
+						Volver a la Consulta</button>
+				</td><td>&nbsp;</td><td>
+					<!-- Poliza -->
+					<button type="button" id="btnCCDDetPol" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconCopy', onClick: fCCDDetPol">
+						Detalle P&oacute;liza</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCCDCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:970px;">
+		<div id="tpnCCDDatos" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Cliente'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos del cliente -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblCCDCompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDPoliza" style="font-weight: bold;">
+				        		P&oacute;liza:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Compania -->
+		    				<label id="txtCCDCompania"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Poliza -->
+		    				<label id="txtCCDPoliza"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblCCDTomador" style="font-weight: bold;">
+				        		Apellido / Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDDocumento" style="font-weight: bold;">
+				        		Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tomador -->
+		    				<label id="txtCCDTomador"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtCCDDocumento"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblCCDNacionalidad" style="font-weight: bold;">
+				        		Nacionalidad:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDSexo" style="font-weight: bold;">
+				        		Sexo:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Nacionalidad -->
+		    				<label id="txtCCDNacionalidad"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Sexo -->
+		    				<label id="txtCCDSexo"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblCCDFechaNacimiento" style="font-weight: bold;">
+				        		Fecha de Nacimiento:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDEstadoCivil" style="font-weight: bold;">
+				        		Estado Civil:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Fecha de Nacimiento -->
+		    				<label id="txtCCDFechaNacimiento"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Estado Civil -->
+		    				<label id="txtCCDEstadoCivil"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblCCDDomicilio" style="font-weight: bold;">
+				        		Domicilio:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDCodPost" style="font-weight: bold;">
+				        		C&oacute;digo Postal:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Domicilio -->
+		    				<label id="txtCCDDomicilio"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Codigo Postal -->
+		    				<label id="txtCCDCodPost"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblCCDLocalidad" style="font-weight: bold;">
+				        		Localidad:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCDProvincia" style="font-weight: bold;">
+				        		Provincia:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Localidad -->
+		    				<label id="txtCCDLocalidad"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Provincia -->
+		    				<label id="txtCCDProvincia"></label>
+				        </td></tr>	
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td>
+					<!-- Listado de Contactos del Cliente -->
+		    		<table><tr>
+		    			<td width="24px"></td><td>
+		    				<label id="lblCDDContList" style="font-weight: bold;">Medios de Contactos</label>
+		    			</td></tr><tr><td></td><td>
+		    				<div id="_divCCDContList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<div>&nbsp;</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidCCDCompaniaCod" type="hidden" value="" />
+<input id="hidCCDCompaniaDes" type="hidden" value="" />
+<input id="hidCCDPoliza" type="hidden" value="" />
+<input id="hidCCDEndoso" type="hidden" value="" />
+
+<input id="hidCCDTipoInforme" type="hidden" value="" />
+<input id="hidCCDFechaDesde" type="hidden" value="" />
+<input id="hidCCDFechaHasta" type="hidden" value="" />
+<input id="hidCCDCompaniaPar" type="hidden" value="" />
+<input id="hidCCDProducto" type="hidden" value="" />
+<input id="hidCCDTipDoc" type="hidden" value="" />
+<input id="hidCCDNroDoc" type="hidden" value="" />
+<input id="hidCCDApellido" type="hidden" value="" />
+<input id="hidCCDPolizaPar" type="hidden" value="" />
+<input id="hidCCDParamStart" type="hidden" value="" />

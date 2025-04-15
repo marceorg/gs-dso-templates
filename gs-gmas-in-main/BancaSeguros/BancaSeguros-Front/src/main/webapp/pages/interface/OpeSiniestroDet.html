@@ -1,0 +1,272 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Detalle de Denuncia de Siniestro</font></b><br/>
+			</p>
+		</td><td width="415px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="160px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnOSDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fOSDVolver">
+						Volver a la Consulta</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td width="140px" valign="top">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnOSDImprimir" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconPrint', onClick: fOSDImprimir">
+					Imprimir&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnOSDEnviar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconMail', onClick: fOSDEnviar">
+					Enviar eMail&nbsp;</button>
+			</td></tr>
+		</table>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divOSDCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:820px;">
+		<!-- Panel 1 -->
+		<div id="tpnOSDDatosPol" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de la P&oacute;liza'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos de la Poliza -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblOSDCompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblOSDProducto" style="font-weight: bold;">
+				        		Producto:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Compania -->
+		    				<label id="txtOSDCompania"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Producto -->
+		    				<label id="txtOSDProducto"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblOSDPoliza" style="font-weight: bold;">
+				        		P&oacute;liza:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblOSDSiniestro" style="font-weight: bold;">
+				        		Siniestro:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Poliza -->
+		    				<label id="txtOSDPoliza"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Siniestro -->
+							<label id="txtOSDSiniestro"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblOSDTomador" style="font-weight: bold;">
+				        		Apellido / Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblOSDDocumento" style="font-weight: bold;">
+				        		Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tomador -->
+		    				<label id="txtOSDTomador"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtOSDDocumento"></label>
+				        </td></tr>	
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<!-- Panel 2 -->
+		<div id="tpnOSDDatosSin" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Siniestro'">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDOrden" style="font-weight: bold;">
+				        		Orden:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Orden -->
+					  		<label id="txtOSDOrden"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDEstado" style="font-weight: bold;">
+				        		Estado:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Estado -->
+					  		<label id="txtOSDEstado"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDFechaDenuncia" style="font-weight: bold;">
+				        		Fecha de Denuncia:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Fecha de Denuncia -->
+					  		<label id="txtOSDFechaDenuncia"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDFechaSiniestro" style="font-weight: bold;">
+				        		Fecha del Siniestro:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Fecha del Siniestro -->
+					  		<label id="txtOSDFechaSiniestro"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		    		<!-- Denunciante -->
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblOSDDenunciante" style="font-weight: bold;">
+			        			El Denunciante es el Asegurado?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboOSDDenunciante" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', disabled:true, onChange:function(){fOSDDenShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro" id="trOSDDenunciante" style="display:none;"><td>
+		    		<!-- Datos del Denunciante -->
+		    		<table>
+		    			<tr><td width="100px"></td><td colspan="4">
+					    	<label style="font-weight: bold;">Datos del Denunciante:</label>
+					    </td></tr>
+					    <tr><td></td><td colspan="4">&nbsp;</td></tr>
+					    <tr><td></td><td colspan="2">
+				        	<label id="lblOSDDenDocumento" style="font-weight: bold;">Documento:</label>
+				        </td><td>&nbsp;</td><td>
+					        <label id="txtOSDDenDocumento"></label>
+					    </td></tr><tr><td></td><td colspan="2">
+			    			<label id="lblOSDDenApellido" style="font-weight: bold;">Apellido y Nombre:</label>
+				   		</td><td>&nbsp;</td><td>
+				   			<label id="txtOSDDenApellido"></label>
+					   	</td></tr><tr><td></td><td colspan="2">
+			    			<label id="lblOSDDenParentesco" style="font-weight: bold;">Parentesco:</label>
+				   		</td><td>&nbsp;</td><td>
+				   			<label id="txtOSDDenParentesco"></label>
+					   	</td></tr>
+		    		</table>
+				<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDDescSiniestro" style="font-weight: bold;">Descripci&oacute;n 
+								del siniestro:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Descripcion del Siniestro -->
+					  		<input type="text" id="txtOSDDescSiniestro" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', disabled:true" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDDatosSiniestro" style="font-weight: bold;">Datos necesarios para tramitar  
+								el siniestro:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Datos para tramitar el Siniestro -->
+					  		<input type="text" id="txtOSDDatosSiniestro" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', disabled:true" />
+				    	</td></tr>
+					</table>
+		    	<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDUsuario" style="font-weight: bold;">
+				        		Usuario que efectu&oacute; la carga:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Usuario -->
+					  		<label id="txtOSDUsuario"></label>
+				    	</td></tr>
+					</table>
+		    	<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 3 -->
+		<div id="tpnOSDDatosAdj" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Archivos Adjuntos'">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro" id="trOSDArchAdj" style="display:none;"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSDAdj1" style="font-weight: bold;">Archivo Adjunto 1:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnOSDVerAdj1" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fOSDVerAdj1, disabled:true">
+								Ver Adjunto 1</button>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblOSDAdj2" style="font-weight: bold;">Archivo Adjunto 2:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnOSDVerAdj2" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fOSDVerAdj2, disabled:true">
+								Ver Adjunto 2</button>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblOSDAdj3" style="font-weight: bold;">Archivo Adjunto 3:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnOSDVerAdj3" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fOSDVerAdj3, disabled:true">
+								Ver Adjunto 3</button>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro" id="trOSDArchNoFound" style="display:none;"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label style="font-weight: bold; color: red;">No se pudieron recuperar los Archivos Adjuntos.</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnOSDReload" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconUndo', onClick: fOSDDataLoad">
+								Volver a intentarlo...</button>
+				    	</td></tr>
+					</table>
+				<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidOSDRecipientTO" type="hidden" value="" />
+<input id="hidOSDEstadoCod" type="hidden" value="" />
+<input id="hidOSDOrden" type="hidden" value="" />
+<input id="hidOSDCompaniaCod" type="hidden" value="" />
+<input id="hidOSDTipoInforme" type="hidden" value="" />
+<input id="hidOSDFechaDesde" type="hidden" value="" />
+<input id="hidOSDFechaHasta" type="hidden" value="" />
+<input id="hidOSDCompania" type="hidden" value="" />
+<input id="hidOSDTipDoc" type="hidden" value="" />
+<input id="hidOSDNroDoc" type="hidden" value="" />
+<input id="hidOSDApellido" type="hidden" value="" />
+<input id="hidOSDPoliza" type="hidden" value="" />
+<input id="hidOSDEstado" type="hidden" value="" />
+<input id="hidOSDOrdenPar" type="hidden" value="" />
+<input id="hidOSDParamStart" type="hidden" value="" />

@@ -1,0 +1,318 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Carga de Denuncia de Siniestro</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			&nbsp;
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td width="140px" valign="top">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnOSCNuevo" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconNewTask', onClick: fOSCNuevo, disabled:true">
+					Nuevo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnOSCImprimir" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconPrint', onClick: fOSCImprimir, disabled:true">
+					Imprimir&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnOSCEnviar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconFilter', onClick: fOSCEnviar, disabled:true">
+					Enviar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+			</td></tr>
+		</table>
+		<!-- Ayuda -->
+		<div id="divOSCHelp" style="height: 200px; margin-top: 10px;">
+			<div id="tpnOSCHelp" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Ayuda', style:'display:none;'">
+				<label id="lblOSCHelp" style="font-style: italic; color: #AAAAAA;">Para ver la ayuda contextual pase el mouse sobre algunos campos.</label>
+				<br/>				
+			</div>
+		</div>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divOSCCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:820px;">
+		<!-- Panel 1 -->
+		<div id="tpnOSCDatosPol" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de la P&oacute;liza', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos de la Poliza -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblOSCCompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblOSCProducto" style="font-weight: bold;">
+				        		Producto:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Compania -->
+		    				<label id="txtOSCCompania"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Producto -->
+		    				<label id="txtOSCProducto"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblOSCPoliza" style="font-weight: bold;">
+				        		P&oacute;liza:</label>
+		    			</td><td>&nbsp;</td><td>&nbsp;
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Poliza -->
+		    				<label id="txtOSCPoliza"></label>
+				        </td><td>&nbsp;</td><td>&nbsp;
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblOSCTomador" style="font-weight: bold;">
+				        		Apellido / Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblOSCDocumento" style="font-weight: bold;">
+				        		Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tomador -->
+		    				<label id="txtOSCTomador"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtOSCDocumento"></label>
+				        </td></tr>	
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<!-- Panel 2 -->
+		<div id="tpnOSCDatosSin" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Siniestro', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSCFechaSiniestro" style="font-weight: bold;">
+				        		Fecha del Siniestro:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Fecha del Siniestro -->
+							<input type="text" id="txtOSCFechaSiniestro" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		    		<!-- Denunciante -->
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblOSCDenunciante" style="font-weight: bold;">
+			        			El Denunciante es el Asegurado?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboOSCDenunciante" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fOSCDenShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trClaro" id="trOSCDenunciante" style="display:none;"><td>
+		    		<!-- Datos del Denunciante -->
+		    		<table>
+		    			<tr><td width="100px"></td><td colspan="6">
+					    	<label style="font-weight: bold;">Datos del Denunciante:</label>
+					    </td></tr><tr><td></td><td colspan="6">&nbsp;</td></tr>
+					    <tr><td></td><td colspan="2">
+				        	<label id="lblOSCDenTipDoc" style="font-weight: bold;">Documento:</label>
+				        </td><td>&nbsp;</td><td>
+					        <label id="lblOSCDenApellido" style="font-weight: bold;">Apellido y Nombre:</label>
+					    </td><td>&nbsp;</td><td>
+					    	<label id="lblOSCDenParentesco" style="font-weight: bold;">Parentesco:</label>
+					  	</td></tr><tr><td></td><td colspan="2">
+					     	<select id="cboOSCDenTipDoc" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 60px; margin: 0px;'">
+			       			</select>
+			    			<input type="text" id="txtOSCDenNroDoc" data-dojo-type="dijit/form/NumberTextBox"
+			    		   		data-dojo-props="maxLength:11, style:'width:80px;', constraints:{pattern :'########'}" />
+				   		</td><td>&nbsp;</td><td>
+							<input type="text" id="txtOSCDenApellido" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:60, trim:true, uppercase:true, style:'width:200px;'" />
+					   	</td><td>&nbsp;</td><td>
+					    	<select id="cboOSCDenParentesco" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 120px; margin: 0px; overflow:hidden;', maxHeight:120, forceWidth:true">
+			       			</select>
+					    </td></tr>
+		    		</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSCDescSiniestro" style="font-weight: bold;">Descripci&oacute;n 
+								del siniestro:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Descripcion del Siniestro -->
+					  		<input type="text" id="txtOSCDescSiniestro" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fOSCHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSCDatosSiniestro" style="font-weight: bold;">Datos necesarios para tramitar  
+								el siniestro:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Datos para tramitar el Siniestro -->
+					  		<input type="text" id="txtOSCDatosSiniestro" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fOSCHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		    	<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 3 -->
+		<div id="tpnOSCDatosDoc" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Documentaci&oacute;n Requerida', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Documentacion requerida -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divOSCDocList" style="width: 720px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<!-- Panel 4 -->
+		<div id="tpnOSCDatosAdj" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Archivos Adjuntos', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblOSCUploadF1" style="font-weight: bold;">Archivo Adjunto 1:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmOSCUpload1" action="" method="POST" enctype="multipart/form-data" target="ifrOSCUpload1">
+								<div>
+									<input id="txtOSCUploadF1" type="file" name="upload_1" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrOSCUpload1" name="ifrOSCUpload1" src="" onload="fOSCPublishRet1()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblOSCUploadF2" style="font-weight: bold;">Archivo Adjunto 2:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmOSCUpload2" action="" method="POST" enctype="multipart/form-data" target="ifrOSCUpload2">
+								<div>
+									<input id="txtOSCUploadF2" type="file" name="upload_2" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrOSCUpload2" name="ifrOSCUpload2" src="" onload="fOSCPublishRet2()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblOSCUploadF3" style="font-weight: bold;">Archivo Adjunto 3:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmOSCUpload3" action="" method="POST" enctype="multipart/form-data" target="ifrOSCUpload3">
+								<div>
+									<input id="txtOSCUploadF3" type="file" name="upload_3" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrOSCUpload3" name="ifrOSCUpload3" src="" onload="fOSCPublishRet3()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+						</td></tr><tr><td colspan="3"></td><td>
+							&nbsp;
+				    	</td></tr><tr><td colspan="3"></td><td>
+				    		<button type="button" id="btnOSCLimpiarAdj" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconClear', onClick: fOSCCleanAdj, disabled:true">
+								Limpiar Adjuntos</button>
+				    	</td></tr>
+					</table>
+				<br/></td></tr>
+			</table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- OSCFinder -->
+<div id="dlgOSCFinder" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'B&uacute;squeda de P&oacute;lizas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr height="25">
+   			<td>
+   				<label id="lblOSCApeRaz" style="font-weight: bold;">
+	        		Apellido/Raz&oacute;n social:</label>
+   			</td><td>&nbsp;</td><td>
+   				<!-- Apellido / Razon social -->
+   				<input type="text" id="txtOSCApeRaz" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:20, trim:true, uppercase:true, style:'width:290px;'" />
+	        </td></tr><tr height="25"><td>
+   				<label id="lblOSCDocumento" style="font-weight: bold;">
+	        		Tipo y Nro. Documento:</label>
+	      	</td><td>&nbsp;</td><td>
+	      		<!-- Tipo y Nro. Documento -->
+   				<select id="cboOSCTipDoc" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fOSCTDoSel(this.value);}">
+       			</select>
+       			<input type="text" id="txtOSCNroDoc" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:11, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+	      	</td></tr><tr><td>
+   				<label id="lblOSCCiaPol" style="font-weight: bold;">
+	        		Compa&ntilde;&iacute;a / P&oacute;liza:</label>
+	      	</td><td>&nbsp;</td><td>
+	      		<!-- Compania y Poliza -->
+   				<select id="cboOSCCompania" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 200px; margin: 0px;', onChange:function(){fOSCCiaSel(this.value);}">
+       			</select>
+       			<input type="text" id="txtOSCPoliza" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:310px;', disabled:true" />
+	      	</td></tr><tr><td colspan="2"></td><td align="right">
+	      		<label id="lblOSCPolEjemplo" style="font-weight: bold;"></label>
+	      	</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnOSCFinder" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconSearch', onClick: fOSCBuscar">
+			Buscar</button>
+	</div>
+</div>
+<!-- OSCLista -->
+<div id="dlgOSCLista" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'B&uacute;squeda de P&oacute;lizas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr>
+  			<td width="2%"></td><td colspan="3">
+  				<div id="_divOSCLista" style="width: 790px; height: 230px;"></div>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnOSCSeleccionar" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconSearch', onClick: fOSCSeleccionar">
+			Seleccionar</button>
+	</div>
+</div>
+
+<!-- Hidden -->
+<input id="hidOSCFechaHoy" type="hidden" value="" />
+<input id="hidOSCRecipientTO" type="hidden" value="" />
+<input id="hidOSCOrden" type="hidden" value="" />
+<input id="hidOSCPaso" type="hidden" value="" />
+<input id="hidOSCRetCtrl" type="hidden" value="" />
+<input id="hidOSCCompania" type="hidden" value="" />
+<input id="hidOSCCompaniaDes" type="hidden" value="" />
+<input id="hidOSCProducto" type="hidden" value="" />
+<input id="hidOSCPoliza" type="hidden" value="" />
+<input id="hidOSCEndoso" type="hidden" value="" />
+<input id="hidOSCTipDoc" type="hidden" value="" />
+<input id="hidOSCNroDoc" type="hidden" value="" />
+<input id="hidOSCTomador" type="hidden" value="" />

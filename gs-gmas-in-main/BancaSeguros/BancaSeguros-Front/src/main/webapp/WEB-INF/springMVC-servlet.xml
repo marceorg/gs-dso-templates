@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- the application context definition for the springapp DispatcherServlet -->
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+	
+	<bean name="/downloadSvc.html" class="com.hsbc.hbar.bancaseg.service.impl.ControllerDwlServiceImpl">
+	</bean>
+	
+	<bean name="/publishSvc.html" class="com.hsbc.hbar.bancaseg.service.impl.ControllerPubServiceImpl">
+	</bean>
+	
+	<bean name="/retrieveSvc.html" class="com.hsbc.hbar.bancaseg.service.impl.ControllerPDFServiceImpl">
+	</bean>
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/pages/includes/"></property>
+		<property name="suffix" value=".html"></property>
+	</bean>
+</beans>

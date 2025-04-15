@@ -1,0 +1,1842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpcAdapter
+	xmlns="http://www.ibm.com/xmlns/prod/websphere/featurepack/v6.1/RpcAdapterConfig/1.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<default-format>json</default-format>
+	<converters></converters>
+	<validators>
+		<validator id="default">
+			<validation-regex>([A-Za-z])+</validation-regex>
+			<validation-class>com.ibm.websphere.rpcadapter.DefaultValidator
+			</validation-class>
+		</validator>
+	</validators>
+	<services>
+		<pojo>
+			<name>BatchService</name>
+			<implementation>
+				com.hsbc.hbar.filerepo.service.impl.BatchServiceImpl
+			</implementation>
+			<methods filter="whitelisting">
+				<method>
+					<name>setBatchProcess</name>
+					<alias>setBatchProcess</alias>
+					<description>
+						Invokes setBatchProcess(String)
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>insKey</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+			</methods>
+		</pojo>
+		<pojo>
+			<name>ParametersService</name>
+			<implementation>
+				com.hsbc.hbar.filerepo.service.impl.ParametersServiceImpl
+			</implementation>
+			<methods filter="whitelisting">
+				<method>
+					<name>getFechaHoy</name>
+					<alias>getFechaHoy</alias>
+					<description>
+						Invokes getFechaHoy()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getTipoDocumentalList</name>
+					<alias>getTipoDocumentalList</alias>
+					<description>
+						Invokes getTipoDocumentalList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>tipoDoc</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>grupoDoc</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>indBaja</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setTipoDocumental</name>
+					<alias>setTipoDocumental</alias>
+					<description>
+						Invokes setTipoDocumental()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>tipoDoc</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>descripcion</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>grupoDoc</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>indBaja</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>indBorrado</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>codFileNet</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getGrupoDocumentalList</name>
+					<alias>getGrupoDocumentalList</alias>
+					<description>
+						Invokes getGrupoDocumentalList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getPerfilList</name>
+					<alias>getPerfilList</alias>
+					<description>
+						Invokes getPerfilList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getFaseList</name>
+					<alias>getFaseList</alias>
+					<description>
+						Invokes getFaseList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>perfil</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getEstadoList</name>
+					<alias>getEstadoList</alias>
+					<description>
+						Invokes getEstadoList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>estadoActual</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setPerfil</name>
+					<alias>setPerfil</alias>
+					<description>
+						Invokes setPerfil()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>perfil</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>reqRevision</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pAnaLectura</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pAnaAlta</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pAnaBaja</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pSupLectura</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pSupAlta</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>pSupBaja</name>
+							<type>java.lang.Boolean</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getTipoDocumentoList</name>
+					<alias>getTipoDocumentoList</alias>
+					<description>
+						Invokes getTipoDocumentoList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getPendMotivoList</name>
+					<alias>getPendMotivoList</alias>
+					<description>
+						Invokes getPendMotivoList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getAlertaXFaseList</name>
+					<alias>getAlertaXFaseList</alias>
+					<description>
+						Invokes getAlertaXFaseList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setAlertaXFase</name>
+					<alias>setAlertaXFase</alias>
+					<description>
+						Invokes setAlertaXFase()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>email</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>emailCC</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>emailCCO</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>jsonEstadoList</name>
+							<type>java.lang.String</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getAlertaXEstadoList</name>
+					<alias>getAlertaXEstadoList</alias>
+					<description>
+						Invokes getAlertaXEstadoList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+			</methods>
+		</pojo>
+		<pojo>
+			<name>UserValidationService</name>
+			<implementation>
+				com.hsbc.hbar.filerepo.service.impl.UserValidationServiceImpl
+			</implementation>
+			<methods filter="whitelisting">
+				<method>
+					<name>getAuthorizedUser</name>
+					<alias>getAuthorizedUser</alias>
+					<description>
+						Invokes getAuthorizedUser(HttpServletRequest, Integer)
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setAuthorizedUser</name>
+					<alias>setAuthorizedUser</alias>
+					<description>
+						Invokes setAuthorizedUser(HttpServletRequest, String)
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>peopleSoft</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+			</methods>
+		</pojo>
+		<pojo>
+			<name>OperationService</name>
+			<implementation>
+				com.hsbc.hbar.filerepo.service.impl.OperationServiceImpl
+			</implementation>
+			<methods filter="whitelisting">
+				<method>
+					<name>getSolicitudList</name>
+					<alias>getSolicitudList</alias>
+					<description>
+						Invokes getSolicitudList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getSolFiltroList</name>
+					<alias>getSolFiltroList</alias>
+					<description>
+						Invokes getSolFiltroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>propuesta</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>otro</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>oficina</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asesor</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setSolicitud</name>
+					<alias>setSolicitud</alias>
+					<description>
+						Invokes setSolicitud()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>tipoCambio</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>otroCod</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getArchivoXSolList</name>
+					<alias>getArchivoXSolList</alias>
+					<description>
+						Invokes getArchivoXSolList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getArcFiltroList</name>
+					<alias>getArcFiltroList</alias>
+					<description>
+						Invokes getArcFiltroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>tipoDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tipoArchivo</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcDato1</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcDato2</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcDato3</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>arcDato4</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>delArchivoXSol</name>
+					<alias>delArchivoXSol</alias>
+					<description>
+						Invokes delArchivoXSol()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getHisSolicitudList</name>
+					<alias>getHisSolicitudList</alias>
+					<description>
+						Invokes getHisSolicitudList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getRetDocPendList</name>
+					<alias>getRetDocPendList</alias>
+					<description>
+						Invokes getRetDocPendList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>propuesta</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getBatchLogList</name>
+					<alias>getBatchLogList</alias>
+					<description>
+						Invokes getBatchLogList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>fecha</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getSolicitCklList</name>
+					<alias>getSolicitCklList</alias>
+					<description>
+						Invokes getSolicitCklList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setSolicitCkl</name>
+					<alias>setSolicitCkl</alias>
+					<description>
+						Invokes setSolicitCkl()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>ordenCkl</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>datoCkl</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setSolicitTSo</name>
+					<alias>setSolicitTSo</alias>
+					<description>
+						Invokes setSolicitTSo()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tipSol</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setSolicitFas</name>
+					<alias>setSolicitFas</alias>
+					<description>
+						Invokes setSolicitFas()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>solicitud</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fase</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getSiniestroList</name>
+					<alias>getSiniestroList</alias>
+					<description>
+						Invokes getSiniestroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getSinFiltroList</name>
+					<alias>getSinFiltroList</alias>
+					<description>
+						Invokes getSinFiltroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>poliza</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>denuTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>denuNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>denuApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>denuNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setSiniestro</name>
+					<alias>setSiniestro</alias>
+					<description>
+						Invokes setSiniestro()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getArchivoXSinList</name>
+					<alias>getArchivoXSinList</alias>
+					<description>
+						Invokes getArchivoXSinList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setArchivoXSin</name>
+					<alias>setArchivoXSin</alias>
+					<description>
+						Invokes setArchivoXSin()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>delArchivoXSin</name>
+					<alias>delArchivoXSin</alias>
+					<description>
+						Invokes delArchivoXSin()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getDDBenefList</name>
+					<alias>getDDBenefList</alias>
+					<description>
+						Invokes getDDBenefList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getDBeFiltroList</name>
+					<alias>getDBeFiltroList</alias>
+					<description>
+						Invokes getDBeFiltroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>poliza</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setDDBenef</name>
+					<alias>setDDBenef</alias>
+					<description>
+						Invokes setDDBenef()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getArchivoXDBeList</name>
+					<alias>getArchivoXDBeList</alias>
+					<description>
+						Invokes getArchivoXDBeList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>delArchivoXDBe</name>
+					<alias>delArchivoXDBe</alias>
+					<description>
+						Invokes delArchivoXDBe()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getRetColList</name>
+					<alias>getRetColList</alias>
+					<description>
+						Invokes getRetColList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getRCoFiltroList</name>
+					<alias>getRCoFiltroList</alias>
+					<description>
+						Invokes getRCoFiltroList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>poliza</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaIngHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManDesde</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>fechaManHasta</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>asegNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaTipDoc</name>
+							<type>java.lang.Integer</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNroDoc</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaApellido</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>tomaNombre</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>reqAdic</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>setRetCol</name>
+					<alias>setRetCol</alias>
+					<description>
+						Invokes setRetCol()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>estado</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>getArchivoXRCoList</name>
+					<alias>getArchivoXRCoList</alias>
+					<description>
+						Invokes getArchivoXRCoList()
+					</description>
+					<http-method>GET</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>ideArch</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+				<method>
+					<name>delArchivoXRCo</name>
+					<alias>delArchivoXRCo</alias>
+					<description>
+						Invokes delArchivoXRCo()
+					</description>
+					<http-method>POST</http-method>
+					<parameters>
+						<parameter>
+							<name>httpServletRequest</name>
+							<type>
+								javax.servlet.http.HttpServletRequest
+							</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>cache</name>
+							<type>java.lang.Integer</type>
+							<description></description>
+						</parameter>
+						<parameter>
+							<name>producto</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>operacion</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>archivo</name>
+							<type>java.lang.Long</type>
+							<description />
+						</parameter>
+						<parameter>
+							<name>observaciones</name>
+							<type>java.lang.String</type>
+							<description />
+						</parameter>
+					</parameters>
+				</method>
+			</methods>
+		</pojo>
+	</services>
+	<serialized-params></serialized-params>
+</rpcAdapter>

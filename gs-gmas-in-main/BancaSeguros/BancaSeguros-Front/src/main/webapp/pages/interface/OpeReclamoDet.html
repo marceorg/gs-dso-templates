@@ -1,0 +1,247 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Detalle de Pedidos</font></b><br/>
+			</p>
+		</td><td width="415px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="160px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnORDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fORDVolver">
+						Volver a la Consulta</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td width="140px" valign="top">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnORDImprimir" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconPrint', onClick: fORDImprimir">
+					Imprimir&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnORDEnviar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconMail', onClick: fORDEnviar">
+					Enviar eMail&nbsp;</button>
+			</td></tr>
+		</table>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divORDCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:820px;">
+		<!-- Panel 1 -->
+		<div id="tpnORDDatosPol" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de la P&oacute;liza'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos de la Poliza -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblORDCompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblORDProducto" style="font-weight: bold;">
+				        		Producto:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Compania -->
+		    				<label id="txtORDCompania"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Producto -->
+		    				<label id="txtORDProducto"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblORDPoliza" style="font-weight: bold;">
+				        		P&oacute;liza:</label>
+				        </td><td>&nbsp;</td><td>
+				        <label id="lblORDEndoso" style="font-weight: bold;">
+				        		Endoso:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Poliza -->
+		    				<label id="txtORDPoliza"></label>
+		    			</td><td>&nbsp;</td><td>
+		    				<!-- Endoso -->
+		    				<label id="txtORDEndoso"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblORDTomador" style="font-weight: bold;">
+				        		Apellido / Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblORDDocumento" style="font-weight: bold;">
+				        		Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tomador -->
+		    				<label id="txtORDTomador"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtORDDocumento"></label>
+				        </td></tr>	
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<!-- Panel 2 -->
+		<div id="tpnORDDatosRec" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Pedido'">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDOrden" style="font-weight: bold;">
+				        		Orden:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Orden -->
+					  		<label id="txtORDOrden"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDEstado" style="font-weight: bold;">
+				        		Estado:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Estado -->
+					  		<label id="txtORDEstado"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDFechaReclamo" style="font-weight: bold;">
+				        		Fecha del Pedido:</label>
+						</td><td>&nbsp;</td><td>
+					  		<label id="txtORDFechaReclamo"></label>
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trClaro"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblORDTipoReg" style="font-weight: bold;">
+			        			Tipo de Registraci&oacute;n:</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<label id="txtORDTipoReg"></label> 
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblORDMotReg" style="font-weight: bold;">
+			        			Motivo:</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<label id="txtORDMotReg"></label> 
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDDescReclamo" style="font-weight: bold;">Descripci&oacute;n 
+								del pedido:</label>
+						</td></tr><tr><td></td><td>
+					  		<input type="text" id="txtORDDescReclamo" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', disabled:true" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+			    		<table><tr>
+		        			<td width="100px"></td><td>
+				    			<label id="lblORDCliTelefono" style="font-weight: bold;">Tel&eacute;fono:</label>
+				    		</td><td>&nbsp;</td><td>
+				    			<label id="lblORDCliEmail" style="font-weight: bold;">EMail:</label>
+				    		</td></tr><tr><td></td><td>
+				    			<!-- Telefono -->
+				    			<input type="text" id="txtORDCliTelefono" data-dojo-type="dijit/form/TextBox" 
+				      		   		data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:270px;', disabled:true" />
+				    		</td><td></td><td>
+				    			<!-- EMail -->
+				    			<input type="text" id="txtORDCliEmail" data-dojo-type="dijit/form/TextBox"
+				    		   		data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:270px;', disabled:true" />
+				    		</td></tr>
+						</table>
+		    	<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDUsuario" style="font-weight: bold;">
+				        		Usuario que efectu&oacute; la carga:</label>
+						</td><td>&nbsp;</td><td>
+					  		<!-- Usuario -->
+					  		<label id="txtORDUsuario"></label>
+				    	</td></tr>
+					</table>
+		    	<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 3 -->
+		<div id="tpnORDDatosAdj" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Archivos Adjuntos'">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro" id="trORDArchAdj" style="display:none;"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORDAdj1" style="font-weight: bold;">Archivo Adjunto 1:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnORDVerAdj1" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fORDVerAdj1, disabled:true">
+								Ver Adjunto 1</button>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblORDAdj2" style="font-weight: bold;">Archivo Adjunto 2:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnORDVerAdj2" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fORDVerAdj2, disabled:true">
+								Ver Adjunto 2</button>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblORDAdj3" style="font-weight: bold;">Archivo Adjunto 3:</label>
+		      			</td><td>&nbsp;</td><td>
+							<button type="button" id="btnORDVerAdj3" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconFile', onClick: fORDVerAdj3, disabled:true">
+								Ver Adjunto 3</button>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro" id="trORDArchNoFound" style="display:none;"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label style="font-weight: bold; color: red;">No hay Archivos Adjuntos.</label>
+		      			</td><td>&nbsp;</td>
+		      			<td>&nbsp;</td></tr>
+					</table>
+				<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidORDRecipientTO" type="hidden" value="" />
+<input id="hidORDEstadoCod" type="hidden" value="" />
+<input id="hidORDOrden" type="hidden" value="" />
+<input id="hidORDCompaniaCod" type="hidden" value="" />
+<input id="hidORDTipoInforme" type="hidden" value="" />
+<input id="hidORDFechaDesde" type="hidden" value="" />
+<input id="hidORDFechaHasta" type="hidden" value="" />
+<input id="hidORDCompania" type="hidden" value="" />
+<input id="hidORDTipDoc" type="hidden" value="" />
+<input id="hidORDNroDoc" type="hidden" value="" />
+<input id="hidORDApellido" type="hidden" value="" />
+<input id="hidORDPoliza" type="hidden" value="" />
+<input id="hidORDEstado" type="hidden" value="" />
+<input id="hidORDOrdenPar" type="hidden" value="" />
+<input id="hidORDParamStart" type="hidden" value="" />
+<input id="hidORDEndoso" type="hidden" value="" />
+<input id="hidORDNomTDoc" type="hidden" value="" />
+<input id="hidORDNumeroDoc" type="hidden" value="" />
+<input id="hidORDFechaReclamo" type="hidden" value="" />

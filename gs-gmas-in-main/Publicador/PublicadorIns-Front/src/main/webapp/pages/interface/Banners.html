@@ -1,0 +1,261 @@
+<!-- Cabecera y Opciones -->
+<div style="padding-left: 10px;">
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red" size="4">Banners</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			&nbsp;
+		</td><td></td></tr>
+	</table>
+</div>
+<div>
+	<table width="100%">
+		<tr><td>
+		<!-- Area de Trabajo -->
+		<div id="divBANCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:99%;">
+			<div id="divBANEdit" style="display:none;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			    		<table><tr>
+		        			<td width="100px"></td><td colspan="3">
+		        				&nbsp;
+		        			</td></tr><tr><td></td><td>
+			      				<label id="lblBANId" style="font-weight: bold; color: red;">Id:</label>
+			      			</td><td>&nbsp;</td><td>
+			      				<label id="txtBANId" style="font-weight: bold; color: red;"></label>
+							</td></tr><tr><td></td><td colspan="3">
+		        				&nbsp;
+							</td></tr><tr><td></td><td width="350px">
+			      				<label id="lblBANTitulo" style="font-weight: bold;">Titulo:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Titulo -->
+						  		<input type="text" id="txtBANTitulo" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:300, style:'width:450px;'" />
+					    	</td></tr><tr><td></td><td>
+					    		<label id="lblBANLinkTiene" style="font-weight: bold;">Desea que el banner tenga un link?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- LinkTiene -->
+								<select id="cboBANLinkTiene" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;', onChange: fBANViewLink">
+						          	<option value="1">Si</option>
+						          	<option value="0" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANLinkRelDestacado"><td></td><td>
+					    		<label id="lblBANLinkRelDestacado" style="font-weight: bold;">El link esta relacionado a una Nota Destacada?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- LinkTiene -->
+								<select id="cboBANLinkRelDestacado" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;', onChange: fBANViewLinkDes">
+						          	<option value="1">Si</option>
+						          	<option value="0" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANLinkIdDestacado"><td></td><td>
+			      				<label id="lblBANLinkIdDestacado" style="font-weight: bold;">Nota Destacada:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- LinkIdDestacado -->
+						  		<select id="cboBANLinkIdDestacado" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 450px; height: 19px; margin: 0px;'">
+						      	</select>
+					    	</td></tr><tr id="trBANLinkURL"><td></td><td>
+			      				<label id="lblBANLinkURL" style="font-weight: bold;">Link Referencia:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- LinkURL -->
+						  		<input type="text" id="txtBANLinkURL" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:200, style:'width:450px;'" />
+					    	</td></tr><tr id="trBANPopUpTiene"><td></td><td>
+					    		<label id="lblBANPopUpTiene" style="font-weight: bold;">Desea que el link este en un PopUp?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- PopUpTiene -->
+								<select id="cboBANPopUpTiene" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;', onChange: fBANViewPopUp">
+						          	<option value="1">Si</option>
+						          	<option value="0" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANPopUpScrollbar"><td></td><td>
+					    		<label id="lblBANPopUpScrollbar" style="font-weight: bold;">PopUp - Scrollbar?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- PopUpScrollbar -->
+								<select id="cboBANPopUpScrollbar" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;'">
+						          	<option value="yes">Si</option>
+						          	<option value="no" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANPopUpToolbar"><td></td><td>
+					    		<label id="lblBANPopUpToolbar" style="font-weight: bold;">PopUp - Toolbar?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- PopUpToolbar -->
+								<select id="cboBANPopUpToolbar" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;'">
+						          	<option value="yes">Si</option>
+						          	<option value="no" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANPopUpResizable"><td></td><td>
+					    		<label id="lblBANPopUpResizable" style="font-weight: bold;">PopUp - Resizable?</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- PopUpResizable -->
+								<select id="cboBANPopUpResizable" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;'">
+						          	<option value="yes">Si</option>
+						          	<option value="no" selected="selected">No</option>
+						        </select>
+							</td></tr><tr id="trBANPopUpWidth"><td></td><td>
+			      				<label id="lblBANPopUpWidth" style="font-weight: bold;">PopUp - Width:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- PopUpWidth -->
+						  		<input type="text" id="txtBANPopUpWidth" data-dojo-type="dijit/form/NumberTextBox"
+									data-dojo-props="maxLength:4, style:'width:110px;'" />
+					    	</td></tr><tr id="trBANPopUpHeight"><td></td><td>
+			      				<label id="lblBANPopUpHeight" style="font-weight: bold;">PopUp - Height:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- PopUpHeight -->
+						  		<input type="text" id="txtBANPopUpHeight" data-dojo-type="dijit/form/NumberTextBox"
+									data-dojo-props="maxLength:4, style:'width:110px;'" />
+					    	</td></tr><tr id="trBANPopUpTop"><td></td><td>
+			      				<label id="lblBANPopUpTop" style="font-weight: bold;">PopUp - Top:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- PopUpTop -->
+						  		<input type="text" id="txtBANPopUpTop" data-dojo-type="dijit/form/NumberTextBox"
+									data-dojo-props="maxLength:4, style:'width:110px;'" />
+					    	</td></tr><tr id="trBANPopUpLeft"><td></td><td>
+			      				<label id="lblBANPopUpLeft" style="font-weight: bold;">PopUp - Left:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- PopUpLeft -->
+						  		<input type="text" id="txtBANPopUpLeft" data-dojo-type="dijit/form/NumberTextBox"
+									data-dojo-props="maxLength:4, style:'width:110px;'" />
+					    	</td></tr><tr><td></td><td>
+			      				<label id="lblBANImagen" style="font-weight: bold;">Imagen:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Imagen -->
+						  		<input type="text" id="txtBANImagen" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:200, style:'width:450px;'" />
+					    	</td></tr><tr><td></td><td>
+					    		<label id="lblBANUbicacion" style="font-weight: bold;">Ubicaci&oacute;n del Banner:</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- Ubicacion -->
+								<select id="cboBANUbicacion" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 110px; height: 19px; margin: 0px;'">
+					      			<option value="0" selected="selected">NO PUBLICAR</option>
+						          	<option value="2">DERECHA</option>
+						          	<option value="1">POP-UP</option>
+						        </select>
+							</td></tr><tr><td></td><td>
+			      				<label id="lblBANOrden" style="font-weight: bold;">Orden:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Orden -->
+						  		<input type="text" id="txtBANOrden" data-dojo-type="dijit/form/NumberTextBox"
+									data-dojo-props="maxLength:3, style:'width:110px;'" />
+					    	</td></tr><tr><td></td><td>
+			      				<label id="lblBANFechaDesde" style="font-weight: bold;">Fecha Desde:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- FechaDesde -->
+								<input type="text" id="txtBANFechaDesde" data-dojo-type="dijit/form/DateTextBox"  
+					      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+					    	</td></tr><tr><td></td><td>
+			      				<label id="lblBANFechaHasta" style="font-weight: bold;">Fecha Hasta:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- FechaHasta -->
+								<input type="text" id="txtBANFechaHasta" data-dojo-type="dijit/form/DateTextBox"  
+					      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+					    	</td></tr><tr><td></td><td>
+			      				<label id="lblBANPublicar" style="font-weight: bold;">Publicar:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Publicar -->
+						  		<select id="cboBANPublicar" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; height: 19px; margin: 0px;'">
+						          	<option value=""></option>
+						          	<option value="1">Si</option>
+						          	<option value="0">No</option>
+						        </select>
+					    	</td></tr><tr><td></td><td colspan="3">
+								&nbsp;
+							</td></tr><tr><td></td><td colspan="3" align="right">
+								<!-- Grabar -->
+								<button type="button" id="btnBANGrabar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANGrabar">
+									Grabar</button>
+					        	<!-- Listar -->
+		    					<button type="button" id="btnBANListar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANListar">
+									Listar</button>
+					    	</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<div id="divBANListado" style="display:block;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			        	<!-- Listado -->
+			    		<table><tr>
+			    			<td width="24px"></td><td>
+			    				&nbsp;
+			    			</td></tr><tr><td></td><td>
+			    				<div id="_divBANList" style="width: 575px; height: 100px;">
+								</div>
+							</td></tr><tr><td></td><td>
+								&nbsp;
+							</td></tr><tr><td></td><td align="right">
+								<!-- Editar -->
+								<button type="button" id="btnBANEditar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANEditar">
+									Editar</button>
+								<!-- Asignar/Desasignar Sitios -->
+								<button type="button" id="btnBANAsiDesSit" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANAsiDesSit">
+									Asignar/Desasignar Sitios</button>
+					        	<!-- Eliminar -->
+		    					<button type="button" id="btnBANEliminar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANEliminar">
+									Eliminar</button>
+								<!-- Nuevo -->
+								<button type="button" id="btnBANNuevo" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fBANNuevo">
+									Nuevo</button>								
+							</td></tr>
+						</table>
+			        <br/></td></tr>
+			    </table>
+			</div>
+		</div>
+		</td></tr>
+	</table>
+</div>
+<div id="dlgBANSitios" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Asignar/Desasignar Sitios', style:'display: none;'">
+	<div class="dijitDialogPaneActionBar" style="margin-top: -10px; text-align: left; height: 20px;">
+		<label id="lblBANSitios" style="color: #fd0101;font-weight: bold;">
+			Asignaci&oacute;n de sitios</label>
+	</div>
+	<div class="dijitDialogPaneContentArea">
+		<table><tr>
+      		<td>
+      			<label id="lblBANNAs" style="font-weight: bold;">Sitios no asignados:</label>
+      		</td></tr><tr><td>
+      			<div id="_divBANNAsList" style="width: 575px; height: 100px;">
+				</div>
+    		</td></tr><tr><td>&nbsp;</td></tr><tr><td align="right">
+    			<button data-dojo-type="dijit/form/Button" type="button"
+					id="btnBANSitiosAsi" data-dojo-props="onClick:fBANSitiosAsi">
+					Asignar</button>
+				&nbsp;
+				<button data-dojo-type="dijit/form/Button" type="button"
+					id="btnBANSitiosDes" data-dojo-props="onClick:fBANSitiosDes">
+					Desasignar</button>
+    		</td></tr><tr><td>&nbsp;</td></tr><tr><td>
+    			<label id="lblBANAsi" style="font-weight: bold;">Sitios asignados:</label>
+    		</td></tr><tr><td>
+      			<div id="_divBANAsiList" style="width: 575px; height: 100px;">
+				</div>
+    		</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button data-dojo-type="dijit/form/Button" type="button"
+			id="btnBANSitiosCerrar" data-dojo-props="onClick:function(){dijit.byId('dlgBANSitios').onCancel();fBANDataLoad();}">
+			Cerrar</button>
+	</div>
+</div>

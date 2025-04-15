@@ -1,0 +1,286 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Ingreso de Pedidos</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			&nbsp;
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td width="140px" valign="top">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnORCNuevo" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconNewTask', onClick: fORCNuevo, disabled:true">
+					Nuevo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnORCImprimir" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconPrint', onClick: fORCImprimir, disabled:true">
+					Imprimir&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnORCEnviar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconFilter', onClick: fORCEnviar, disabled:true">
+					Enviar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+			</td></tr>
+		</table>
+		<!-- Ayuda -->
+		<div id="divORCHelp" style="height: 200px; margin-top: 10px;">
+			<div id="tpnORCHelp" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Ayuda', style:'display:none;'">
+				<label id="lblORCHelp" style="font-style: italic; color: #AAAAAA;">Para ver la ayuda contextual pase el mouse sobre algunos campos.</label>
+				<br/>				
+			</div>
+		</div>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divORCCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:820px;">
+		<!-- Panel 1 -->
+		<div id="tpnORCDatosPol" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de la P&oacute;liza', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos de la Poliza -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblORCCompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblORCProducto" style="font-weight: bold;">
+				        		Producto:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Compania -->
+		    				<label id="txtORCCompania"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Producto -->
+		    				<label id="txtORCProducto"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblORCPoliza" style="font-weight: bold;">
+				        		P&oacute;liza:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblORDEndoso" style="font-weight: bold;">
+				        		Endoso:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Poliza -->
+		    				<label id="txtORCPoliza"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Endoso -->
+		    				<label id="txtORCEndoso"></label>
+				        </td></tr><tr class="filaOsc"><td></td><td>
+				        	<label id="lblORCTomador" style="font-weight: bold;">
+				        		Apellido / Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblORCDocumento" style="font-weight: bold;">
+				        		Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tomador -->
+		    				<label id="txtORCTomador"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtORCDocumento"></label>
+				        </td></tr>	
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<!-- Panel 2 -->
+		<div id="tpnORCDatosRec" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos Adicionales', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+		    		<!-- Tipo de registracion -->
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblORCTipoReg" style="font-weight: bold;">
+			        			Seleccione el tipo de registraci&oacute;n:</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboORCTipoReg" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 120px; margin: 0px;', onChange:function(){fORCRecShow(this.value);}">
+					        </select>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trClaro" id="trORCMotivo" style="display:none;"><td><br/>
+		    		<!-- Motivo -->
+		    		<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblORCMotReg" style="font-weight: bold;">
+			        			Seleccione el Motivo:</label>
+			        	</td><td>&nbsp;</td><td>
+					    	<select id="cboORCMotReg" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 220px; margin: 0px; overflow:hidden;', maxHeight:220, forceWidth:true, onChange:function(){fORCMotShow(this.value);}">
+			       			</select>
+
+						</td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORCDescReclamo" style="font-weight: bold;">Descripci&oacute;n 
+								del pedido:</label>
+						</td></tr><tr><td></td><td>
+					  		<!-- Descripcion del reclamo/pedido -->
+					  		<input type="text" id="txtORCDescReclamo" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fORCHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+		        <tr class="trClaro"><td><br/>
+			    		<!-- Datos de Contacto -->
+			    		<table><tr>
+		        			<td width="100px"></td><td>
+				    			<label id="lblORCCliTelefono" style="font-weight: bold;">Tel&eacute;fono:</label>
+				    		</td><td>&nbsp;</td><td>
+				    			<label id="lblORCCliEmail" style="font-weight: bold;">EMail:</label>
+				    		</td></tr><tr><td></td><td>
+				    			<!-- Telefono -->
+				    			<input type="text" id="txtORCCliTelefono" data-dojo-type="dijit/form/TextBox" 
+				      		   		data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:270px;'" />
+				    		</td><td></td><td>
+				    			<!-- EMail -->
+				    			<input type="text" id="txtORCCliEmail" data-dojo-type="dijit/form/TextBox"
+				    		   		data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:270px;'" />
+				    		</td></tr>
+						</table>
+					<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 4 -->
+		<div id="tpnORCDatosAdj" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Archivos Adjuntos Opcionales', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+					<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblORCUploadF1" style="font-weight: bold;">Archivo Adjunto 1:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmORCUpload1" action="" method="POST" enctype="multipart/form-data" target="ifrORCUpload1">
+								<div>
+									<input id="txtORCUploadF1" type="file" name="upload_1" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrORCUpload1" name="ifrORCUpload1" src="" onload="fORCPublishRet1()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblORCUploadF2" style="font-weight: bold;">Archivo Adjunto 2:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmORCUpload2" action="" method="POST" enctype="multipart/form-data" target="ifrORCUpload2">
+								<div>
+									<input id="txtORCUploadF2" type="file" name="upload_2" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrORCUpload2" name="ifrORCUpload2" src="" onload="fORCPublishRet2()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+				    	</td></tr><tr><td></td><td>
+		      				<label id="lblORCUploadF3" style="font-weight: bold;">Archivo Adjunto 3:</label>
+		      			</td><td>&nbsp;</td><td>
+							<form name="frmORCUpload3" action="" method="POST" enctype="multipart/form-data" target="ifrORCUpload3">
+								<div>
+									<input id="txtORCUploadF3" type="file" name="upload_3" class="file_upload"
+										style="font-family: Verdana; font-size: 8pt;" accept="application/pdf" />
+								</div>
+								<iframe id="ifrORCUpload3" name="ifrORCUpload3" src="" onload="fORCPublishRet3()"
+										style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+							</form>
+						</td></tr><tr><td colspan="3"></td><td>
+							&nbsp;
+				    	</td></tr><tr><td colspan="3"></td><td>
+				    		<button type="button" id="btnORCLimpiarAdj" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconClear', onClick: fORCCleanAdj, disabled:true">
+								Limpiar Adjuntos</button>
+				    	</td></tr>
+					</table>
+				<br/></td></tr>
+			</table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- ORCFinder -->
+<div id="dlgORCFinder" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'B&uacute;squeda de P&oacute;lizas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr height="25">
+   			<td>
+   				<label id="lblORCApeRaz" style="font-weight: bold;">
+	        		Apellido/Raz&oacute;n social:</label>
+   			</td><td>&nbsp;</td><td>
+   				<!-- Apellido / Razon social -->
+   				<input type="text" id="txtORCApeRaz" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:20, trim:true, uppercase:true, style:'width:290px;'" />
+	        </td></tr><tr height="25"><td>
+   				<label id="lblORCDocumento" style="font-weight: bold;">
+	        		Tipo y Nro. Documento:</label>
+	      	</td><td>&nbsp;</td><td>
+	      		<!-- Tipo y Nro. Documento -->
+   				<select id="cboORCTipDoc" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fORCTDoSel(this.value);}">
+       			</select>
+       			<input type="text" id="txtORCNroDoc" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:11, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+	      	</td></tr><tr><td>
+   				<label id="lblORCCiaPol" style="font-weight: bold;">
+	        		Compa&ntilde;&iacute;a / P&oacute;liza:</label>
+	      	</td><td>&nbsp;</td><td>
+	      		<!-- Compania y Poliza -->
+   				<select id="cboORCCompania" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 200px; margin: 0px;', onChange:function(){fORCCiaSel(this.value);}">
+       			</select>
+       			<input type="text" id="txtORCPoliza" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:310px;', disabled:true" />
+	      	</td></tr><tr><td colspan="2"></td><td align="right">
+	      		<label id="lblORCPolEjemplo" style="font-weight: bold;"></label>
+	      	</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnORCFinder" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconSearch', onClick: fORCBuscar">
+			Buscar</button>
+	</div>
+</div>
+<!-- ORCLista -->
+<div id="dlgORCLista" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'B&uacute;squeda de P&oacute;lizas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr>
+  			<td width="2%"></td><td colspan="3">
+  				<div id="_divORCLista" style="width: 790px; height: 230px;"></div>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnORCSeleccionar" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconSearch', onClick: fORCSeleccionar">
+			Seleccionar</button>
+	</div>
+</div>
+
+<!-- Hidden -->
+<input id="hidORCFechaHoy" type="hidden" value="" />
+<input id="hidORCRecipientTO" type="hidden" value="" />
+<input id="hidORCOrden" type="hidden" value="" />
+<input id="hidORCPaso" type="hidden" value="" />
+<input id="hidORCRetCtrl" type="hidden" value="" />
+<input id="hidORCCompania" type="hidden" value="" />
+<input id="hidORCCompaniaDes" type="hidden" value="" />
+<input id="hidORCProducto" type="hidden" value="" />
+<input id="hidORCPoliza" type="hidden" value="" />
+<input id="hidORCEndoso" type="hidden" value="" />
+<input id="hidORCTipDoc" type="hidden" value="" />
+<input id="hidORCNroDoc" type="hidden" value="" />
+<input id="hidORCTomador" type="hidden" value="" />
+<input id="hidORCHelpMot" type="hidden" value="" />
+<input id="hidORCNomTDoc" type="hidden" value="" />
+<input id="hidORCNumeroDoc" type="hidden" value="" />

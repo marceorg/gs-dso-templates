@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<jee:jndi-lookup id="dsSNCV" jndi-name="jdbc/dsSNCV" />
+
+	<bean id="CPFinderDao" class="com.hsbc.hbar.kycseg.dao.impl.CPFinderDaoImpl">
+		<property name="dataSource" ref="dsSNCV"></property>
+	</bean>
+
+	<bean id="ParametersDao" class="com.hsbc.hbar.kycseg.dao.impl.ParametersDaoImpl">
+		<property name="dataSource" ref="dsSNCV"></property>
+	</bean>
+
+	<bean id="KYCDao" class="com.hsbc.hbar.kycseg.dao.impl.KYCDaoImpl">
+		<property name="dataSource" ref="dsSNCV"></property>
+	</bean>
+
+	<bean id="UserValidationService"
+		class="com.hsbc.hbar.kycseg.service.impl.UserValidationServiceImpl">
+	</bean>
+
+	<bean id="CPFinderService" class="com.hsbc.hbar.kycseg.service.impl.CPFinderServiceImpl">
+	</bean>
+
+	<bean id="ParametersService" class="com.hsbc.hbar.kycseg.service.impl.ParametersServiceImpl">
+	</bean>
+
+	<bean id="KYCService" class="com.hsbc.hbar.kycseg.service.impl.KYCServiceImpl">
+	</bean>
+
+	<bean id="MdwService" class="com.hsbc.hbar.kycseg.service.impl.MdwServiceImpl">
+	</bean>
+
+	<bean id="UtilCommService" class="com.hsbc.hbar.kycseg.service.impl.UtilCommServiceImpl">
+	</bean>
+
+	<!-- JMS MQ -->
+	<jee:jndi-lookup id="jmsCFMQAIS" jndi-name="jms/cfMQAIS" />
+	<jee:jndi-lookup id="jmsReqQueMQAIS" jndi-name="jms/reqQueMQAIS" />
+	<jee:jndi-lookup id="jmsResQueMQAIS" jndi-name="jms/resQueMQAIS" />
+
+	<bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsCFMQAIS"></property>
+		<property name="destinationResolver" ref="jmsDestResolver"></property>
+	</bean>
+	<bean id="jmsDestResolver"
+		class=" org.springframework.jms.support.destination.JndiDestinationResolver" />
+
+	<bean id="JMSCommService" class="com.hsbc.hbar.kycseg.service.impl.JMSCommServiceImpl">
+		<property name="jmsTemplate" ref="jmsQueueTemplate"></property>
+		<property name="requestQueue" ref="jmsReqQueMQAIS"></property>
+		<property name="responseQueue" ref="jmsResQueMQAIS"></property>
+	</bean>
+</beans>

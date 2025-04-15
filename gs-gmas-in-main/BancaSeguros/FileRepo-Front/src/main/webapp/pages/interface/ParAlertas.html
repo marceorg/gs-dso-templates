@@ -1,0 +1,131 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table>
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">ABM de Alertas por Fase</font></b><br/>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table>
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divFrmCont" data-dojo-type="dijit/layout/ContentPane" style="height:500px;width:1005px;">
+		<div id="tpnPALDatos" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de las Alertas por Fase'">
+			<table style="width: 100%;">
+		        <tr class="trOscuro"><td><br/>
+		    		<!-- Datos de las Alertas por Fase -->
+		    		<table><tr height="25">
+		    			<td width="3%"></td><td>
+		    				<label id="lblPALFase" style="font-weight: bold;">
+				        		Fase:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<!-- Fase -->
+		    				<select id="cboPALFase" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 200px;'">
+			       			</select>
+			       			&nbsp;
+			       			<button type="button" id="btnPALFasEditar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="onClick: fPALFasEditar">
+								Editar Fase</button>
+				        </td></tr><tr><td colspan="4">&nbsp;</td></tr><tr><td></td><td></td><td></td><td>
+				      		<!-- Fase -->
+				      		<div id="tpnPALFase" data-dojo-type="dijit/TitlePane" 
+								data-dojo-props="title:'Detalle', open: true, style:'width: 800px;'">
+								<table style="width: 100%;" cellspacing="0">
+		        					<tr class="trOscuro"><td><br/>
+										<table><tr height="25"><td width="3%"></td><td>
+				    							<label id="lblPALEmail" style="font-weight: bold;">
+						        					eMail:</label>
+				    						</td><td>&nbsp;</td><td>
+				    							<!-- eMail -->
+				    							<input type="text" id="txtPALEmail" data-dojo-type="dijit/form/TextBox"
+													data-dojo-props="maxLength:250, trim:true, uppercase:true, style:'width:620px;'" />
+				    						</td><td width="3%"></td></tr><tr height="25"><td></td><td>
+				    							<label id="lblPALEmailCC" style="font-weight: bold;">
+						        					eMail CC:</label>
+				    						</td><td>&nbsp;</td><td>
+				    							<!-- eMailCC -->
+				    							<input type="text" id="txtPALEmailCC" data-dojo-type="dijit/form/TextBox"
+													data-dojo-props="maxLength:250, trim:true, uppercase:true, style:'width:620px;'" />
+				    						</td><td></td></tr><tr height="25"><td></td><td>
+				    							<label id="lblPALEmailCCO" style="font-weight: bold;">
+						        					eMail CCO:</label>
+				    						</td><td>&nbsp;</td><td>
+				    							<!-- eMailCCO -->
+				    							<input type="text" id="txtPALEmailCCO" data-dojo-type="dijit/form/TextBox"
+													data-dojo-props="maxLength:250, trim:true, uppercase:true, style:'width:620px;'" />
+				    						</td><td></td></tr>
+				    					</table>
+									<br/></td></tr>
+									<tr class="trOscuro"><td>
+										<table><tr height="25"><td width="3%"></td><td>
+												<!-- Estados -->
+					      						<div style="width: 400px; height: 130px; border: 1px solid #c8b6b6;">
+					      							<br/>
+					      							<table><tr height="25"><td width="3%"></td><td>
+					      								<div id="_divPALEstado" style="width: 250px; height: 95px; border: 1px solid #c8b6b6;">
+					      								</div>
+					      								</td><td>&nbsp;</td><td valign="bottom">
+					      									<button type="button" id="btnPALEstDel" data-dojo-type="dijit/form/Button"
+																data-dojo-props="onClick: fPALEstDel">
+																Eliminar Estado</button>
+					      								</td></tr>
+					      							</table>
+												</div>
+											</td><td>&nbsp;&nbsp;&nbsp;</td><td>
+												<!-- Agregar -->
+					      						<div style="width: 275px; height: 130px; border: 1px solid #c8b6b6;">
+					      							<br/>
+					      							<table><tr height="25"><td width="5%"></td><td>
+					      									<label id="lblPALEstCod" style="font-weight: bold;">
+						        								Estado:</label>
+						        						</td><td>&nbsp;</td><td>
+						        							<!-- Fase -->
+										    				<select id="cboPALEstCod" data-dojo-type="dijit/form/Select" 
+											     				data-dojo-props="style:'width: 150px;'">
+											       			</select>
+					      								</td><td width="3%"></td></tr><tr height="25"><td></td><td>
+							    							<label id="lblPALEstDia" style="font-weight: bold;">
+									        					D&iacute;as:</label>
+							    						</td><td>&nbsp;</td><td>
+							    							<!-- Dias -->
+															<input type="text" id="txtPALEstDia" data-dojo-type="dijit/form/NumberTextBox"
+						    									data-dojo-props="maxLength:3, selectOnClick:true, style:'width:50px;', constraints:{pattern :'###'}" />
+							    						</td><td></td></tr><tr><td></td><td colspan="3">
+							    							&nbsp;
+							    						</td><td></td></tr><tr height="25"><td></td><td></td><td></td><td>
+							    							<button type="button" id="btnPALEstAdd" data-dojo-type="dijit/form/Button"
+																data-dojo-props="onClick: fPALEstAdd">
+																Agregar Estado</button>
+							    						</td><td></td></tr>
+					      							</table>
+												</div>
+											</td><td width="3%"></td></tr>
+										</table>
+									<br/></td></tr>
+				      			</table>
+				      		</div>
+			       		</td></tr><tr><td colspan="4">&nbsp;</td></tr><tr><td></td><td></td><td colspan="2">
+							<button type="button" id="btnPALFasGrabar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="onClick: fPALGrabar">
+								Grabar</button>
+								&nbsp;
+							<button type="button" id="btnPALFasCancel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="onClick: fPALFasCancel">
+								Cancelar</button>
+			       		</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>

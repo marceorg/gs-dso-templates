@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Acceso Denegado</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="x-ua-compatible" content="IE=9">
+<meta name="GENERATOR"
+	content="Rational® Application Developer for WebSphere® Software">
+<script type="text/javascript" for="window" event="onload">
+	fBrowserResize();
+</script>
+<script type="text/javascript">
+	function fBrowserResize() {
+		// Tomar tamanos
+		var vHeight = fBrowserHeight();
+		document.getElementById("divContent").style.height = vHeight + "px";
+	}
+	
+	function fBrowserHeight() {
+		var vHeight = 0;
+		if (typeof (window.innerWidth) == 'number') {
+			// Non-IE
+			vHeight = window.innerHeight;
+		} else if (document.documentElement
+				&& (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+			// IE 6+ in 'standards compliant mode'
+			vHeight = document.documentElement.clientHeight;
+		} else if (document.body
+				&& (document.body.clientWidth || document.body.clientHeight)) {
+			// IE 4 compatible
+			vHeight = document.body.clientHeight;
+		}
+		return vHeight;
+	}
+</script>
+</head>
+
+<body onresize="fBrowserResize()" style="margin: 0px 0px 0px 0px; border-spacing: 0px 0px; background-color: #e8e8e8;">
+	<form name="frmMain" method="get" action="/BancaSeguros-Front/ibm_security_logout?logoutExitPage=login.html" style="max-width:1050px; background-color: #ffffff; margin: 0 auto;">
+		<div id="divContent" style="width: 100%; background-color: #ffffff;">
+			<div style="height: 200px;">&nbsp;</div>
+			<div style="background: rgb(243, 243, 243); margin: auto auto auto auto; padding: 20px; border-radius: 3px; width: 390px; line-height: 1.5em; position: relative; box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);">
+				<h1 style="margin: -20px -20px 21px; line-height: 40px; font-family: Verdana; font-size: 14pt; font-weight: bold; color: #cb1818; text-align: center; background: gainsboro; border-bottom: 1px solid #cfcfcf; border-radius: 3px 3px 0 0">Acceso Denegado</h1>
+				<div>
+					<div style="margin: 40px 0px 15px 0px; text-align: left;">
+						<label style="font-family: Verdana; font-weight: bold; font-size: 8pt; width: 30px;">
+						No tiene permisos para utilizar la aplicaci&oacute;n Banca Seguros. Debe solicitar permiso por ASR.
+						</label>
+					</div>
+					<div style="margin: 30px 5px 15px 0px; text-align: right;">
+	    			<button type="submit" style="font-family: Verdana; font-size: 9pt; font-weight: bold; color: #ffffff; border: solid #ae2525 1px; border-radius: 3px; background-color: #d32f2f; cursor: pointer;">Volver a ingresar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

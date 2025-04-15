@@ -1,0 +1,109 @@
+<!-- Cabecera y Opciones -->
+<div style="padding-left: 10px;">
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red" size="4">T.Acceso</font></b><br/>
+			</p>
+		</td><td width="300px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="300px">
+			&nbsp;
+		</td><td></td></tr>
+	</table>
+</div>
+<div>
+	<table width="100%">
+		<tr><td>
+		<!-- Area de Trabajo -->
+		<div id="divTACCont" data-dojo-type="dijit/layout/ContentPane" style="height:380px;width:99%;">
+			<div id="divTACEdit" style="display:none;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			    		<table><tr>
+		        			<td width="100px"></td><td colspan="3">
+		        				&nbsp;
+		        			</td></tr><tr><td></td><td>
+			      				<label id="lblTACId" style="font-weight: bold; color: red;">Id:</label>
+			      			</td><td>&nbsp;</td><td>
+			      				<label id="txtTACId" style="font-weight: bold; color: red;"></label>
+							</td></tr><tr><td></td><td colspan="3">
+		        				&nbsp;
+							</td></tr><tr><td></td><td>
+			      				<label id="lblTACNombre" style="font-weight: bold;">Nombre:</label>
+							</td><td>&nbsp;</td><td>
+						  		<!-- Nombre -->
+						  		<input type="text" id="txtTACNombre" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:150, trim:true, uppercase:true, style:'width:400px;'" />
+					    	</td></tr><tr><td></td><td>
+					    		<label id="lblTACTipo" style="font-weight: bold;">ClienTip:</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- Tipo -->
+								<select id="cboTACTipo" data-dojo-type="dijit/form/Select"
+					     			data-dojo-props="style:'width: 300px; height: 19px; margin: 0px;'">
+					     			<option value=""></option>
+									<option value="OVB">[OVB] OV - BANCO</option>
+									<option value="OVP">[OVP] OV - PRODUCTORES</option>
+									<option value="OVE">[OVE] OV - PRODUCTORES</option>
+									<option value="OVA">[OVA] OV - AGENTES</option>
+									<option value="OVI">[OVI] OV - INTRANET AGENTES</option>
+									<option value="SOF">[SOF] SO - P.FISICAS</option>
+									<option value="SOJ">[SOJ] SO - P.JURIDICAS</option>
+					        	</select>
+							</td></tr><tr><td></td><td>
+					    		<label id="lblTACIdSitio" style="font-weight: bold;">Sitio:</label>
+					    	</td><td>&nbsp;</td><td>
+						  		<!-- Sitio -->
+								<select id="cboTACIdSitio" data-dojo-type="dijit/form/Select"
+					     			data-dojo-props="style:'width: 300px; height: 19px; margin: 0px;'">
+					        	</select>
+							</td></tr><tr><td></td><td colspan="3">
+								&nbsp;
+							</td></tr><tr><td></td><td colspan="3" align="right">
+								<!-- Grabar -->
+								<button type="button" id="btnTACGrabar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fTACGrabar">
+									Grabar</button>
+					        	<!-- Listar -->
+		    					<button type="button" id="btnTACListar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fTACListar">
+									Listar</button>
+					    	</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<div id="divTACListado" style="display:block;">
+				<table width="100%" cellspacing="0">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;">
+			        	<!-- Listado -->
+			    		<table><tr>
+			    			<td width="24px"></td><td>
+			    				&nbsp;
+			    			</td></tr><tr><td></td><td>
+			    				<div id="_divTACList" style="width: 575px; height: 100px;">
+								</div>
+							</td></tr><tr><td></td><td>
+								&nbsp;
+							</td></tr><tr><td></td><td align="right">
+								<!-- Editar -->
+								<button type="button" id="btnTACEditar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fTACEditar">
+									Editar</button>
+					        	<!-- Eliminar -->
+		    					<button type="button" id="btnTACEliminar" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fTACEliminar">
+									Eliminar</button>
+								<!-- Nuevo -->
+								<button type="button" id="btnTACNuevo" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fTACNuevo">
+									Nuevo</button>								
+							</td></tr>
+						</table>
+			        <br/></td></tr>
+			    </table>
+			</div>
+		</div>
+		</td></tr>
+	</table>
+</div>

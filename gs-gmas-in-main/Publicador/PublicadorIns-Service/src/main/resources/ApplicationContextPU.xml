@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<jee:jndi-lookup id="dsSNCV_PU" jndi-name="jdbc/dsSNCV" />
+
+	<bean id="PublicadorDao" class="com.hsbc.hbar.publicins.dao.impl.PublicadorDaoImpl">
+		<property name="dataSource" ref="dsSNCV_PU"></property>
+	</bean>
+
+	<bean id="PublicadorService"
+		class="com.hsbc.hbar.publicins.service.impl.PublicadorServiceImpl">
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Galicia Mas Seguros</title>
+<script type="text/javascript" src="/KYCSeguros-Front/dojo/dojo/dojo.js"
+	djConfig="isDebug: false, parseOnLoad: true"></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/PDFImpreso.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/common/fntGeneral.js'></script>
+</head>
+<body>
+	<form name="frmImpreso" method="post" action="">
+		<img id="imgImpreso" style="position: absolute; top: 200px; left: 240px;"
+			src="/KYCSeguros-Front/pages/images/icoWait.gif" />
+		<img id="imgError" style="position: absolute; top: 200px; left: 240px; display: none;"
+			src="/KYCSeguros-Front/pages/images/icoError.gif" />
+		<label id="lblImpreso" style="position: absolute; top: 208px; left: 280px; font-family: Verdana; font-size: 0.688em; font-weight: bold;">Generando
+			Impreso, por favor aguarde...</label>
+		<iframe id="ifrPDF" scrolling="auto" frameborder="0" marginheight="0"
+			marginwidth="0" style="height: 100%; width: 100%;"> </iframe>
+	</form>
+
+	<script for="window" event="onload" language="javascript">
+		onPDFImpresoLoad();
+	</script>
+</body>
+</html>

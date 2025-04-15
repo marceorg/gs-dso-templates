@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appdeployment:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:appdeployment="http://www.ibm.com/websphere/appserver/schemas/5.0/appdeployment.xmi" xmi:id="Deployment_1375361130118">
+  <deployedObject xmi:type="appdeployment:ApplicationDeployment" xmi:id="ApplicationDeployment_1375361130118" startingWeight="10" warClassLoaderPolicy="SINGLE">
+    <modules xmi:type="appdeployment:WebModuleDeployment" xmi:id="WebModuleDeployment_1375361130118" startingWeight="10000" uri="CMPAMLIns-Front.war"/>
+    <classloader xmi:id="Classloader_1375361130118" mode="PARENT_FIRST">
+      <libraries xmi:id="LibraryRef_1375361130118" libraryName="Web 2.0 Feature Pack Library"/>
+    </classloader>
+  </deployedObject>
+</appdeployment:Deployment>

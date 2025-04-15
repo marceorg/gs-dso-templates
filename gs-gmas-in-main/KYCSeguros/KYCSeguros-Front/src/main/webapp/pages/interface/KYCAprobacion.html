@@ -1,0 +1,124 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Aprobaci&oacute;n / Rechazo de KYC</font></b><br/>
+				<font color="gray">(Personas F&iacute;sicas y Jurid&iacute;cas)</font>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td width="15%">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnKAPDetalle" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconSearch', onClick: fKAPDetalle">
+					Detalle&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKAPAprobar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconSave', onClick: fKAPAprobar">
+					Aprobar&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKAPRechazar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconDelete', onClick: fKAPRechazar">
+					Rechazar</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKAPDerivar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconUndo', onClick: fKAPDerivar, disabled:true">
+					Derivar&nbsp;&nbsp;</button>
+			</td></tr>
+		</table>
+		<!-- Ayuda -->
+		<div id="divKAPHelp" style="height: 200px; margin-top: 10px;">
+			<div id="tpnKAPHelp" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Ayuda'">
+				<label id="lblKAPHelp" style="font-style: italic; color: #AAAAAA;">Ayuda.</label>
+			</div>
+		</div>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divKAPCont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:820px;">
+		<div id="tpnKYCAprobacion" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Listado de KYC'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Listado de KYC para Aprobar/Rechazar-->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblKAPOInLista" style="font-weight: bold;">Lista de KYC para Aprobar / Rechazar</label>
+		    			</td></tr><tr><td></td><td>
+		    				<div id="_divKAPLista" style="width: 720px; height: 220px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+<!-- KAPDerive -->
+<div id="dlgKAPDerive" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Derivaci&oacute;n', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr><td>
+				<label id="lblKAPDerLey" style="font-weight: bold;">Derivaci&oacute;n de KYC</label>
+			</td></tr><tr><td><br/></td></tr><tr><td>
+				<label id="lblKAPDerSup">Seleccione el supervisor al que se va a derivar:</label>
+			</td></tr><tr><td>
+				<select id="cboKAPDerSup" data-dojo-type="dijit/form/Select" 
+    				data-dojo-props="style:'width: 320px; margin: 0px;'">
+      			</select>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnKAPDeriveOk" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconUndo', onClick:fKAPDerivarOk">Derivar</button>
+		<button type="button" id="btnKAPDeriveCan" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconDelete',onClick:function(){dijit.byId('dlgKAPDerive').onCancel();}">Cancelar</button>
+	</div>
+</div>
+<!-- KAPComentario -->
+<div id="dlgKAPComent" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Comentario', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr><tr><td>
+				<label id="lblKAPComent" style="font-weight: bold;">Ingrese un comentario:</label>
+			</td></tr><tr><td>
+				<input type="text" id="txtKAPComent" data-dojo-type="dijit/form/Textarea" 
+					data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;'" />
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneContentArea" id="divKAPcategCli" style="display:none;">
+		<table>
+			<tr class="trClaro"><td><br/>
+	        	<table>
+		        	<tr>
+		        		<td>
+			        		<label id="lblKPFPEP" style="font-weight: bold;">Seleccione una Categoria GS:</label></td></tr>
+			        <tr>
+			        	<td>
+				    		<select id="cboKPFCategoriaGS" data-dojo-type="dijit/form/Select"
+				     			data-dojo-props="style:'width:615px; margin: 0px; overflow:hidden;', maxHeight:120, forceWidth:true">
+							</select></td></tr>
+				</table>
+	    	<br/></td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnKAPComentOk" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconUndo', onClick:fKAPComentOk">Aceptar</button>
+		<button type="button" id="btnKAPComentCan" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconDelete',onClick:function(){dijit.byId('dlgKAPComent').onCancel();}">Cancelar</button>
+	</div>
+</div>
+<!-- Hidden -->
+<input id="hidKAPIdKYC" type="hidden" value="" />

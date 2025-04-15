@@ -1,0 +1,1019 @@
+<!-- Cabecera -->
+<table width="100%">
+	<tr><td>
+		<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+			<b><font color="red">KYC Pol&iacute;tica de Conocimiento del Cliente</font></b><br/>
+			<font color="gray">(Formulario aplicable para las Personas Jur&iacute;dicas)</font>
+		</p>
+	</td>
+	<td width="28%" style="vertical-align: middle;text-align: center;">
+		<label id="lblKPJEstado" style="font-weight:bold; color:red;"></label>
+	</td>
+	<td width="36%">
+		<div id="divKPJOriginal" style="margin-left:220px; display:none;">
+			<button type="button" id="btnKPJOriginal" data-dojo-type="dijit/form/Button"
+				data-dojo-props="iconClass:'dijitIconSearch', onClick: fKPJOriginal">
+				Ver el original...</button>
+		</div>
+	</td></tr>
+</table>
+<!-- Total -->
+<table width="100%">
+	<tr><td width="15%">
+		<!-- Opciones -->
+		<table style="margin-left:5px;">
+			<tr><td>
+				<button type="button" id="btnKPJConsultar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconSearch', onClick: fKPJConsultar, disabled:true">
+					Consultar&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKPJImprimir" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconPrint', onClick: fKPJImprimir, disabled:true, onMouseOver:function(){fKPJHelpIn(this.id);}">
+					Imprimir&nbsp;&nbsp;&nbsp;</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKPJDiff" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconTable', onClick: function(){fKPJDiffShow(true);}, disabled:true">
+					Diferencias</button>
+			</td></tr><tr><td>
+				<button type="button" id="btnKPJEnviar" data-dojo-type="dijit/form/Button"
+					data-dojo-props="iconClass:'dijitIconFilter', onClick: fKPJEnviar, disabled:true">
+					Enviar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+			</td></tr>
+		</table>
+		<!-- Ayuda -->
+		<div id="divKPJHelp" style="height: 200px; margin-top: 10px;">
+			<div id="tpnKPJHelp" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Ayuda', style:'display:none;'">
+				<label id="lblKPJHelp" style="font-style: italic; color: #AAAAAA;">Para ver la ayuda contextual pase el mouse sobre algunos campos.</label>
+				<br/><br/>
+				<div id="divKPJHelpBtn" style="display:none;">
+					<button type="button" id="btnKPJHelp" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconSearch', onClick: fKPJHelpView, disabled:true">
+						Texto completo</button>
+				</div>
+			</div>
+		</div>
+	</td><td>
+	<!-- Area de Trabajo -->
+	<div id="divKPJCont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:820px;">
+		<!-- Panel 1 -->
+		<div id="tpnKYCPersJurP1" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'1- Informaci&oacute;n B&aacute;sica del Cliente', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+	        		<table><tr>
+	        			<td width="100px"></td><td>
+	        				<label id="lblKPJCUIT" style="font-weight: bold;">CUIT:</label>
+	        			</td></tr><tr><td></td><td>
+				    		<!-- CUIT -->
+				    		<input type="text" id="txtKPJCUIT" data-dojo-type="dijit/form/TextBox" 
+								data-dojo-props="maxLength:11, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+				    	</td></tr><tr><td></td><td>
+				    		<label id="lblKPJRazonSocial" style="font-weight: bold;">Denominaci&oacute;n o Raz&oacute;n social:</label>
+				    	</td></tr><tr><td></td><td>
+					    	<!-- Razon social -->
+					      	<input type="text" id="txtKPJRazonSocial" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:70, trim:true, uppercase:true, style:'width:400px;'" />
+				      	</td></tr><tr><td></td><td>
+				    		<label id="lblKPJFechaConst" style="font-weight: bold;">Fecha de constituci&oacute;n de la firma:</label>
+				    	</td></tr><tr><td></td><td>
+				    		<!-- Fecha constitucion -->
+				        	<input type="text" id="txtKPJFechaConst" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				    	</td></tr>	
+				    </table>
+				<br/></td></tr>
+			    <tr class="trClaro"><td><br/>
+		    		<!-- Direccion -->
+		    		<table><tr>
+	        			<td width="100px"></td><td colspan="2">
+							<label id="lblKPJDirCalle" style="font-weight: bold;">Calle:</label>
+						</td><td colspan="2">
+							<label id="lblKPJDirNumero" style="font-weight: bold;">N&uacute;mero:</label>
+						</td><td colspan="2">
+							<label id="lblKPJDirPiso" style="font-weight: bold;">Piso:</label>
+						</td><td>
+							<label id="lblKPJDirDepto" style="font-weight: bold;">Depto:</label>
+						</td></tr><tr><td></td><td>
+							<!-- Calle -->
+				      		<input type="text" id="txtKPJDirCalle" data-dojo-type="dijit/form/TextBox" 
+				      			data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:270px;', onChange:function(){fCPClean('KPJ','C');}" />
+			      		</td><td>&nbsp;</td><td>
+			      			<!-- Numero -->
+				    		<input type="text" id="txtKPJDirNumero" data-dojo-type="dijit/form/TextBox" 
+				    			data-dojo-props="maxLength:5, trim:true, uppercase:true, style:'width:80px;', onChange:function(){fCPClean('KPJ','C');}" />
+			    		</td><td>&nbsp;&nbsp;</td><td>
+			    			<!-- Piso -->
+				        	<input type="text" id="txtKPJDirPiso" data-dojo-type="dijit/form/TextBox" 
+				        		data-dojo-props="maxLength:4, trim:true, uppercase:true, style:'width:80px;'" />
+				  		</td><td>&nbsp;&nbsp;</td><td>
+				  			<!-- Depto -->
+				    		<input type="text" id="txtKPJDirDepto" data-dojo-type="dijit/form/TextBox"
+				    			data-dojo-props="maxLength:4, trim:true, uppercase:true, style:'width:80px;'" />
+			    		</td></tr><tr><td></td><td colspan="2">
+			    			<label id="lblKPJDirProv" style="font-weight: bold;">Provincia:</label>
+			    		</td><td colspan="5">
+			    			<label id="lblKPJDirLocal" style="font-weight: bold;">Localidad:</label>
+			    		</td></tr><tr><td></td><td>
+			    			<!-- Provincia -->
+				    		<select id="cboKPJDirProv" data-dojo-type="dijit/form/Select"
+				     			data-dojo-props="style:'width: 270px; margin: 0px;', maxHeight:120, onChange:function(){fCPProvSel('KPJ');}">
+				        	</select>
+				        </td><td>&nbsp;</td><td colspan="5">
+				        	<!-- Localidad -->
+				        	<input type="text" id="txtKPJDirLocal" data-dojo-type="dijit/form/TextBox" 
+				      			data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:270px;', disabled:true, onChange:function(){fCPClean('KPJ','L');}" />
+			    		</td></tr><tr><td colspan="5"></td><td colspan="3">
+			    			<label id="lblKPJDirCP" style="font-weight: bold;">C.Postal:</label>
+			    		</td></tr><tr><td colspan="5"></td><td colspan="3">
+			    			<!-- Codigo Postal -->
+			    			<input type="text" id="txtKPJDirCP" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="value:'0', style:'width:75px;', disabled:true" />
+			    			<button type="button" id="btnKPJDirCP" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick:function(){fCPFinder('KPJ');}">
+								Completar</button>
+			    		</td></tr><tr><td></td><td colspan="2">
+			    			<label id="lblKPJTelefono" style="font-weight: bold;">Tel&eacute;fono:</label>
+			    		</td><td colspan="5">
+			    			<label id="lblKPJEmail" style="font-weight: bold;">EMail:</label>
+			    		</td></tr><tr><td></td><td>
+			    			<!-- Telefono -->
+			    			<input type="text" id="txtKPJTelefono" data-dojo-type="dijit/form/TextBox" 
+			      		   		data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:270px;'" />
+			    		</td><td>&nbsp;</td><td colspan="5">
+			    			<!-- EMail -->
+			    			<input type="text" id="txtKPJEmail" data-dojo-type="dijit/form/TextBox"
+			    		   		data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:270px;'" />
+			    		</td></tr>
+			    	</table>
+			    <br/></td></tr> 
+			    <tr class="trOscuro"><td><br/>
+		    		<!-- Lista de Representantes -->
+		    		<table><tr>
+		    			<td></td><td colspan="3">
+		    				<label id="lblKPJRepLista" style="font-weight: bold;">
+		    					Nombre de representante legal y los firmantes (Apoderados) con uso de la firma social</label>
+		    			</tr><tr><td width="100px"></td><td>
+		    				<div id="_divKPJRepLista" style="width: 600px; height: 80px;">
+							</div>
+						</td></tr><tr><td></td><td>
+							<button type="button" id="btnKPJRepNew" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconNewTask', onClick: fKPJRepNew">
+								Nuevo</button>
+							<button type="button" id="btnKPJRepUpd" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconEditTask', onClick: fKPJRepUpd">
+								Modificar</button>
+							<button type="button" id="btnKPJRepDel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconDelete', onClick: fKPJRepDel">
+								Eliminar</button>
+						</td></tr><tr><td></td><td><br/>
+							<div id="tpnKYCRepEdit" data-dojo-type="dijit/TitlePane" 
+								data-dojo-props="title:'Modificar / Agregar', style:'width: 640px;height: 25px;', open:false">
+								<table width="100%">
+									<tr><td>
+										<label id="lblKPJRepTipDoc">Documento:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJRepApellido">Apellido/s:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJRepNombre">Nombre/s:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJFechaNac">Fecha Nac.:</label>
+									</td></tr><tr><td>
+				        				<select id="cboKPJRepTipDoc" data-dojo-type="dijit/form/Select" 
+						     				data-dojo-props="style:'width: 60px; margin: 0px;'">
+					        			</select>
+						    			<input type="text" id="txtKPJRepNroDoc" data-dojo-type="dijit/form/NumberTextBox"
+						    		   		data-dojo-props="maxLength:8, style:'width:80px;', constraints:{pattern :'########'}" />
+					    		   	</td><td></td><td>
+					      				<input type="text" id="txtKPJRepApellido" data-dojo-type="dijit/form/TextBox"
+					      		   			data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:160px;'" />
+					      		   	</td><td></td><td>
+					  					<input type="text" id="txtKPJRepNombre" data-dojo-type="dijit/form/TextBox" 
+					    		   			data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:160px;'" />
+					    		   	<!-- Fecha Nacimiento -->
+					    		   	</td><td></td><td>
+					      				<input type="text" id="txtKPJFechaNac" data-dojo-type="dijit/form/DateTextBox" 
+					    		   			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+					      		   	</td></tr><tr><td colspan="5"><br/>
+										<button type="button" id="btnKPJRepApl" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconEdit', onClick: fKPJRepApl">
+											Aplicar</button>
+										<button type="button" id="btnKPJRepCan" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconClear', onClick: fKPJRepCan">
+											Cancelar</button>
+									</td></tr>
+								</table>
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+			    <tr class="trClaro"><td><br/>
+		    		<!-- Titular de Medio de Pago -->
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJTitMPg" style="font-weight: bold;">
+			        			El tomador es titular del medio de pago?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboKPJTitMPg" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJMPgShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+			    <tr class="trClaro" id="trKPJMPgLista" style="display:none;"><td>
+		    		<!-- Datos del Titular del Medio de Pago -->
+		    		<table><tr><td width="100px"></td><td colspan="5">
+					    	<label style="font-weight: bold;">Datos del titular del medio de pago:</label>
+					    </td></tr><tr><td></td><td colspan="5">&nbsp;</td></tr>
+					    <tr><td></td><td>
+				        	<label id="lblKPJTitMPgTipDoc" style="font-weight: bold;">Documento:</label>
+				        </td><td>&nbsp;</td><td>
+					        <label id="lblKPJTitMPgApellido" style="font-weight: bold;">Apellido/s / R.Social:</label>
+					    </td><td>&nbsp;</td><td>
+					        <label id="lblKPJTitMPgNombre" style="font-weight: bold;">Nombre/s:</label>
+					  	</td></tr><tr><td></td><td>
+					     	<select id="cboKPJTitMPgTipDoc" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 70px; margin: 0px;', onChange:function(){fKPJMPgTDoShow(this.value);}">
+			       			</select>
+			    			<input type="text" id="txtKPJTitMPgNroDoc" data-dojo-type="dijit/form/NumberTextBox"
+			    		   		data-dojo-props="maxLength:11, style:'width:100px;', constraints:{pattern :'###########'}" />
+				   		</td><td>&nbsp;</td><td>
+							<input type="text" id="txtKPJTitMPgApellido" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:250px;'" />
+					   	</td><td>&nbsp;</td><td>
+							<input type="text" id="txtKPJTitMPgNombre" data-dojo-type="dijit/form/TextBox" 
+								data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:160px;'" />
+					    </td></tr><tr><td></td><td colspan="5">
+					    	<label id="lblKPJTitMPgMedioPago" style="font-weight: bold;">Medio de Pago y v&iacute;nculo con el tomador:</label>
+					    </td></tr><tr><td></td><td colspan="5">
+					    	<input type="text" id="txtKPJTitMPgMedioPago" data-dojo-type="dijit/form/TextBox" 
+								data-dojo-props="maxLength:100, trim:true, uppercase:true, style:'width:606px;'" />
+					    </td></tr>
+		    		</table>
+				<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 2 -->
+		<div id="tpnKYCPersJurP2" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'2- Informaci&oacute;n Detallada del Cliente', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro"><td><br/>
+	        		<table><tr>
+				    	<td width="100px"></td><td>
+							<label id="lblKPJActividad" style="font-weight: bold;">Actividad en la que opera:</label>
+						</td></tr><tr><td></td><td>
+					    	<!-- Actividad -->
+					    	<input type="text" id="txtKPJActividad" data-dojo-type="dijit/form/TextBox" 
+								   data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:150px;', onKeyPress:function(event){fKeyEnterPressed(event,'fKPJActividadFilter')}" />
+							<button type="button" id="btnKPJActividad" data-dojo-type="dijit/form/Button"
+									data-dojo-props="iconClass:'dijitIconSearch', onClick: fKPJActividadFilter">
+									Filtrar</button>
+							<div style="width: 617px; overflow: hidden;">
+						      	<select id="cboKPJActividad" data-dojo-type="dijit/form/Select"
+							      		data-dojo-props="style:'width:615px; margin: 0px; overflow:hidden;', disabled:true, maxHeight:120, forceWidth:true">
+						        </select>
+					        </div>
+						</td></tr><tr><td></td><td>
+					        <label id="lblKPJActivDes" style="font-weight: bold;">Actividad econ&oacute;mica:</label>
+						</td></tr><tr><td></td><td>
+					    	<!-- Actividad Descripcion -->
+							<input type="text" id="txtKPJActivDes" data-dojo-type="dijit/form/Textarea" 
+								   data-dojo-props="maxLength:1500, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+						</td></tr>
+				    </table>
+				<br/></td></tr>
+		        <tr class="trClaro"><td><br/>
+	        		<table><tr>
+			        	<td width="100px"></td><td>
+					        <label id="lblKPJPropositoDes" style="font-weight: bold;">
+					        	Prop&oacute;sito y objetivo de la contrataci&oacute;n de seguros:</label>
+					    </td></tr><tr><td></td><td>
+					    	<!-- PropositoDes -->
+					    	<input type="text" id="txtKPJPropositoDes" data-dojo-type="dijit/form/Textarea" 
+								   data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+					    </td></tr>
+			    	</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJCaracter" style="font-weight: bold;">
+			        			Productos colectivos con ahorro (car&aacute;cter que asigna el<br/>Tomador a los beneficios otorgados a los asegurados):</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Caracter -->
+					    	<select id="cboKPJCaracter" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 200px; margin: 0px;', onChange:function(){fKPJCaracterShow(this.value);}">
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trOscuro" id="trKPJCaracterDes" style="display:none;"><td>
+		    		<table><tr>
+		    			<td width="100px"></td><td>
+							<label id="lblKPJCaracterDes" style="font-weight: bold;">Indicar en caso de Otros:</label>
+						</td></tr>
+						<tr><td></td><td>
+							<input type="text" id="txtKPJCaracterDes" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJBco" style="font-weight: bold;">Es cliente de Banco?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es Cliente Bco -->
+					    	<select id="cboKPJBco" data-dojo-type="dijit/form/Select" 
+				      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJCotBolsa" style="font-weight: bold;">El cliente cotiza en Bolsa?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es Cliente Bco -->
+					    	<select id="cboKPJCotBolsa" data-dojo-type="dijit/form/Select" 
+				      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJSubsCia" style="font-weight: bold;">
+			        			Es el cliente subsidiaria de una compa&ntilde;&iacute;a que cotiza en bolsa?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es Cliente Bco -->
+					    	<select id="cboKPJSubsCia" data-dojo-type="dijit/form/Select" 
+				      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJCliRegOrg" style="font-weight: bold;">
+			        			Est&aacute; el cliente regulado por alg&uacute;n organismo (BCRA, SSN, CNV)?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es Cliente Bco -->
+					    	<select id="cboKPJCliRegOrg" data-dojo-type="dijit/form/Select" 
+				      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		        <tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJSCC" style="font-weight: bold;">
+			        			Es el cliente un SCC (categor&iacute;a especial de clientes)? (Ver OyM P 1498)</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es SCC -->
+					    	<select id="cboKPJSCC" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJSCCShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trClaro" id="trKPJSCCMot" style="display:none;"><td>
+		    		<table><tr>
+		    			<td width="100px"></td><td>
+							<label id="lblKPJSCCMot" style="font-weight: bold;">Motivo:</label>
+						</td></tr>
+						<tr><td></td><td>
+							<input type="text" id="txtKPJSCCMot" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		        <tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJRepSCC" style="font-weight: bold;">
+			        			Alg&uacute;n firmante, representante legal o apoderado es SCC? (Ver OyM P 1498)</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Es SCC Rep -->
+					    	<select id="cboKPJRepSCC" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJRepSCCShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		        <tr class="trOscuro" id="trKPJRepSCCLista" style="display:none;"><td>
+			    	<!-- Lista de Representantes SCC -->			    	
+		    		<table><tr>
+		    			<td></td><td colspan="3">
+		    				<label id="lblKPJRepSCCLista" style="font-weight: bold;">
+		    					Lista de representante legal y los firmantes (Apoderados) con uso de la firma social</label>
+		    			</tr><tr><td width="3%"></td><td>
+		    				<div id="_divKPJRepSCCLista" style="width: 720px; height: 80px;">
+							</div>
+						</td><td width="3%"></td></tr>
+						<tr><td></td><td colspan="2">
+							<button type="button" id="btnKPJRepSCCUpd" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconEditTask', onClick: fKPJRepSCCUpd">
+								Modificar</button>
+						</td></tr><tr><td></td><td>
+							<br/>
+							<div id="tpnKYCRepSCCEdit" data-dojo-type="dijit/TitlePane" 
+								data-dojo-props="title:'Modificar Representantes', style:'width: 720px;height: 100px;', open:false">
+								<table>
+									<tr><td>
+										<label id="lblKPJRepSCCTipDoc">Documento:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJRepSCCSCC">Es SCC:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJRepSCCCargo">Cargo:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJRepSCCPEP">Es PEP:</label>
+									</tr><td></td><tr><td>
+				        				<select id="cboKPJRepSCCTipDoc" data-dojo-type="dijit/form/Select" 
+						     				data-dojo-props="style:'width: 60px; margin: 0px;', disabled:true">
+					        			</select>
+						    			<input type="text" id="txtKPJRepSCCNroDoc" data-dojo-type="dijit/form/NumberTextBox"
+						    		   		data-dojo-props="maxLength:8, style:'width:80px;', constraints:{pattern :'########'}, disabled:true" />
+					    		   	</td><td>&nbsp;</td><td>
+					    		   		<select id="cboKPJRepSCCSCC" data-dojo-type="dijit/form/Select" 
+								      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+								          	<option value=""></option>
+								          	<option value="S">Si</option>
+								          	<option value="N">No</option>
+								        </select>
+								   	</td><td>&nbsp;</td><td>
+								   		<input type="text" id="txtKPJRepSCCCargo" data-dojo-type="dijit/form/TextBox"
+					      		   			data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:160px;'" />
+								   	</td><td>&nbsp;</td><td>
+								   		<select id="cboKPJRepSCCPEP" data-dojo-type="dijit/form/Select" 
+								      			data-dojo-props="style:'width: 60px; margin: 0px;'">
+								          	<option value=""></option>
+								          	<option value="S">Si</option>
+								          	<option value="N">No</option>
+								        </select>
+					    		   	</td><td>&nbsp;</td><td>
+										<button type="button" id="btnKPJRepSCCApl" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconEdit', onClick: fKPJRepSCCApl">
+											Aplicar</button>
+										<button type="button" id="btnKPJRepSCCCan" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconClear', onClick: fKPJRepSCCCan">
+											Cancelar</button>
+									</td></tr>
+								</table>
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		        <tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblKPJAccionistas" style="font-weight: bold;">
+		      					Accionistas (Titularidad del Capital Social / Ultimate Beneficiary Owner):</label></td></tr>
+						<tr><td></td><td>
+					  		<!-- Accionistas -->
+					  		<input type="text" id="txtKPJAccionistas" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:1000, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trOscuro"><td><br/>
+					<!-- Operaciones Inusuales -->
+					<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJCia" style="font-weight: bold;">
+			        			El cliente posee compa&ntilde;&iacute;as relacionadas?<br/>
+			        			(Aquellas empresas con las que forma grupo econ&oacute;mico)</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboKPJCia" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJCiaShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+			        	</td></tr>
+			        </table>
+			  	<br/></td></tr>
+				<tr class="trOscuro" id="trKPJCiaLista" style="display:none;"><td>
+		    		<!-- Lista de Companias -->
+		    		<table><tr>
+		    			<td></td><td colspan="3">
+		    				<label id="lblKPJCiaLista" style="font-weight: bold;">
+		    					Nombrar las compa&ntilde;&iacute;as relacionadas (Aquellas empresas con las que forma grupo econ&oacute;mico)</label>
+		    			</tr><tr><td width="100px"></td><td>
+		    				<div id="_divKPJCiaLista" style="width: 560px; height: 80px;">
+							</div>
+						</td></tr><tr><td></td><td>
+							<button type="button" id="btnKPJCiaNew" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconNewTask', onClick: fKPJCiaNew">
+								Nuevo</button>
+							<button type="button" id="btnKPJCiaUpd" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconEditTask', onClick: fKPJCiaUpd">
+								Modificar</button>
+							<button type="button" id="btnKPJCiaDel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconDelete', onClick: fKPJCiaDel">
+								Eliminar</button>
+						</td></tr><tr><td></td><td>
+							<div id="tpnKYCCiaEdit" data-dojo-type="dijit/TitlePane" 
+								data-dojo-props="title:'Modificar / Agregar', style:'width: 560px;height: 25px;', open:false">
+								<table width="100%">
+									<tr><td>
+					    		   			<label id="lblKPJCiaRazSoc">Raz&oacute;n social:</label></td><td>&nbsp;</td>
+					    		   		<td>
+					    		   			<label id="lblKPJCiaSCC">Es SCC:</label></td><td>&nbsp;</td>
+					    		   		<td>
+											<label id="lblKPJFechaConstit">Fecha Constituci&oacute;n:</label>
+									</td></tr>
+					    		   	<tr><td>
+						      				<input type="text" id="txtKPJCiaRazSoc" data-dojo-type="dijit/form/TextBox"
+						      		   			data-dojo-props="maxLength:70, trim:true, uppercase:true, style:'width:160px;'" /></td><td></td>
+						      		   	<td>
+					      		   			<select id="cboKPJCiaSCC" data-dojo-type="dijit/form/Select" 
+								      				data-dojo-props="style:'width: 60px; margin: 0px;'">
+														<option value=""></option>
+														<option value="S">Si</option>
+														<option value="N">No</option>
+											</select></td><td>&nbsp;</td>
+						      		   	<td>
+											<input type="text" id="txtKPJFechaConstit" data-dojo-type="dijit/form/DateTextBox" 
+					    		   				data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" /></td>
+									</tr><tr><td colspan="5"><br/>
+					    		   		<button type="button" id="btnKPJCiaApl" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconEdit', onClick: fKPJCiaApl">
+											Aplicar</button>
+										<button type="button" id="btnKPJCiaCan" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconClear', onClick: fKPJCiaCan">
+											Cancelar</button>
+									</td></tr>
+								</table>
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    	<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+			        		<label id="lblKPJRel" style="font-weight: bold;">
+			        			Tiene el cliente relaci&oacute;n con otra compa&ntilde;&iacute;a 
+				        		del grupo financiero Galicia?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<!-- Relacion -->
+					    	<select id="cboKPJRel" data-dojo-type="dijit/form/Select" 
+				      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJRelShow(this.value);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trClaro" id="trKPJRelDet" style="display:none;"><td>
+		    		<table><tr>
+		    			<td width="100px"></td><td>
+							<label id="lblKPJRelDet" style="font-weight: bold;">Detalle:</label>
+						</td></tr>
+						<tr><td></td><td>
+							<input type="text" id="txtKPJRelDet" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:500, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+						</td></tr>
+					</table>
+		    	<br/></td></tr>
+		    	<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblKPJIniAnn" style="font-weight: bold;">
+				        		A&ntilde;o de inicio de v&iacute;nculo con Galicia Mas Seguros:</label>
+				      	</td><td>&nbsp;</td><td>
+					  		<!-- Anio de vinculo con GMas Seguros -->
+				    		<input type="text" id="txtKPJIniAnn" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:4, selectOnClick:true, style:'width: 60px;', constraints:{pattern :'####'}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+		        <tr class="trClaro" id="trKPJSCCLeyIng" style="display:none;"><td><br/>
+					<table><tr>
+				    	<td width="100px"></td><td>
+							<label style="font-weight: bold; color: red;">
+								No es de car&aacute;cter obligatorio la carga de los ingresos para el cliente consultado.<br/>
+								El &uacute;nico dato a ingresar es la fecha de inicio de vigencia.</label>
+						</td></tr>
+					</table>
+				</td></tr>
+		        <tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td colspan="3">
+			        		<!-- Balance -->
+					        <label style="font-style: italic; font-weight: bold;">
+					        	Datos del Balance</label>
+						</td></tr><tr><td></td><td colspan="3"><br/></td></tr><tr><td></td><td>
+							<label id="lblKPJBalFecEstCont" style="font-weight: bold;">
+				        		Fecha de fin de los Estados Contables /<br/>Inicio de Vigencia del KYC:</label>
+						</td><td>&nbsp;</td><td>
+							<!-- Fecha de Estados Contables -->
+				    		<input type="text" id="txtKPJBalFecEstCont" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}, onChange:fKPJFecEstCont" />
+						</td></tr><tr><td></td><td>
+							<label id="lblKPJBalAuditor" style="font-weight: bold;">
+				        		Auditor:</label>
+						</td><td>&nbsp;</td><td>
+							<!-- Auditor -->
+				    		<input type="text" id="txtKPJBalAuditor" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:100, trim:true, uppercase:true, style:'width:300px;'" />
+						</td></tr><tr><td></td><td colspan="3"><br/></td></tr><tr><td></td><td colspan="3">
+			        		<!-- Ingresos -->
+					        <label style="font-style: italic; font-weight: bold;">
+					        	Cifras en Pesos</label>
+						</td></tr><tr><td></td><td colspan="3"><br/></td></tr><tr><td></td><td>
+							<label id="lblKPJBalFecha" style="font-weight: bold;">
+				        		&Uacute;ltima fecha de actualizaci&oacute;n de ingresos:</label>
+						</td><td>&nbsp;</td><td>
+							<!-- Fecha -->
+							<input type="text" id="txtKPJBalFecha" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+						</td></tr><tr><td></td><td colspan="3"><br/></td></tr><tr><td></td><td>
+							<label id="lblKPJBalActivo" style="font-weight: bold;">
+				        		Total Activo:</label>
+						</td><td>&nbsp;</td><td>
+							<!-- Activo -->
+							<input type="text" id="txtKPJBalActivo" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:16, selectOnClick:true, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}, onChange:fKPJBalResFinal" />
+						</td></tr><tr><td></td><td>
+							<label id="lblKPJBalPasivo" style="font-weight: bold;">
+				        		Total Pasivo:</label>
+						</td><td>&nbsp;</td><td>
+							<!-- Pasivo -->
+							<input type="text" id="txtKPJBalPasivo" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:16, selectOnClick:true, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}, onChange:fKPJBalResFinal" />
+				    	</td></tr><tr><td></td><td>
+				    		<label id="lblKPJBalPN" style="font-weight: bold;">
+				    			Total Patrimonio Neto:</label>
+				    	</td><td>&nbsp;</td><td>
+				    		<!-- Patrimonio Neto -->
+				    		<input type="text" id="txtKPJBalPN" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:16, style:'width: 110px;', disabled:true, constraints:{pattern :'#,###,###,###,##0.00'}" />
+				    	</td></tr><tr><td></td><td>
+				    		<label id="lblKPJBalVentas" style="font-weight: bold;">
+				    			Ventas:</label>
+				    	</td><td>&nbsp;</td><td>
+				    		<!-- Patrimonio Neto -->
+				    		<input type="text" id="txtKPJBalVentas" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:16, selectOnClick:true, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}, onChange:fKPJBalResFinal" />
+				    	</td></tr><tr><td></td><td>
+				    		<label id="lblKPJBalResFinal" style="font-weight: bold;">
+				    			Resultado Final:</label>
+				    	</td><td>&nbsp;</td><td>
+				    		<!-- Resultado Final -->
+				    		<input type="text" id="txtKPJBalResFinal" data-dojo-type="dijit/form/NumberTextBox" 
+				    			data-dojo-props="maxLength:16, selectOnClick:true, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}" />
+						</td></tr>
+					</table>
+		        <br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblKPJDocResDet" style="font-weight: bold;">Detalle
+								de la documentaci&oacute;n de respaldo presentada (indicar Fecha):</label></td></tr>
+						<tr><td></td><td>
+					  		<!-- Documentacion de Respaldo -->
+					  		<input type="text" id="txtKPJDocResDet" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+			   	<tr class="trClaro"><td><br/>
+		        	<table><tr>
+	        			<td width="100px"></td><td>
+		      				<label id="lblKPJObserv" style="font-weight: bold;">Observaciones:</label></td></tr>
+						<tr><td></td><td>
+					  		<!-- Observaciones -->
+					  		<input type="text" id="txtKPJObserv" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+				    	</td></tr>
+					</table>
+		        <br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 3 -->
+		<div id="tpnKYCPersJurP3" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'3- Perfil Transaccional', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro" id="trKPJSCCLeyPfT" style="display:none;"><td><br/>
+					<table><tr>
+				    	<td width="100px"></td><td>
+							<label style="font-weight: bold; color: red;">
+								No es de car&aacute;cter obligatorio la carga del perfil transaccional para el cliente consultado</label>
+						</td></tr>
+					</table>
+				</td></tr>
+				<tr class="trOscuro"><td><br/>
+		        	<table><tr>
+				    	<td width="100px"></td><td>
+				    		<table border="1"><tr height="35px" bgcolor="#EDEDF1"><td width="300px" align="center">
+				        		<label id="lblKPJValOpe" style="font-weight: bold;">
+				        			Ingresos Totales (cifra en Pesos)<br/>
+				        			Perfil Transaccional:</label>
+				        	</td><td width="300px" align="center">
+				        		<label id="lblKPJAcuPri" style="font-weight: bold;">
+				        			Acumulaci&oacute;n de primas anuales:</label>
+				     		</td></tr><tr height="35px" bgcolor="#FFFFFF"><td align="center" valign="middle">
+				    			<!-- Valor a Operar -->
+				    			<input type="text" id="txtKPJValOpe" data-dojo-type="dijit/form/NumberTextBox" 
+				    				data-dojo-props="maxLength:16, selectOnClick:true, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}" />
+				        	</td><td align="center" valign="middle">
+				        		<!-- Prima Acumulada -->
+								<input type="text" id="txtKPJAcuPri" data-dojo-type="dijit/form/NumberTextBox" 
+				    				data-dojo-props="maxLength:16, style:'width: 110px;', constraints:{pattern :'#,###,###,###,##0.00'}, disabled:true" />				        	
+				  			</td></tr></table>
+				  		</td></tr>
+				    </table>
+				<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+	        		<table><tr>
+			        	<td width="100px"></td><td>
+					        <label id="lblKPJValOpeMot" style="font-weight: bold;">
+					        	En caso de modificar el perfil transaccional  
+				        		explique detalladamente cual fue el motivo:</label>
+					    </td></tr><tr><td></td><td>
+					    	<!-- Motivo del Valor -->
+					    	<input type="text" id="txtKPJValOpeMot" data-dojo-type="dijit/form/Textarea" 
+								   data-dojo-props="maxLength:1500, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+					    </td></tr>
+			    	</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td><br/>
+	        		<table><tr>
+			        	<td width="100px"></td><td>
+					        <label id="lblKPJComent" style="font-weight: bold;">
+					        	Comentarios y/o observaciones adicionales en cuanto al 
+				        		resultado del an&aacute;lisis del perfil transaccional:</label>
+					    </td></tr><tr><td></td><td>
+					    	<!-- Comentarios -->
+					    	<input type="text" id="txtKPJComent" data-dojo-type="dijit/form/Textarea" 
+								   data-dojo-props="maxLength:2000, uppercase:true, style:'width:615px;', onMouseOver:function(){fKPJHelpIn(this.id);}" />
+					    </td></tr>
+			    	</table>
+				<br/></td></tr>
+				<tr class="trClaro"><td><br/>
+	        		<table><tr>
+			        	<td width="100px"></td><td>
+					        <label id="lblKPJUltFec" style="font-weight: bold;">
+					        	Fecha de &uacute;ltima actualizaci&oacute;n de perfil transaccional:</label>
+					    </td><td>&nbsp;</td><td>
+					    	<!-- Ultima Fecha -->
+					    	<input type="text" id="txtKPJUltFec" data-dojo-type="dijit/form/DateTextBox"  
+				      		   data-dojo-props="style:'width: 100px;', disabled:true, constraints:{datePattern :'dd/MM/yyyy'}" />
+					    </td></tr>
+			    	</table>
+				<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 4 -->
+		<div id="tpnKYCPersJurP4" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'4- Operaciones Inusuales', open:false">
+			<table width="100%" cellspacing="0">
+				<tr class="trOscuro"><td><br/>
+					<!-- Operaciones Inusuales -->
+					<table><tr>
+	        			<td width="20px"></td><td>
+			        		<label id="lblKPJOIn" style="font-weight: bold;">
+			        			Considera que el cliente a realizado operaciones inusuales?</label>
+			        	</td><td>&nbsp;</td><td>
+					      	<select id="cboKPJOIn" data-dojo-type="dijit/form/Select" 
+					      			data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fKPJOInShow(this.value);}, onMouseOver:function(){fKPJHelpIn(this.id);}">
+					          	<option value=""></option>
+					          	<option value="S">Si</option>
+					          	<option value="N">No</option>
+					        </select>
+			        	</td></tr>
+			        </table>
+			  	<br/></td></tr>
+		        <tr class="trOscuro" id="trKPJOInLista" style="display:none;"><td>
+		    		<!-- Lista de Operaciones Inusuales -->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblKPJOInLista" style="font-weight: bold;">Lista de Operaciones Inusuales</label>
+		    			</td></tr><tr><td></td><td>
+		    				<div id="_divKPJOInLista" style="width: 720px; height: 80px;">
+							</div>
+						</td></tr><tr><td></td><td>
+							<button type="button" id="btnKPJOInNew" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconNewTask', onClick: fKPJOInNew">
+								Nuevo</button>
+							<button type="button" id="btnKPJOInUpd" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconEditTask', onClick: fKPJOInUpd">
+								Modificar</button>
+							<button type="button" id="btnKPJOInDel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconDelete', onClick: fKPJOInDel">
+								Eliminar</button>
+						</td></tr><tr><td></td><td>
+							<br/>
+							<div id="tpnKYCOInEdit" data-dojo-type="dijit/TitlePane" 
+								data-dojo-props="title:'Modificar / Agregar', style:'width: 720px;height: 25px;', open:false">
+								<table>
+									<tr><td>
+										<label id="lblKPJOInFecha">Fecha:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJOInTipOpe">Tipo Operaci&oacute;n:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJOInOriFon">Origen Fondos:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJOInMonto">Monto:</label>
+									</td><td>&nbsp;</td><td>
+										<label id="lblKPJOInObserv">Observaciones:</label>
+									</td></tr><tr><td>
+										<input type="text" id="txtKPJOInFecha" data-dojo-type="dijit/form/DateTextBox"  
+				      		   				data-dojo-props="style:'width: 100px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+					    		   	</td><td>&nbsp;</td><td>
+					    		   		<input type="text" id="txtKPJOInTipOpe" data-dojo-type="dijit/form/TextBox"
+					      		   			data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:120px;'" />
+					    		   	</td><td>&nbsp;</td><td>
+					    		   		<input type="text" id="txtKPJOInOriFon" data-dojo-type="dijit/form/TextBox"
+					      		   			data-dojo-props="maxLength:50, trim:true, uppercase:true, style:'width:120px;'" />
+					      		   	</td><td>&nbsp;</td><td>
+					      		   		<input type="text" id="txtKPJOInMonto" data-dojo-type="dijit/form/NumberTextBox"
+						    		   		data-dojo-props="maxLength:16, style:'width:100px;', constraints:{pattern :'#,###,###,###,##0.00'}" />
+					    		   	</td><td>&nbsp;</td><td>
+					    		   		<input type="text" id="txtKPJOInObserv" data-dojo-type="dijit/form/TextBox"
+					      		   			data-dojo-props="maxLength:60, trim:true, uppercase:true, style:'width:200px;'" />
+					    		   	</td></tr><tr><td colspan="9"><br/></td></tr><tr><td colspan="9">
+										<button type="button" id="btnKPJOInApl" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconEdit', onClick: fKPJOInApl">
+											Aplicar</button>
+										<button type="button" id="btnKPJOInCan" data-dojo-type="dijit/form/Button"
+											data-dojo-props="iconClass:'dijitIconClear', onClick: fKPJOInCan">
+											Cancelar</button>
+									</td></tr>
+								</table>
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+			</table>
+		</div>
+		<br/>
+		<!-- Panel 5 -->
+		<div id="tpnKYCPersJurP5" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de Grabaci&oacute;n / Aprobaci&oacute;n', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro"><td><br/>
+		        	<table><tr>
+				    	<td width="100px"></td><td>
+				        	<label id="lblKPJOpePSfoft" style="font-weight: bold;">Operador:</label>
+				        </td><td>&nbsp;</td><td>
+				        	<label id="lblKPJOpeFecha" style="font-weight: bold;">Fecha:</label>
+				        </td></tr><tr><td></td><td>
+				        	<!-- Operador -->
+				        	<input type="text" id="txtKPJOpePSoft" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:15, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+							<input type="text" id="txtKPJOpeNombre" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:240px;', disabled:true" />
+				     	</td><td>&nbsp;</td><td>
+				     		<input type="text" id="txtKPJOpeFecha" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:10, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+				     	</td></tr><tr><td></td><td>
+				        	<label id="lblKPJSupPSfoft" style="font-weight: bold;">Aprobaci&oacute;n (Supervisor):</label>
+				        </td><td>&nbsp;</td><td>
+				        	<label id="lblKPJSupFecha" style="font-weight: bold;">Fecha:</label>
+				        </td></tr><tr><td></td><td>
+				        	<!-- Supervisor -->
+				        	<input type="text" id="txtKPJSupPSoft" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:15, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+							<input type="text" id="txtKPJSupNombre" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:240px;', disabled:true" />
+				     	</td><td>&nbsp;</td><td>
+				     		<input type="text" id="txtKPJSupFecha" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:10, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+					   	</td></tr><tr><td></td><td colspan="3">
+					    	<label id="lblKPJSupComentario" style="font-weight: bold;">Comentario (Supervisor):</label>
+					   	</td></tr><tr><td></td><td colspan="3">
+					      	<input type="text" id="txtKPJSupComentario" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:459px;', disabled:true" />
+				     	</td></tr><tr><td></td><td>
+				        	<label id="lblKPJComPSfoft" style="font-weight: bold;">Aprobaci&oacute;n por inconsistencia (Compliance):</label>
+				        </td><td>&nbsp;</td><td>
+				        	<label id="lblKPJComFecha" style="font-weight: bold;">Fecha:</label>
+				        </td></tr><tr><td></td><td>
+				        	<!-- Compliance -->
+				        	<input type="text" id="txtKPJComPSoft" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:15, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+							<input type="text" id="txtKPJComNombre" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:240px;', disabled:true" />
+				     	</td><td>&nbsp;</td><td>
+				     		<input type="text" id="txtKPJComFecha" data-dojo-type="dijit/form/TextBox"
+					      		data-dojo-props="maxLength:10, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+					  	</td></tr><tr><td></td><td colspan="3">
+					    	<label id="lblKPJComComentario" style="font-weight: bold;">Comentario (Compliance):</label>
+					   	</td></tr><tr><td></td><td colspan="3">
+					      	<input type="text" id="txtKPJComComentario" data-dojo-type="dijit/form/Textarea" 
+								data-dojo-props="maxLength:2000, uppercase:true, style:'width:459px;', disabled:true" />
+				     	</td></tr>
+				    </table>
+		        <br/></td></tr>
+		   	</table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- KPJFinder -->
+<div id="dlgKPJFinder" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'B&uacute;squeda de KYC Personas Jur&iacute;dicas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr><td>
+				<label id="lblKPJBusCUIT">CUIT:</label>
+			</td><td>&nbsp;&nbsp;</td><td colspan="3"> 
+				<input type="text" id="txtKPJBusCUIT" data-dojo-type="dijit/form/NumberTextBox"
+			    	data-dojo-props="maxLength:11, style:'width:120px;', constraints:{pattern :'###########'}, onKeyPress:function(event){fKeyEnterPressed(event,'fKPJBuscar')}" />
+			</td></tr><tr><td>
+				<label id="lblKPJBusRazonSocial">Raz&oacute;n social:</label>
+			</td><td></td><td colspan="3">
+				<input type="text" id="txtKPJBusRazonSocial" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:290px;', onKeyPress:function(event){fKeyEnterPressed(event,'fKPJBuscar')}" />
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnKPJFinder" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconSearch', onClick: fKPJBuscar">
+			Buscar</button>
+	</div>
+</div>
+<!-- KPJDiffShow -->
+<div id="dlgKPJDiffShow" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Diferencias / Modificaciones realizadas', style:'display: none;'">
+	<div class="dijitDialogPaneActionBar" style="margin-top: -10px; text-align: left;">
+		<label id="lblKPJDiffShow" style="margin-right: 225px;">Lista de modificaciones realizadas:</label>
+		<button data-dojo-type="dijit/form/Button" type="button"
+			id="btnKPJDiffShowExpand" data-dojo-props="iconClass:'dijitIconFolderOpen', onClick:function(){dijit.byId('treKPJDiffShow').expandAll();}">
+			Expandir</button>
+		<button data-dojo-type="dijit/form/Button" type="button"
+			id="btnKPJDiffShowCollapse" data-dojo-props="iconClass:'dijitIconFolderClosed', onClick:function(){dijit.byId('treKPJDiffShow').collapseAll();}">
+			Contraer</button>
+	</div>
+	<div class="dijitDialogPaneContentArea">
+		<table>
+			<tr><td id="tdKPJDiffShow">
+					<div id="_divKPJDiffShow" style="width: 600px; height: 400px;">
+					</div>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<label id="lblKPJDiffLey" style="margin-right: 50px; font-weight: bold; color: red;"></label>
+		<button data-dojo-type="dijit/form/Button" type="button"
+			id="btnKPJDiffShowCancel" data-dojo-props="onClick:function(){dijit.byId('dlgKPJDiffShow').onCancel();}">
+			Cerrar</button>
+	</div>
+</div>
+<!-- KPJSend -->
+<div id="dlgKPJSend" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Env&iacute;o de KYC Personas Jur&iacute;dicas', style:'display: none;'">
+	<div class="dijitDialogPaneContentArea">
+		<table><tr><td>
+				<label id="lblKPJAprLey" style="font-weight: bold;">El KYC requiere aprobaci&oacute;n de un Supervisor</label>
+			</td></tr><tr><td><br/></td></tr><tr><td>
+				<label id="lblKPJAprSup">Seleccione el supervisor que lo debe aprobar:</label>
+			</td></tr><tr><td>
+				<select id="cboKPJAprSup" data-dojo-type="dijit/form/Select" 
+    				data-dojo-props="style:'width: 320px; margin: 0px;'">
+      			</select>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button type="button" id="btnKPJSendOk" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconFilter', onClick:fKPJEnviarOk">Enviar</button>
+		<button type="button" id="btnKPJSendCan" data-dojo-type="dijit/form/Button"
+			data-dojo-props="iconClass:'dijitIconDelete',onClick:function(){dijit.byId('dlgKPJSend').onCancel();}">Cancelar</button>
+	</div>
+</div>
+<!-- Hidden Diff Grid -->
+<input id="hdgrKPJRepLista" type="hidden" value="" />
+<input id="hdgrKPJCiaLista" type="hidden" value="" />
+<input id="hdgrKPJOInLista" type="hidden" value="" />

@@ -1,0 +1,114 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Situaci&oacute;n de Cobranza</font></b><br/>
+			</p>
+		</td><td width="415px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="160px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnCCEVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fCCEVolver">
+						Volver a la Consulta</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCCECont" data-dojo-type="dijit/layout/ContentPane" style="height:360px;width:970px;">
+		<div>
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		        	<!-- Datos Principales -->
+		    		<table width="100%"><tr class="filaOsc">
+		    			<td width="300px">
+		    				<label id="lblCCECompania" style="font-weight: bold;">
+				        		&nbsp;Compa&ntilde;&iacute;a:</label>
+				        </td><td>
+		    				<label id="lblCCEPoliza" style="font-weight: bold;">
+				        		&nbsp;N&uacute;mero de P&oacute;liza:</label>
+		    			</td><td colspan="2">
+		    				<label id="lblCCETomador" style="font-weight: bold;">
+				        		&nbsp;Nombre y Apellido del Tomador:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Compania -->
+		    				<label id="txtCCECompania"></label>
+		    			</td><td>
+				        	<!-- Poliza -->
+		    				<label id="txtCCEPoliza"></label>
+				        </td><td colspan="2">
+				        	<!-- Estado -->
+		    				<label id="txtCCETomador"></label>
+				        </td></tr>
+					</table>
+		        <br/></td></tr>
+		    </table>
+		</div>
+		<div id="tpnCCELista" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Listado de Cobranza'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td>
+		    		<!-- Parametros de la consulta -->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblCCEFecDes" style="font-weight: bold;">
+				        		Fecha desde:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCCEFecHas" style="font-weight: bold;">
+				        		Fecha hasta:</label>
+				        </td><td colspan="2"></td></tr><tr><td></td><td>
+		    				<!-- Fecha Desde -->
+							<input type="text" id="txtCCEFecDes" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>
+		    				<!-- Fecha Hasta -->
+							<input type="text" id="txtCCEFecHas" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>&nbsp;</td><td>
+			       			<button type="button" id="btnCCEBuscar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCCEBuscar">
+								Buscar</button>
+						</td></tr>
+					</table>
+				</td></tr>
+				<tr class="trClaro"><td><br/>
+					<!-- Listado de Cobranza -->
+		    		<table><tr>
+		    			<td width="10px"></td><td>
+		    				<div id="_divCCECobList" style="width: 900px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				</td></tr>
+		    </table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidCCEFechaHoy" type="hidden" value="" />
+<input id="hidCCECompaniaCod" type="hidden" value="" />
+<input id="hidCCECompaniaDes" type="hidden" value="" />
+<input id="hidCCEPoliza" type="hidden" value="" />
+
+<input id="hidCCETipoInforme" type="hidden" value="" />
+<input id="hidCCEFechaDesde" type="hidden" value="" />
+<input id="hidCCEFechaHasta" type="hidden" value="" />
+<input id="hidCCECompaniaPar" type="hidden" value="" />
+<input id="hidCCEProducto" type="hidden" value="" />
+<input id="hidCCETipDoc" type="hidden" value="" />
+<input id="hidCCENroDoc" type="hidden" value="" />
+<input id="hidCCEApellido" type="hidden" value="" />
+<input id="hidCCEPolizaPar" type="hidden" value="" />
+<input id="hidCCEParamStart" type="hidden" value="" />
+
+<input id="hidCCEApyNom" type="hidden" value="" />

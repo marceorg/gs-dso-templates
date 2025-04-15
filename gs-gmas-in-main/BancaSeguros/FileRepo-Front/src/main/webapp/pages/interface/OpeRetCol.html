@@ -1,0 +1,411 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table>
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Consulta de Solicitudes de Adhesi&oacute;n Web</font></b><br/>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table>
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divFrmCont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:1005px;">
+		<div id="divORTFil" style="display:inline;">
+			<div id="tpnORTFil" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'Filtros de B&uacute;squeda', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<table>
+			    			<tr height="25"><td width="20px">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblORT_CON_OPE_DAT" style="font-weight: bold; color: red;">Datos de la Operaci&oacute;n:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+			    				<label id="lblORT_CON_NRO_OPE" style="font-weight: bold;">Producto / P&oacute;liza:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<input type="text" id="txtORT_CON_COD_PRO" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:4, trim:true, uppercase:true, style:'width:60px;'" />
+						    	&nbsp;/&nbsp;
+						    	<!-- Se deja invisible -->
+								<input type="text" id="txtORT_CON_NRO_OPE" data-dojo-type="dijit/form/NumberTextBox"
+						    		data-dojo-props="maxLength:10, style:'width:80px;display:none;', constraints:{pattern :'##########'}" />
+						    	<input type="text" id="txtORT_CON_NRO_POL" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:100px;'" />
+								<label id="lblORT_CON_EJE_POL" style="font-weight: bold;">Ej: CXXX / 99-009999</label>
+						    </td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_REQ_ADI" style="font-weight: bold;">DDJJ / R.M&eacute;dicos:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+				       			<select id="cboORT_CON_RAD_DDJ" data-dojo-type="dijit/form/Select" data-dojo-props="style:'width: 50px;', onChange:function(){fORTReqAdi('D');}">
+									<option value="" selected="selected">...</option>
+									<option value="S">SI</option>
+									<option value="N">NO</option>
+								</select>
+				       			&nbsp;/&nbsp;
+				       			<select id="cboORT_CON_RAD_RME" data-dojo-type="dijit/form/Select" data-dojo-props="style:'width: 50px;', onChange:function(){fORTReqAdi('M');}">
+									<option value="" selected="selected">...</option>
+									<option value="S">SI</option>
+									<option value="N">NO</option>
+								</select>
+				       		</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_COD_EST" style="font-weight: bold;">Estado:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboORT_CON_COD_EST" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 150px;'">
+				       			</select>
+				       		</td></tr><tr><td colspan="12">
+								&nbsp;
+							</td></tr><tr height="25"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblORT_CON_FEC_DAT" style="font-weight: bold; color: red;">Fechas:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_FEC_ING" style="font-weight: bold;">Fecha de Ingreso:</label>
+							</td><td>&nbsp;</td><td>
+								<input id="chkORT_CON_FEC_ING" data-dojo-type="dijit/form/CheckBox"
+						        	data-dojo-props="checked: false, onChange: fORTConFInChk" />
+						    </td><td>&nbsp;</td><td>
+								<label id="lblORT_CON_FEC_IND" style="font-weight: bold;">Desde:</label>
+							</td><td>&nbsp;</td><td>
+								<input type="text" id="dtxORT_CON_FEC_IND" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+				      		</td><td>&nbsp;</td><td>
+				      			<label id="lblORT_CON_FEC_INH" style="font-weight: bold;">Hasta:</label>
+				      		</td><td>&nbsp;</td><td width="250">
+				      			<input type="text" id="dtxORT_CON_FEC_INH" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_FEC_MAN" style="font-weight: bold;">Fecha de Actualizaci&oacute;n:</label>
+							</td><td>&nbsp;</td><td>
+								<input id="chkORT_CON_FEC_MAN" data-dojo-type="dijit/form/CheckBox"
+						        	data-dojo-props="checked: false, onChange: fORTConFMaChk" />
+						    </td><td>&nbsp;</td><td>
+								<label id="lblORT_CON_FEC_MAD" style="font-weight: bold;">Desde:</label>
+							</td><td>&nbsp;</td><td>
+								<input type="text" id="dtxORT_CON_FEC_MAD" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+				      		</td><td>&nbsp;</td><td>
+				      			<label id="lblORT_CON_FEC_MAH" style="font-weight: bold;">Hasta:</label>
+				      		</td><td>&nbsp;</td><td>
+				      			<input type="text" id="dtxORT_CON_FEC_MAH" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+							</td></tr><tr><td colspan="12">
+								&nbsp;
+							</td></tr><tr height="25"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblORT_CON_ASE_DAT" style="font-weight: bold; color: red;">Asegurado:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_ASE_TND" style="font-weight: bold;">Tipo y Nro. Documento:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboORT_CON_ASE_TDO" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 100px;'">
+				       			</select>
+				       			<input type="text" id="txtORT_CON_ASE_NDO" data-dojo-type="dijit/form/NumberTextBox"
+						    		data-dojo-props="maxLength:11, style:'width:100px;', constraints:{pattern :'###########'}" />
+						    </td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblORT_CON_ASE_APE" style="font-weight: bold;">Apellido:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtORT_CON_ASE_APE" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblORT_CON_ASE_NOM" style="font-weight: bold;">Nombre:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtORT_CON_ASE_NOM" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblORT_CON_TOM_DAT" style="font-weight: bold; color: red;">Tomador:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblORT_CON_TOM_TND" style="font-weight: bold;">Tipo y Nro. Documento:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboORT_CON_TOM_TDO" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 100px;'">
+				       			</select>
+				       			<input type="text" id="txtORT_CON_TOM_NDO" data-dojo-type="dijit/form/NumberTextBox"
+						    		data-dojo-props="maxLength:11, style:'width:100px;', constraints:{pattern :'###########'}" />
+						    </td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblORT_CON_TOM_APE" style="font-weight: bold;">Apellido:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtORT_CON_TOM_APE" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblORT_CON_TOM_NOM" style="font-weight: bold;">Nombre:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtORT_CON_TOM_NOM" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr><td colspan="12">
+								&nbsp;
+							</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<button type="button" id="btnORTRCoCon" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoCon">
+									Consultar...</button>
+								<button type="button" id="btnORTRCoLim" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoLim">
+									Limpiar</button>
+							</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<br/>
+		</div>
+		<div id="divORTRCo" style="display:none;">
+			<div id="tpnORTRCo" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'R/V.Col. Encontradas', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<!-- Listado de RetCol -->
+			    		<table><tr>
+			    			<td width="1.5%"></td><td colspan="3">
+			    				<div id="_divORTRCoLis" style="width: 945px; height: 370px;">
+								</div>
+							</td><td width="1.5%"></td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><td></td><td>
+								<button type="button" id="btnORTRCoDet" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoDet">
+									Detalle</button>
+								&nbsp;
+								<button type="button" id="btnORTRCoVol" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoVol">
+									Volver</button>
+							</td><td>&nbsp;</td><td align="right">
+								<button type="button" id="btnORTRcoExl" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoExl">
+									Bajar Excel</button>
+								&nbsp;
+								<button type="button" id="btnORTRdTExl" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRdTExl">
+									Reporte del Tomador</button>
+							</td><td></td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<br/>
+		</div>
+		<div id="divORTArc" style="display:none;">
+			<div id="tpnORTArc" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'Archivos de R/V.Col.', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<!-- Archivos de la RetCol -->
+			    		<table><tr height="25">
+			    			<td width="1.3%"></td><td id="tdORTArc" style="background-color: #FFFFFF; border: 1px solid #c8b6b6;">
+			    				<div id="_divORTArc" style="width: 400px; height: 500px;">
+					      		</div>
+			    			</td><td>&nbsp;&nbsp;&nbsp;</td><td>
+			    				<!-- Datos RetCol -->
+			    				<div data-dojo-type="dijit/layout/ContentPane" style="border: 1px solid #c8b6b6; width:505px;height:200px;">
+				    				<table>
+				    					<tr height="25"><td width="1%"></td><td>
+				    						<label id="lblORT_RCO_NRO_POL" style="font-weight: bold;">P&oacute;liza:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Nro.Poliza -->
+				    						<label id="txtORT_RCO_NRO_POL" class="txtLabel" style="width:100px"></label>
+				    						<!-- Operacion se oculta -->
+				    						<label id="txtORT_RCO_NRO_OPE" class="txtLabel" style="width:100px; display: none;"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblORT_RCO_FEC_ING" style="font-weight:bold; width:120px; display: inline-block;">Fecha de Ingreso:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- FecIng -->
+				    						<label id="txtORT_RCO_FEC_ING" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_RCO_ASE_RCO" style="font-weight: bold;">Asegurado:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Asegurado -->
+				    						<label id="txtORT_RCO_ASE_RCO" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_RCO_TOM_RCO" style="font-weight: bold;">Tomador:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Tomador -->
+				    						<label id="txtORT_RCO_TOM_RCO" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_RCO_RQA_DDJ" style="font-weight: bold;">Tiene DDJJ:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ReqAdi DDJJ -->
+				    						<label id="txtORT_RCO_RQA_DDJ" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblORT_RCO_RQA_MED" style="font-weight:bold; width:120px; display: inline-block;">Tiene Req.M&eacute;dicos:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ReqAdi Req.Medicos -->
+				    						<label id="txtORT_RCO_RQA_MED" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_RCO_DES_EST" style="font-weight: bold;">Estado:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Estado -->
+				    						<label id="txtORT_RCO_DES_EST" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblORT_RCO_UMA_FEC" style="font-weight:bold; width:120px; display: inline-block;">Fecha de Estado:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- UMaFec -->
+				    						<label id="txtORT_RCO_UMA_FEC" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_RCO_UMA_USU" style="font-weight: bold;">Usuario:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Usuario -->
+				    						<label id="txtORT_RCO_UMA_USU" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td style="vertical-align:top;padding-top:7px;">
+				    						<label id="lblORT_RCO_OBS_OPE" style="font-weight: bold;">Observaciones:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Observaciones -->
+				    						<input type="text" id="txtORT_RCO_OBS_OPE" data-dojo-type="dijit/form/Textarea" 
+												data-dojo-props="maxLength:2000, style:'width:375px;font-family:Verdana;font-size:11px;', readonly: true" />
+				    					</td></tr>
+				    				</table>
+				    			</div>
+			    				<div style="height: 20px;"></div>
+			    				<!-- Datos Archivo -->
+			    				<div data-dojo-type="dijit/layout/ContentPane" style="border: 1px solid #c8b6b6; width:505px;height:125px;">
+				    				<table>
+				    					<tr height="25"><td width="1%"></td><td>
+				    						<label id="lblORT_ARC_DES_ARC" style="font-weight: bold;">Descripci&oacute;n:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_DES_ARC -->
+				    						<label id="txtORT_ARC_DES_ARC" class="txtLabel" style="width:350px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_ARC_TIP_ARC" style="font-weight: bold;">Tipo de Archivo:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ARC_TIP_ARC -->
+				    						<label id="txtORT_ARC_TIP_ARC" class="txtLabel" style="width:90px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblORT_ARC_UIN_FEC" style="font-weight:bold; width:115px; display: inline-block;">Fecha de Ingreso:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ARC_UIN_FEC -->
+				    						<label id="txtORT_ARC_UIN_FEC" class="txtLabel" style="width:125px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblORT_ARC_UIN_USU" style="font-weight: bold;">Usuario:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_UIN_USU -->
+				    						<label id="txtORT_ARC_UIN_USU" class="txtLabel" style="width:350px"></label>
+				    					</td></tr><tr height="25" style="display:none;"><td></td><td>
+				    						<label id="lblORT_ARC_IDE_ARC" style="font-weight: bold;">IDE_ARC:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_IDE_ARC -->
+				    						<label id="txtORT_ARC_IDE_ARC" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25"><td></td><td style="vertical-align:top;padding-top:7px;">
+				    						<label id="lblORT_ARC_OBS_ARC" style="font-weight: bold;">Observaciones:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_OBS_ARC -->
+				    						<input type="text" id="txtORT_ARC_OBS_ARC" data-dojo-type="dijit/form/Textarea" 
+												data-dojo-props="maxLength:2000, style:'width:355px;font-family:Verdana;font-size:11px;', readonly: true" />
+				    					</td></tr>
+				    				</table>
+			    				</div>
+			    			</td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><td></td><td>
+					      		<button type="button" id="btnORTRCoDej" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoDej">
+									Volver</button>
+								&nbsp;
+								<button type="button" id="btnORTRCoEst" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTRCoEst">
+									Cambiar Estado</button>
+								&nbsp;
+								<button type="button" id="btnORTArcAdd" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTArcAdd">
+									Agregar Archivo</button>
+							</td><td>&nbsp;</td><td>
+								<button type="button" id="btnORTArcVie" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTArcVie">
+									Ver Archivo</button>
+								&nbsp;
+								<button type="button" id="btnORTArcDel" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fORTArcDel">
+									Eliminar Archivo</button>
+					      	</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+		</div>
+	</div>
+	</td></tr>
+</table>
+<!-- UploadBox -->
+<div id="dlgORTUplBox" data-dojo-type="dijit/Dialog" title="Agregar Archivo"
+	style="display: none;">
+	<div class="dijitDialogPaneContentArea">
+		<table style="width: 600px;padding-right:10px;">
+			<tr height="25"><td width="2%"></td><td width="300px">
+				<label id="lblORT_AGR_TAR" style="font-weight: bold;">Tipo de Archivo:</label>
+			</td><td>&nbsp;</td><td>
+				<!-- TipoArchivo -->
+				<select id="cboORT_AGR_TAR" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 150px;'">
+     				<option value="" selected="selected">...</option>
+     				<option value="image/png">Imagen png</option>
+			     	<option value="image/jpeg">Imagen jpeg</option>
+			     	<option value="application/pdf">Documento PDF</option>
+       			</select>
+			</td></tr><tr height="25"><td></td><td>
+				<label id="lblORT_AGR_ARC" style="font-weight: bold;">Seleccione el archivo:</label>
+			</td><td></td><td>
+				<!-- Contenido -->
+				<form name="frmORTUpload" action="" method="POST" enctype="multipart/form-data" target="ifrORTUpload" style="width: 400px; height: 20px;">
+					<input id="txtORTUplFil" type="file" name="txtORTUplFil"
+						style="font-family: Verdana; font-size: 8pt; width: 400px; height: 20px;" />
+					<iframe id="ifrORTUpload" name="ifrORTUpload" src=""
+						onload="fORTArcUplRet()" style="width: 0; height: 0; border: 0px solid #fff"></iframe>
+				</form>
+			</td></tr><tr height="25"><td></td><td>
+				&nbsp;
+			</td><td></td><td>
+				<label style="font-weight: bold; color: red;">Recuerde que el tama&ntilde;o m&aacute;ximo del archivo es de 2Mb 
+					si intenta subir un archivo mas grande se producir&aacute; un error.</label>
+			</td></tr><tr height="25"><td></td><td>
+				<label id="lblORT_AGR_DES" style="font-weight: bold;">Descripci&oacute;n:</label>
+			</td><td></td><td>
+				<!-- Descripcion -->
+       			<input type="text" id="txtORT_AGR_DES" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:80, trim:true, uppercase:true, style:'width:300px;'" />
+			</td></tr><tr height="25" style="display:none;"><td></td><td>
+				<label id="lblORT_AGR_IDE" style="font-weight: bold;">Ide:</label>
+			</td><td></td><td>
+				<!-- IDE -->
+       			<input type="text" id="txtORT_AGR_IDE" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+			</td></tr><tr height="25"><td></td><td style="padding-top: 7px; vertical-align: top;">
+				<label id="lblORT_AGR_OBS" style="font-weight: bold;">Observaciones:</label>
+			</td><td></td><td>
+				<!-- Observaciones -->
+		  		<input type="text" id="txtORT_AGR_OBS" data-dojo-type="dijit/form/Textarea" 
+					data-dojo-props="maxLength:2000, style:'width:400px;font-family:Verdana;font-size:11px;'" />
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<input id="hORTUplHab" type="hidden" value="N" />
+		<button type="button" id="btnORTUplSub" data-dojo-type="dijit/form/Button"
+			data-dojo-props="onClick:fORTArcUpl">Agregar</button>
+		<button type="button" id="btnORTUplCan" data-dojo-type="dijit/form/Button"
+			data-dojo-props="onClick:function(){dijit.byId('dlgORTUplBox').onCancel();}">Cancelar</button>
+	</div>
+</div>
+<!-- EstadoBox -->
+<div id="dlgORTEstBox" data-dojo-type="dijit/Dialog" title="Estado"
+	style="display: none;">
+	<div class="dijitDialogPaneContentArea">
+		<table style="width: 530px;padding-right:10px;">
+			<tr id="ttrORTEstCod" height="25"><td width="2%"></td><td>
+				<label id="lblORT_EST_COD" style="font-weight: bold;">Estado:</label>
+			</td><td>&nbsp;</td><td>
+				<!-- Estado -->
+				<select id="cboORT_EST_COD" data-dojo-type="dijit/form/Select" 
+     				data-dojo-props="style:'width: 150px;'">
+       			</select>
+       		</td></tr><tr height="25" id="ttrORTEstObs"><td width="2%"></td><td style="padding-top: 7px; vertical-align: top;">
+				<label id="lblORT_EST_OBS" style="font-weight: bold;">Observaciones:</label>
+			</td><td></td><td>
+				<!-- Observaciones -->
+		  		<input type="text" id="txtORT_EST_OBS" data-dojo-type="dijit/form/Textarea" 
+					data-dojo-props="maxLength:2000, style:'width:400px;font-family:Verdana;font-size:11px;'" />
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<input id="hORTEstFnc" type="hidden" value="" />
+		<button type="button" id="btnORTEstAce" data-dojo-type="dijit/form/Button"
+			data-dojo-props="onClick:fORTEstAce">Aceptar</button>
+		<button type="button" id="btnORTEstCan" data-dojo-type="dijit/form/Button"
+			data-dojo-props="onClick:function(){dijit.byId('dlgORTEstBox').onCancel();}">Cancelar</button>
+	</div>
+</div>
+<!-- Hidden -->
+<input id="hidORTFecHoy" type="hidden" value="" />

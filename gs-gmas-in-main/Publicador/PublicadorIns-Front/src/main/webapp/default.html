@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Galicia Mas Seguros S.A.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="x-ua-compatible" content="IE=9">
+<meta name="GENERATOR"
+	content="Rational® Application Developer for WebSphere® Software">
+<link rel="shortcut icon"
+	href="/PublicadorIns-Front/pages/images/topHSBC.ico">
+<!-- Dojo -->
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dijit/themes/claro/claro.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dojox/grid/resources/Grid.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/gridx/resources/claro/Gridx.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dojox/grid/resources/claroGrid.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dijit/themes/dijit.css">
+<script type="text/javascript" src="/Insurance-Static/dojo/dojo/dojo.js"
+	djConfig="isDebug: false, parseOnLoad: true"></script>
+<!-- <link rel="stylesheet"
+	href="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/dijit/themes/claro/claro.css" />
+<link rel="stylesheet"
+	href="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/dojox/grid/resources/Grid.css" />
+<link rel="stylesheet"
+	href="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/gridx/resources/claro/Gridx.css" />
+<link rel="stylesheet"
+	href="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/dojox/grid/resources/claroGrid.css" />
+<link rel="stylesheet"
+	href="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/dijit/themes/dijit.css">
+<script type="text/javascript" src="http://inss-frontend.glbs.ar.hsbc/Insurance-Static/dojo/dojo/dojo.js"
+	djConfig="isDebug: false, parseOnLoad: true"></script> -->
+<!-- Commons -->
+<link rel="stylesheet" href="/PublicadorIns-Front/pages/css/publicins.css">
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/Default.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/common/fntMnuMgr.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/common/fntDialog.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/common/fntGeneral.js'></script>
+<!-- Forms -->
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/Sitios.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/Destacados.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/Banners.js'></script>
+<script type="text/javascript"
+	src='/PublicadorIns-Front/pages/js/TAcceso.js'></script>
+<script type="text/javascript">
+	require([ "dojo/parser", "dijit/Menu", "dijit/MenuBar",
+			"dijit/MenuBarItem", "dijit/PopupMenuBarItem",
+			"dijit/DropDownMenu", "dijit/MenuItem", "dijit/MenuSeparator",
+			"dijit/layout/ContentPane", "dojox/grid/DataGrid",
+			"dijit/form/Button", "dijit/form/Select", "dijit/form/TextBox",
+			"dijit/form/NumberTextBox", "dijit/form/DateTextBox",
+			"dijit/Dialog" ]);
+</script>
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+		onDefaultLoad();
+	});
+</script>
+</head>
+<body class="claro" onresize="fBrowserResize()"
+	style="margin: 0px 0px 0px 0px; border-spacing: 0px 0px; background-color: #e8e8e8;">
+	<form name="frmMain" method="post" action="/PublicadorIns-Front" style="max-width:1050px; background-color: #ffffff; margin: 0 auto;">
+		<!-- Encabezado -->
+		<div id="divTop" style="width: 100%; background-color: #ffffff;">
+			<img src="/PublicadorIns-Front/pages/images/topSep02.bmp" style="height:20px; width:100%;" />
+			<div style="padding-top: 5px;">
+				<img src="/PublicadorIns-Front/pages/images/topLogoHSBC.png">
+			</div>
+			<div style="top: 27px; right: 19%; position: absolute;">
+				<font color="gray">
+					<a href="#" onclick="javascript:fSessionClose();">cerrar sesi&oacute;n</a>
+				</font>
+			</div>
+			<img src="/PublicadorIns-Front/pages/images/topSep01.bmp" style="height:10px; width:100%;" />
+		</div>
+		<!-- Menu -->
+		<div id="divMenu" style="width: 98%; padding-top: 5px; padding-left: 10px;">
+			<img id="imgTopHome"
+				style="position: absolute; top: 98px; right: 20%; cursor: pointer;"
+				src="/PublicadorIns-Front/pages/images/topHome.jpg" onclick="mnuHome()" />
+			<div id="header" data-dojo-type="dijit/MenuBar" style="background-color: #BD0000;">
+				<div data-dojo-type="dijit/PopupMenuBarItem" id="mParametros"
+					data-dojo-props="style:'color:white;font-weight:bold;'">
+					<span>Parametros</span>
+					<div data-dojo-type="dijit/Menu" id="mnuParametros">
+						<div data-dojo-type="dijit/MenuItem" id="mSitios"
+							data-dojo-props="iconClass:'dijitIconNewTask', onClick:mnuOpeSitios">
+							Sitios</div>
+						<div data-dojo-type="dijit/MenuItem" id="mDestacados"
+							data-dojo-props="iconClass:'dijitIconNewTask', onClick:mnuOpeDestacados">
+							Destacados</div>
+						<div data-dojo-type="dijit/MenuItem" id="mBanners"
+							data-dojo-props="iconClass:'dijitIconNewTask', onClick:mnuOpeBanners">
+							Banners</div>
+						<div data-dojo-type="dijit/MenuItem" id="mTAcceso"
+							data-dojo-props="iconClass:'dijitIconNewTask', onClick:mnuOpeTAcceso">
+							T.Acceso</div>
+						<div data-dojo-type="dijit/MenuSeparator"></div>
+						<div data-dojo-type="dijit/MenuItem" id="mSalir"
+							data-dojo-props="iconClass:'dijitIconDelete', onClick:mnuOpeSalir">
+							Salir</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/PopupMenuBarItem" id="mOperaciones"
+					data-dojo-props="style:'color:white;font-weight:bold;', disabled:true">
+					<span>-</span>
+					<div data-dojo-type="dijit/Menu" id="mnuOperaciones">
+						<div data-dojo-type="dijit/MenuItem" id="mOpeOpe1">
+							Ope1</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cuerpo -->
+		<div id="_divBody" style="width: 98%">
+			<div id="divContent" data-dojo-type="dijit/layout/ContentPane"
+				style="width: 100%; height: 390px;"></div>
+		</div>
+		<!-- Pie -->
+		<div id="divFooter" style="width: 98%">
+			<div style="height: 30px;">
+				<div
+					style="border-top: 1px solid #c1c1c1; margin-left: 5px; text-align: center; color: #c1c1c1; font-size: 9">
+					Galicia Mas Seguros de Personas <br />En todos los casos la
+					responsabilidad de los accionistas est&aacute; limitada a su aporte
+					de capital.
+				</div>
+			</div>
+		</div>
+		<!-- MessageBox -->
+		<div id="dlgMsgBox" data-dojo-type="dijit/Dialog" title="Galicia Mas Seguros"
+			style="display: none;">
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr valign="top">
+						<td><img id="imgMsgBox"
+							src="/PublicadorIns-Front/pages/images/icoInfo.png" /></td>
+						<td valign="middle"><label id="lblMsgBox" style="width: 300px;"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<button data-dojo-type="dijit/form/Button" type="submit"
+					id="btnMsgBoxOk">Aceptar</button>
+			</div>
+		</div>
+		<!-- Question Box -->
+		<div id="dlgQstBox" data-dojo-type="dijit/Dialog" title="Pregunta"
+			style="display: none;">
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr valign="top">
+						<td><img id="imgQstBox"
+							src="/PublicadorIns-Front/pages/images/icoQuestion.png" /></td>
+						<td valign="middle"><label id="lblQstBox" style="width: 300px;"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<input id="hQstBoxFnc" type="hidden" value="" />
+				<button type="button" id="btnQstBoxYes" data-dojo-type="dijit/form/Button"
+					data-dojo-props="onClick:fQstBoxYes">Si</button>
+				<button type="button" id="btnQstBoxNo" data-dojo-type="dijit/form/Button"
+					data-dojo-props="onClick:function(){dijit.byId('dlgQstBox').onCancel();}">No</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

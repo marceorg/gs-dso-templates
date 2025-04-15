@@ -1,0 +1,287 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table>
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Consulta de Archivos</font></b><br/>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table>
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divFrmCont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:1005px;">
+		<div id="divOCAFil" style="display:inline;">
+			<div id="tpnOCAFil" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'Filtros de B&uacute;squeda', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<table>
+			    			<tr height="25"><td width="20px">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblOCA_CON_ARC_DAT" style="font-weight: bold; color: red;">Datos del Archivo:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_COD_GDO" style="font-weight: bold;">Grupo Documental:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboOCA_CON_COD_GDO" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 350px;', onChange:fOCAArcTDo">
+				       			</select>
+				       		</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_COD_TDO" style="font-weight: bold;">Tipo Documental:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboOCA_CON_COD_TDO" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 350px;'">
+				       			</select>
+				       		</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_TIP_ARC" style="font-weight: bold;">Tipo de Archivo:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboOCA_CON_TIP_ARC" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 150px;'">
+				     				<option value="" selected="selected">...</option>
+				     				<option value="image/png">Imagen png</option>
+							     	<option value="image/jpeg">Imagen jpeg</option>
+							     	<option value="application/pdf">Documento PDF</option>
+							     	<option value="audio/mp3">Audio MP3</option>
+				       			</select>
+				       		</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_ARC_TND" style="font-weight: bold;">Tipo y Nro. Documento:</label>
+							</td><td>&nbsp;</td><td colspan="9">
+								<select id="cboOCA_CON_ARC_TDO" data-dojo-type="dijit/form/Select" 
+				     				data-dojo-props="style:'width: 100px;'">
+				       			</select>
+				       			<input type="text" id="txtOCA_CON_ARC_NDO" data-dojo-type="dijit/form/NumberTextBox"
+						    		data-dojo-props="maxLength:11, style:'width:100px;', constraints:{pattern :'###########'}" />
+						    </td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblOCA_CON_ARC_DA1" style="font-weight: bold;">Dato 1:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtOCA_CON_ARC_DA1" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblOCA_CON_ARC_DA2" style="font-weight: bold;">Dato 2:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtOCA_CON_ARC_DA2" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+						    	<label id="lblOCA_CON_ARC_DA3" style="font-weight: bold;">Dato 3:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtOCA_CON_ARC_DA3" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr height="25" style="display:none;"><td>&nbsp;</td><td>
+						    	<label id="lblOCA_CON_ARC_DA4" style="font-weight: bold;">Dato 4:</label>
+						    </td><td>&nbsp;</td><td colspan="9">
+						    	<input type="text" id="txtOCA_CON_ARC_DA4" data-dojo-type="dijit/form/TextBox"
+									data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:300px;'" />
+							</td></tr><tr><td colspan="12">
+								&nbsp;
+							</td></tr><tr height="25"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<label id="lblOCA_CON_FEC_DAT" style="font-weight: bold; color: red;">Fechas:</label>
+							</td></tr><tr height="25"><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_FEC_ING" style="font-weight: bold;">Fecha de Ingreso:</label>
+							</td><td>&nbsp;</td><td>
+								<input id="chkOCA_CON_FEC_ING" data-dojo-type="dijit/form/CheckBox"
+						        	data-dojo-props="checked: false, onChange: fOCAConFInChk" />
+						    </td><td>&nbsp;</td><td>
+								<label id="lblOCA_CON_FEC_IND" style="font-weight: bold;">Desde:</label>
+							</td><td>&nbsp;</td><td>
+								<input type="text" id="dtxOCA_CON_FEC_IND" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+				      		</td><td>&nbsp;</td><td>
+				      			<label id="lblOCA_CON_FEC_INH" style="font-weight: bold;">Hasta:</label>
+				      		</td><td>&nbsp;</td><td width="250">
+				      			<input type="text" id="dtxOCA_CON_FEC_INH" data-dojo-type="dijit/form/DateTextBox"  
+				      				data-dojo-props="style:'width: 110px;', disabled: true, constraints:{datePattern :'dd/MM/yyyy'}" />
+							</td></tr><tr><td colspan="12">
+								&nbsp;
+							</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="9">
+								<button type="button" id="btnOCAArcCon" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcCon">
+									Consultar Archivos...</button>
+								<button type="button" id="btnOCAArcLim" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcLim">
+									Limpiar</button>
+							</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<br/>
+		</div>
+		<div id="divOCAArc" style="display:none;">
+			<div id="tpnOCASol" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'Archivos Encontrados', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<!-- Listado de Archivos -->
+			    		<table><tr>
+			    			<td width="1.5%"></td><td colspan="3">
+			    				<div id="_divOCAArcLis" style="width: 945px; height: 370px;">
+								</div>
+							</td><td width="1.5%"></td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><td></td><td>
+								<button type="button" id="btnOCAArcDet" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcDet">
+									Detalle Archivo</button>
+								&nbsp;
+								<button type="button" id="btnOCAArcVol" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcVol">
+									Volver</button>
+							</td><td></td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+			<br/>
+		</div>
+		<div id="divOCADet" style="display:none;">
+			<div id="tpnOCADet" data-dojo-type="dijit/TitlePane" 
+				data-dojo-props="title:'Detalle del Archivo', open: true">
+				<table style="width: 100%;">
+			        <tr class="trOscuro"><td style="border: 1px solid #c8b6b6;"><br/>
+			    		<!-- Archivos de la Solicitud -->
+			    		<table><tr height="25">
+			    			<td width="1.3%"></td><td>
+			    				<!-- Datos Solicitud -->
+			    				<div data-dojo-type="dijit/layout/ContentPane" style="border: 1px solid #c8b6b6; width:500px;height:225px;">
+				    				<table>
+				    					<tr height="25"><td width="3%"></td><td>
+				    						<label id="lblOCA_SOL_NRO_SOL" style="font-weight: bold;">Solicitud:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Solicitud -->
+				    						<label id="txtOCA_SOL_NRO_SOL" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblOCA_SOL_FEC_ING" style="font-weight:bold; width:120px; display: inline-block;">Fecha de Ingreso:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- FecIng -->
+				    						<label id="txtOCA_SOL_FEC_ING" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_ASE_SOL" style="font-weight: bold;">Asegurado:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Asegurado -->
+				    						<label id="txtOCA_SOL_ASE_SOL" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_DES_EST" style="font-weight: bold;">Estado:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Estado -->
+				    						<label id="txtOCA_SOL_DES_EST" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblOCA_SOL_UMA_FEC" style="font-weight:bold; width:120px; display: inline-block;">Fecha de Estado:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- UMaFec -->
+				    						<label id="txtOCA_SOL_UMA_FEC" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_UMA_USU" style="font-weight: bold;">Usuario:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Usuario -->
+				    						<label id="txtOCA_SOL_UMA_USU" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_COT_SUM" style="font-weight: bold;">Suma Aseg.:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Suma Aseg. -->
+				    						<label id="txtOCA_SOL_COT_SUM" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblOCA_SOL_COT_PRI" style="font-weight:bold; width:120px; display: inline-block;">Prima:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Prima -->
+				    						<label id="txtOCA_SOL_COT_PRI" class="txtLabel" style="width:130px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_COD_OFI" style="font-weight: bold;">Oficina:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- Oficina -->
+				    						<label id="txtOCA_SOL_COD_OFI" class="txtLabel" style="width:100px"></label>
+				    					</td><td>&nbsp;</td><td align="right" colspan="3">
+				    						<!-- Retenciones/Doc.Pendiente -->
+				    						<label id="txtOCA_SOL_RET_DOC" style="display: none; font-weight: bold; color: red;">Tiene Retenciones/Doc.Pendiente</label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_SOL_VEN_SOL" style="font-weight: bold;">Asesor:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Asesor -->
+				    						<label id="txtOCA_SOL_VEN_SOL" class="txtLabel" style="width:370px"></label>
+				    					</td></tr><tr height="25"><td></td><td style="vertical-align:top;padding-top:7px;">
+				    						<label id="lblOCA_SOL_OBS_SOL" style="font-weight: bold;">Observaciones:</label>
+				    					</td><td>&nbsp;</td><td colspan="5">
+				    						<!-- Observaciones -->
+				    						<input type="text" id="txtOCA_SOL_OBS_SOL" data-dojo-type="dijit/form/Textarea" 
+												data-dojo-props="maxLength:2000, style:'width:375px;font-family:Verdana;font-size:11px;', readonly: true" />
+				    					</td></tr>
+				    				</table>
+				    			</div>
+			    				<div style="height: 20px;"></div>
+			    				<!-- Datos Archivo -->
+			    				<div data-dojo-type="dijit/layout/ContentPane" style="border: 1px solid #c8b6b6; width:500px;height:225px;">
+				    				<table>
+				    					<tr height="25"><td width="3%"></td><td>
+				    						<label id="lblOCA_ARC_DES_TDO" style="font-weight: bold;">Tipo Documental:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_DES_TDO -->
+				    						<label id="txtOCA_ARC_DES_TDO" class="txtLabel" style="width:350px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_TIP_ARC" style="font-weight: bold;">Tipo de Archivo:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ARC_TIP_ARC -->
+				    						<label id="txtOCA_ARC_TIP_ARC" class="txtLabel" style="width:90px"></label>
+				    					</td><td>&nbsp;</td><td>
+				    						<label id="lblOCA_ARC_UIN_FEC" style="font-weight:bold; width:115px; display: inline-block;">Fecha de Ingreso:</label>
+				    					</td><td>&nbsp;</td><td>
+				    						<!-- ARC_UIN_FEC -->
+				    						<label id="txtOCA_ARC_UIN_FEC" class="txtLabel" style="width:125px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_UIN_USU" style="font-weight: bold;">Usuario:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_UIN_USU -->
+				    						<label id="txtOCA_ARC_UIN_USU" class="txtLabel" style="width:350px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_ARC_DOC" style="font-weight: bold;">Documento:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_ARC_TDO -->
+				    						<label id="txtOCA_ARC_ARC_DOC" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_ARC_DA1" style="font-weight: bold;">Dato 1:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_ARC_DA1 -->
+				    						<label id="txtOCA_ARC_ARC_DA1" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_ARC_DA2" style="font-weight: bold;">Dato 2:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_ARC_DA2 -->
+				    						<label id="txtOCA_ARC_ARC_DA2" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25"><td></td><td>
+				    						<label id="lblOCA_ARC_ARC_DA3" style="font-weight: bold;">Dato 3:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_ARC_DA3 -->
+				    						<label id="txtOCA_ARC_ARC_DA3" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25" style="display:none;"><td></td><td>
+				    						<label id="lblOCA_ARC_ARC_DA4" style="font-weight: bold;">Dato 4:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_ARC_DA4 -->
+				    						<label id="txtOCA_ARC_ARC_DA4" class="txtLabel" style="width:300px"></label>
+				    					</td></tr><tr height="25"><td></td><td style="vertical-align:top;padding-top:7px;">
+				    						<label id="lblOCA_ARC_OBS_ARC" style="font-weight: bold;">Observaciones:</label>
+				    					</td><td>&nbsp;</td><td colspan="9">
+				    						<!-- ARC_OBS_ARC -->
+				    						<input type="text" id="txtOCA_ARC_OBS_ARC" data-dojo-type="dijit/form/Textarea" 
+												data-dojo-props="maxLength:2000, style:'width:355px;font-family:Verdana;font-size:11px;', readonly: true" />
+				    					</td></tr>
+				    				</table>
+			    				</div>
+			    			</td></tr><tr><td colspan="5">&nbsp;</td></tr><tr><td></td><td>
+			    				<button type="button" id="btnOCAArcVie" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcVie">
+									Ver Archivo</button>
+								&nbsp;
+					      		<button type="button" id="btnOCAArcDej" data-dojo-type="dijit/form/Button"
+									data-dojo-props="onClick: fOCAArcDej">
+									Volver</button>
+					      	</td></tr>
+						</table>
+					<br/></td></tr>
+			    </table>
+			</div>
+		</div>
+	</div>
+	</td></tr>
+</table>
+<!-- Hidden -->
+<input id="hidOCAFecHoy" type="hidden" value="" />

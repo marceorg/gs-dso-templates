@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" version="5">
+  <display-name>BancaSegurosEAR</display-name>
+  <module id="Module_1389014323241">
+    <web>
+      <web-uri>bcaseg-front.war</web-uri>
+      <context-root>bcaseg-front</context-root>
+    </web>
+  </module>
+  <module id="Module_1525794477114">
+  	<web>
+  		<web-uri>filerepo-front.war</web-uri>
+  		<context-root>filerepo-front</context-root>
+  	</web>
+  </module>
+  <security-role>
+    <role-name>auth</role-name>
+  </security-role>
+</application>

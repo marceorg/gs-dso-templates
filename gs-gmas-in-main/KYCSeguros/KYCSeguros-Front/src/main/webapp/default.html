@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>Galicia Mas Seguros</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="x-ua-compatible" content="IE=9">
+<meta name="GENERATOR"
+	content="Rational® Application Developer for WebSphere® Software">
+<link rel="shortcut icon"
+	href="/KYCSeguros-Front/pages/images/topHSBC.ico">
+<!-- Dojo -->
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dijit/themes/claro/claro.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dojox/grid/resources/Grid.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/gridx/resources/claro/Gridx.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dojox/grid/resources/claroGrid.css" />
+<link rel="stylesheet"
+	href="/Insurance-Static/dojo/dijit/themes/dijit.css">
+<script type="text/javascript" src="/Insurance-Static/dojo/dojo/dojo.js"
+	djConfig="isDebug: false, parseOnLoad: true"></script>
+<!-- Commons -->
+<link rel="stylesheet" href="/KYCSeguros-Front/pages/css/kycseg.css">
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/Default.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/common/fntMnuMgr.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/common/fntDialog.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/common/fntGeneral.js'></script>
+<!-- Forms -->
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/KYCPersFis.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/KYCPersJur.js'></script>
+<script type="text/javascript"
+	src='/KYCSeguros-Front/pages/js/KYCAprobacion.js'></script>
+<script type="text/javascript">
+	require([ "dojo/parser", "dijit/Menu", "dijit/MenuBar",
+			"dijit/MenuBarItem", "dijit/PopupMenuBarItem",
+			"dijit/DropDownMenu", "dijit/MenuItem", "dijit/MenuSeparator",
+			"dijit/layout/ContentPane", "dojox/grid/DataGrid",
+			"dijit/form/Button", "dijit/form/Select", "dijit/form/TextBox",
+			"dijit/form/NumberTextBox", "dijit/form/DateTextBox",
+			"dijit/Dialog", "dijit/Tooltip", "dijit/TitlePane" ]);
+</script>
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+		onDefaultLoad();
+	});
+</script>
+</head>
+<body class="claro" onresize="fBrowserResize()"
+	style="margin: 0px 0px 0px 0px; border-spacing: 0px 0px; background-color: #e8e8e8;">
+	<form name="frmMain" method="post" action="/KYCSeguros-Front" style="max-width:1050px; background-color: #ffffff; margin: 0 auto;">
+		<!-- Encabezado -->
+		<div id="divTop" style="width: 100%; background-color: #ffffff;">
+			<img src="/KYCSeguros-Front/pages/images/topSep02.bmp" style="height:20px; width:100%;" />
+			<div style="padding-top: 5px;">
+				<img src="/KYCSeguros-Front/pages/images/topLogoHSBC.png">
+			</div>
+			<div style="top: 27px; right: 19%; position: absolute;">
+				<font color="gray"><label id="lblTopUser"></label>&nbsp;-&nbsp;
+					<a href="#" onclick="javascript:fSessionClose();">cerrar sesi&oacute;n</a>
+				</font>
+			</div>
+			<div style="position: absolute; top: 44px; left: 45%;">
+				<img id="imgTopPerfil" src="/KYCSeguros-Front/pages/images/topPerfil.jpg" />
+			</div>
+			<img src="/KYCSeguros-Front/pages/images/topSep01.bmp" style="height:10px; width:100%;" />
+		</div>
+		<!-- Menu -->
+		<div id="divMenu" style="width: 98%; padding-top: 5px; padding-left: 10px;">
+			<img id="imgTopHome"
+				style="position: absolute; top: 98px; right: 20%; cursor: pointer;"
+				src="/KYCSeguros-Front/pages/images/topHome.jpg" onclick="mnuHome()" />
+			<div id="header" data-dojo-type="dijit/MenuBar" style="background-color: #BD0000;">
+				<div data-dojo-type="dijit/PopupMenuBarItem" id="mFormularios"
+					data-dojo-props="style:'color:white;font-weight:bold;', disabled:true">
+					<span>Formularios</span>
+					<div data-dojo-type="dijit/Menu" id="mnuFormularios">
+						<div data-dojo-type="dijit/MenuItem" id="mKYCPersFis"
+							data-dojo-props="iconClass:'dijitIconUsers', disabled:true, onClick:mnuKYCPersFis">
+							KYC Personas F&iacute;sicas</div>
+						<div data-dojo-type="dijit/MenuItem" id="mKYCPersJur"
+							data-dojo-props="iconClass:'dijitIconDocuments', disabled:true, onClick:mnuKYCPersJur">
+							KYC Personas Jur&iacute;dicas</div>
+					</div>
+				</div>
+				<div data-dojo-type="dijit/PopupMenuBarItem" id="mOperaciones"
+					data-dojo-props="style:'color:white;font-weight:bold;', disabled:true">
+					<span>Operaciones</span>
+					<div data-dojo-type="dijit/Menu" id="mnuOperaciones">
+						<div data-dojo-type="dijit/MenuItem" id="mAprobacion"
+							data-dojo-props="iconClass:'dijitIconFunction', disabled:true, onClick:mnuKYCAprobacion">
+							Aprobaci&oacute;n/Rechazo de KYC</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cuerpo -->
+		<div id="_divBody" style="width: 98%; padding-left: 10px;">
+			<div id="divContent" data-dojo-type="dijit/layout/ContentPane"
+				style="width: 100%; height: 390px;"></div>
+		</div>
+		<!-- Pie -->
+		<div id="divFooter" style="width: 98%">
+			<div style="height: 30px;">
+				<div
+					style="border-top: 1px solid #c1c1c1; margin-left: 5px; text-align: center; color: #c1c1c1; font-size: 9">
+					Galicia Mas Seguros de Personas <br />En todos los casos la
+					responsabilidad de los accionistas est&aacute; limitada a su aporte
+					de capital.
+				</div>
+			</div>
+		</div>
+		<!-- MessageBox -->
+		<div id="dlgMsgBox" data-dojo-type="dijit/Dialog" title="Galicia Mas Seguros"
+			style="display: none;">
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr valign="top">
+						<td><img id="imgMsgBox"
+							src="/KYCSeguros-Front/pages/images/icoInfo.gif" /></td>
+						<td valign="middle"><label id="lblMsgBox" style="width: 300px;"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<button data-dojo-type="dijit/form/Button" type="submit"
+					id="btnMsgBoxOk">Aceptar</button>
+			</div>
+		</div>
+		<!-- Question Box -->
+		<div id="dlgQstBox" data-dojo-type="dijit/Dialog" title="Pregunta"
+			style="display: none;">
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr valign="top">
+						<td><img id="imgQstBox"
+							src="/KYCSeguros-Front/pages/images/icoQuestion.gif" /></td>
+						<td valign="middle"><label id="lblQstBox" style="width: 300px;"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<input id="hQstBoxFnc" type="hidden" value="" />
+				<button type="button" id="btnQstBoxYes" data-dojo-type="dijit/form/Button"
+					data-dojo-props="onClick:fQstBoxYes">Si</button>
+				<button type="button" id="btnQstBoxNo" data-dojo-type="dijit/form/Button"
+					data-dojo-props="onClick:function(){dijit.byId('dlgQstBox').onCancel();}">No</button>
+			</div>
+		</div>
+		<!-- CPFinder -->
+		<div id="dlgCPFinder" data-dojo-type="dijit/Dialog"
+			title="B&uacute;squeda de c&oacute;digos postales"
+			style="display: none;">
+			<input id="hCal" type="hidden" value="" /> <input id="hLoc"
+				type="hidden" value="" /> <input id="hNum" type="hidden" value="" />
+			<input id="hPro" type="hidden" value="" /> <input id="hCPo"
+				type="hidden" value="" />
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr>
+						<td><label id="lblCPFBusq">Calle:</label></td>
+						<td><input type=text id="txtCPFBusq" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:265px;'" />
+						</td>
+						<td><button type="button" id="btnCPFBusq" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCPFinderBuscar">
+								Buscar</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<div id="_divCPFinder" style="width: 400px; height: 300px;">
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<button type="button" id="btnCPFinderCancel" data-dojo-type="dijit/form/Button"
+					data-dojo-props="onClick:function(){dijit.byId('dlgCPFinder').onCancel();}">Cancelar</button>
+			</div>
+		</div>
+		<!-- Espera -->
+		<div id="dlgWait" data-dojo-type="dijit/Dialog" title="Procesando..."
+			style="display: none;">
+			<div class="dijitDialogPaneContentArea">
+				<table>
+					<tr id="trWaitP0">
+						<td><img id="imgWaitP0" src="" />
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><label id="lblWaitP0" style="width: 300px;"></label>
+						</td>
+					</tr>
+					<tr id="trWaitP1" style="display: none;">
+						<td><img id="imgWaitP1" src="" />
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><label id="lblWaitP1" style="width: 300px;"></label>
+						</td>
+					</tr>
+					<tr id="trWaitP2" style="display: none;">
+						<td><img id="imgWaitP2" src="" />
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><label id="lblWaitP2" style="width: 300px;"></label>
+						</td>
+					</tr>
+					<tr id="trWaitP3" style="display: none;">
+						<td><img id="imgWaitP3" src="" />
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><label id="lblWaitP3" style="width: 300px;"></label>
+						</td>
+					</tr>
+					<tr id="trWaitP4" style="display: none;">
+						<td><img id="imgWaitP4" src="" />
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><label id="lblWaitP4" style="width: 300px;"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="dijitDialogPaneActionBar">
+				<button data-dojo-type="dijit/form/Button" type="submit"
+					id="btnWait">Aceptar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

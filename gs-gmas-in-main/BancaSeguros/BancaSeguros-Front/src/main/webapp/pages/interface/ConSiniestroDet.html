@@ -1,0 +1,213 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="400px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Detalle del Siniestro</font></b><br/>
+			</p>
+		</td><td width="415px" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td><td width="160px">
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnCSDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fCSDVolver">
+						Volver a la Consulta</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCSDCont" data-dojo-type="dijit/layout/ContentPane" style="height:360px;width:970px;">
+		<div>
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		        	<!-- Datos Principales -->
+		    		<table width="100%"><tr class="filaOsc">
+		    			<td>
+		    				<label id="lblCSDCompania" style="font-weight: bold;">
+				        		&nbsp;Compa&ntilde;&iacute;a:</label>
+		    			</td><td>
+		    				<label id="lblCSDPoliza" style="font-weight: bold;">
+				        		&nbsp;N&uacute;mero de P&oacute;liza:</label>
+		    			</td><td>
+		    				<label id="lblCSDVigencia" style="font-weight: bold;">
+				        		&nbsp;Fecha de Vigencia:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Compania -->
+		    				<label id="txtCSDCompania"></label>
+				        </td><td>
+		    				<!-- Poliza -->
+		    				<label id="txtCSDPoliza"></label>
+				        </td><td>
+		    				<!-- Vigencia -->
+		    				<label id="txtCSDVigencia"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCSDTomador" style="font-weight: bold;">
+				        		&nbsp;Nombre y Apellido:</label>
+				        </td><td>
+		    				<label id="lblCSDDocumento" style="font-weight: bold;">
+				        		&nbsp;Documento:</label>
+		    			</td><td>
+		    				<label id="lblCSDFechaRegistracion" style="font-weight: bold;">
+				        		&nbsp;Fecha de Registraci&oacute;n:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Tomador -->
+		    				<label id="txtCSDTomador"></label>
+		    			</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtCSDDocumento"></label>
+				        </td><td>
+				        	<!-- Fec.Reg. -->
+		    				<label id="txtCSDFechaRegistracion"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCSDSiniestro" style="font-weight: bold;">
+				        		&nbsp;Nro. de Siniestro:</label>
+		    			</td><td>
+		    				<label id="lblCSDFechaComunicacion" style="font-weight: bold;">
+				        		&nbsp;Fecha de Comunicaci&oacute;n:</label>
+		    			</td><td>
+		    				<label id="lblCSDFechaSiniestro" style="font-weight: bold;">
+				        		&nbsp;Fecha de Siniestro:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Siniestro -->
+		    				<label id="txtCSDSiniestro"></label>
+				        </td><td>
+				        	<!-- Fec.Com. -->
+		    				<label id="txtCSDFechaComunicacion"></label>
+				        </td><td>
+				        	<!-- Fecha Siniestro -->
+		    				<label id="txtCSDFechaSiniestro"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCSDLugar" style="font-weight: bold;">
+				        		&nbsp;Lugar de Ocurrencia:</label>
+		    			</td><td>
+		    				<label id="lblCSDCausa" style="font-weight: bold;">
+				        		&nbsp;Causal de Siniestro:</label>
+		    			</td><td>
+		    				<label id="lblCSDOrden" style="font-weight: bold;">
+				        		&nbsp;N&uacute;mero de Orden:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Lugar -->
+		    				<label id="txtCSDLugar"></label>
+				        </td><td>
+				        	<!-- Causa -->
+		    				<label id="txtCSDCausa"></label>
+				        </td><td>
+				        	<!-- Orden -->
+		    				<label id="txtCSDOrden"></label>
+		    			</td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCSDEstado" style="font-weight: bold;">
+				        		&nbsp;Estado del Siniestro:</label>
+		    			</td><td>
+		    				<label id="lblCSDFechaEstado" style="font-weight: bold;">
+				        		&nbsp;Fecha de Estado:</label>
+		    			</td><td>
+		    				&nbsp;
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Estado -->
+		    				<label id="txtCSDEstado"></label>
+				        </td><td>
+				        	<!-- Fecha Estado -->
+		    				<label id="txtCSDFechaEstado"></label>
+				        </td><td>
+				        	<!-- Detalle -->
+    						<button type="button" id="btnCSDDetEst" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCSDDetEst">
+								Detalle</button>
+				        </td></tr>
+					</table>
+		        <br/></td></tr>
+		    </table>
+		</div>
+		<div id="tpnCSDDatosCob" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Detalle de Coberturas'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Detalle de Coberturas -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divCSDCobList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCSDDatosEst" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Hist&oacute;rico de Siniestro'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Detalle de Estados -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divCSDEstList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCSDDatosPag" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Detalle de Pagos'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Detalle de Pagos -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divCSDPagList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+	</div>
+	</td></tr>
+</table>
+<!-- Popup Detalle -->
+<div id="dlgCSDDetalle" data-dojo-type="dijit/Dialog"
+	data-dojo-props="title:'Detalle de Estados', style:'display: none;'">
+	<div class="dijitDialogPaneActionBar" style="margin-top: -10px; text-align: left;">
+		<label id="lblCSDDetalle">&nbsp;</label>
+	</div>
+	<div class="dijitDialogPaneContentArea">
+		<table>
+			<tr><td id="tdCSDDetalle">
+					<div id="_divCSDDetList" style="width: 300px; height: 200px;">
+					</div>
+			</td></tr>
+		</table>
+	</div>
+	<div class="dijitDialogPaneActionBar">
+		<button data-dojo-type="dijit/form/Button" type="button"
+			id="btnCSDDetCancel" data-dojo-props="onClick:function(){dijit.byId('dlgCSDDetalle').onCancel();}">
+			Cerrar</button>
+	</div>
+</div>
+<!-- Hidden -->
+<input id="hidCSDTieneDet" type="hidden" value="" />
+
+<input id="hidCSDCompaniaCod" type="hidden" value="" />
+<input id="hidCSDCompaniaDes" type="hidden" value="" />
+<input id="hidCSDSiniestro" type="hidden" value="" />
+
+<input id="hidCSDTipoInforme" type="hidden" value="" />
+<input id="hidCSDFechaDesde" type="hidden" value="" />
+<input id="hidCSDFechaHasta" type="hidden" value="" />
+<input id="hidCSDCompaniaPar" type="hidden" value="" />
+<input id="hidCSDTipDoc" type="hidden" value="" />
+<input id="hidCSDNroDoc" type="hidden" value="" />
+<input id="hidCSDApellido" type="hidden" value="" />
+<input id="hidCSDPoliza" type="hidden" value="" />
+<input id="hidCSDSiniestroPar" type="hidden" value="" />
+<input id="hidCSDOrden" type="hidden" value="" />
+<input id="hidCSDEstado" type="hidden" value="" />
+<input id="hidCSDParamStart" type="hidden" value="" />

@@ -1,0 +1,14 @@
+.trOscuro {background-color: #E6E6E6;}
+.trClaro  {background-color: #FFFFFF;}
+
+.filaOsc {background-color: #E6E6E6;height: 20px;}
+.filaCla {background-color: #FFFFFF;height: 20px;}
+
+.claro .dijitButton .dijitButtonNode
+{
+	background-image : none;
+}
+
+a {
+	color : #494949;
+}

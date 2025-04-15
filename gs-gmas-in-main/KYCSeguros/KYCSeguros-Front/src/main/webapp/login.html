@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Galicia Mas Seguros</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="x-ua-compatible" content="IE=9">
+<meta name="GENERATOR"
+	content="Rational® Application Developer for WebSphere® Software">
+<script type="text/javascript">
+	function fOnLoadWin() {
+		fBrowserResize();
+		document.getElementById("j_username").focus();
+	}
+	
+	function fBrowserResize() {
+		// Tomar tamanos
+		var vHeight = fBrowserHeight();
+		document.getElementById("divContent").style.height = vHeight + "px";
+	}
+	
+	function fBrowserHeight() {
+		var vHeight = 0;
+		if (typeof (window.innerWidth) == 'number') {
+			// Non-IE
+			vHeight = window.innerHeight;
+		} else if (document.documentElement
+				&& (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+			// IE 6+ in 'standards compliant mode'
+			vHeight = document.documentElement.clientHeight;
+		} else if (document.body
+				&& (document.body.clientWidth || document.body.clientHeight)) {
+			// IE 4 compatible
+			vHeight = document.body.clientHeight;
+		}
+		return vHeight;
+	}
+	
+	window.onload = fOnLoadWin;
+</script>
+</head>
+
+<body onresize="fBrowserResize()" style="margin: 0px 0px 0px 0px; border-spacing: 0px 0px; background-color: #e8e8e8;">
+	<form name="frmMain" method="post" action="/KYCSeguros-Front/j_security_check" style="max-width:1050px; background-color: #ffffff; margin: 0 auto;">
+		<div id="divContent" style="width: 100%; background-color: #ffffff;">
+			<div style="height: 200px;">&nbsp;</div>
+			<div style="background: rgb(243, 243, 243); margin: auto auto auto auto; padding: 20px; border-radius: 3px; width: 350px; line-height: 1.5em; position: relative; box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);">
+				<h1 style="margin: -20px -20px 21px; line-height: 40px; font-family: Verdana; font-size: 14pt; font-weight: bold; color: #cb1818; text-align: center; background: gainsboro; border-bottom: 1px solid #cfcfcf; border-radius: 3px 3px 0 0">KYC Seguros</h1>
+				<div>
+					<!-- Username -->
+					<div style="margin: 40px 0px 15px 0px; text-align: center;">
+						<label id="lblUsername" style="font-family: Verdana; font-weight: bold; font-size: 8pt; width: 30px;">Usuario:</label>
+						<input type="text" id="j_username" name="j_username"
+							size="20" maxlength="20" style="font-family: Verdana; font-size: 8pt; width: 200px; border: solid black 1px; border-radius: 3px; height: 20px; margin-left: 30px;" />
+					</div>
+					<!-- Password -->
+					<div style="margin: 0px 0px 15px 0px; text-align: center;">
+						<label id="lblPassword" style="font-family: Verdana; font-weight: bold; font-size: 8pt;">Contrase&ntilde;a:</label>
+	    			<input type="password" id="j_password" name="j_password"
+	    				size="20" maxlength="20" style="font-family: Verdana; font-size: 8pt; width: 200px; border: solid black 1px; border-radius: 3px; height: 20px; margin-left: 7px" />
+	    		</div>
+	    		<!-- Acceder -->
+	    		<div style="margin: 0px 33px 15px 0px; text-align: right;">
+	    			<button type="submit" style="font-family: Verdana; font-size: 9pt; font-weight: bold; color: #ffffff; border: solid #ae2525 1px; border-radius: 3px; background-color: #d32f2f; cursor: pointer;">Acceder</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

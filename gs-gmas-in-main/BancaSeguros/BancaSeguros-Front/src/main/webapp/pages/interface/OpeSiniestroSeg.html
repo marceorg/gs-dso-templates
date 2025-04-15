@@ -1,0 +1,133 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Seguimiento de Denuncia de Siniestro</font></b><br/>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divOSSCont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:970px;">
+		<div id="tpnOSSParam" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Par&aacute;metros de la consulta'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Parametros de la consulta -->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblOSSFecDes" style="font-weight: bold;">
+				        		Fecha desde:&nbsp;</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<!-- Fecha Desde -->
+							<input type="text" id="txtOSSFecDes" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      		&nbsp;
+		    				<label id="lblOSSFecHas" style="font-weight: bold;">
+				        		Fecha hasta:&nbsp;</label>
+				        	<!-- Fecha Hasta -->
+							<input type="text" id="txtOSSFecHas" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				        </td><td>&nbsp;</td></tr><tr><td></td><td>
+		    				<label id="lblOSSEstado" style="font-weight: bold;">
+		    	        		Estado:</label>
+				      	</td><td>&nbsp;</td><td>
+			       			<select id="cboOSSEstado" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 150px; margin: 0px;'">
+			     				<option value="" selected>TODOS</option>
+			     				<option value="A">ANULADA</option>
+			     				<option value="P">PENDIENTE</option>
+			     				<option value="E">ENVIADA</option>
+			     				<option value="R">RECIBIDA</option>
+			       			</select>
+				      	</td><td>&nbsp;</td><td>
+				      	</td></tr><tr><td width="3%"></td><td>
+		    				<label id="lblOSSApeRaz" style="font-weight: bold;">
+				        		Apellido/Raz&oacute;n social:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<!-- Apellido / Razon social -->
+		    				<input type="text" id="txtOSSApeRaz" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:30, trim:true, uppercase:true, style:'width:290px;'" />
+				        </td><td>&nbsp;</td><td></td></tr><tr><td></td><td>
+		    				<label id="lblOSSDocumento" style="font-weight: bold;">
+				        		Tipo y Nro. Documento:</label>
+				      	</td><td>&nbsp;</td><td>
+				      		<!-- Tipo y Nro. Documento -->
+		    				<select id="cboOSSTipDoc" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 60px; margin: 0px;', onChange:function(){fOSSTDoSel(this.value);}">
+			       			</select>
+			       			<input type="text" id="txtOSSNroDoc" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:11, trim:true, uppercase:true, style:'width:100px;', disabled:true" />
+				      	</td><td>&nbsp;</td><td></td></tr><tr><td width="3%"></td><td>
+		    				<label id="lblOSSOrden" style="font-weight: bold;">
+				        		Nro. de Orden:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<!-- Nro. de Orden -->
+		    				<input type="text" id="txtOSSOrden" data-dojo-type="dijit/form/NumberTextBox"
+						    	data-dojo-props="maxLength:10, style:'width:100px;', constraints:{pattern :'##########'}" />
+		    	        </td><td>&nbsp;</td><td></td></tr><tr><td></td><td>
+		    				<label id="lblOSSCompania" style="font-weight: bold;">
+		    	        		Compa&ntilde;&iacute;a:</label>
+				      	</td><td>&nbsp;</td><td>
+				      		<!-- Compania -->
+		    				<select id="cboOSSCompania" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 200px; margin: 0px;', onChange:function(){fOSSCiaSel(this.value);}">
+			       			</select>
+			       		</td><td>&nbsp;</td><td></td></tr><tr><td></td><td>
+		    				<label id="lblOSSPoliza" style="font-weight: bold;">
+		    	        		P&oacute;liza:</label>
+				      	</td><td>&nbsp;</td><td>
+			       			<input type="text" id="txtOSSPoliza" data-dojo-type="dijit/form/TextBox"
+								data-dojo-props="maxLength:40, trim:true, uppercase:true, style:'width:310px;', disabled:true" />
+				      	</td><td>&nbsp;</td><td width="320px">
+				      		<label id="lblOSSPolEjemplo" style="font-weight: bold;"></label>
+				      	</td></tr><tr><td colspan="3"></td><td align="right">
+				      		<button type="button" id="btnOSSBuscar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fOSSBuscar">Buscar</button>
+				      	</td><td colspan="2"></td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnOSSLista" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Listado de Denuncia de Siniestros', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Listado Denuncia de Siniestros -->
+		    		<table><tr>
+		    			<td width="2%"></td><td colspan="3">
+		    				<div id="_divOSSLista" style="width: 890px; height: 230px;">
+							</div>
+						</td></tr><tr><td></td><td>
+							<button type="button" id="btnOSSDetSin" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconError', onClick: fOSSDetSin">
+								Detalle Denuncia</button>
+						</td><td>
+							<button type="button" id="btnOSSPagSig" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fOSSPagSig">
+								Siguiente</button>
+						</td><td align="right">
+		    				<button type="button" id="btnOSSExcel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconDocuments', onClick: fOSSExcel">
+								Exportar a Excel</button>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidOSSFechaHoy" type="hidden" value="" />
+<input id="hidOSSParamStart" type="hidden" value="" />
+<input id="hidOSSParamStartAnt" type="hidden" value="" />

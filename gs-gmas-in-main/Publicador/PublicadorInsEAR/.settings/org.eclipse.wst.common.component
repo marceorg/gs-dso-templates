@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="PublicadorInsEAR">
+        <dependent-module archiveName="publicins-front.war" deploy-path="/" handle="module:/resource/PublicadorIns-Front/PublicadorIns-Front">
+            <dependent-object>Module_1515443337055</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="publicins-business.jar" deploy-path="/lib" handle="module:/resource/PublicadorIns-Service/PublicadorIns-Service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

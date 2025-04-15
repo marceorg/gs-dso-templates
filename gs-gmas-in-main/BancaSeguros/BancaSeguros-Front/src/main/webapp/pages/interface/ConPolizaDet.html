@@ -1,0 +1,318 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td width="325px">
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Datos Generales de la P&oacute;liza</font></b><br/>
+			</p>
+		</td><td>
+			&nbsp;
+		</td><td>
+			<table><tr>
+    			<td>
+    				<!-- Volver -->
+    				<button type="button" id="btnCPDVolver" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUndo', onClick: fCPDVolver">
+						Volver a la Consulta</button>
+				</td><td>
+					<!-- Impresion de poliza -->
+					<button type="button" id="btnCPDDetPDF" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconPrint', onClick: fCPDDetPDF">
+						Imprimir P&oacute;liza</button>
+				</td><td>
+					<!-- Detalle Cliente -->
+					<button type="button" id="btnCPDDetCli" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconUsers', onClick: fCPDDetCli">
+						Detalle Cliente</button>
+				</td><td>
+					<!-- Detalle Endosos -->
+					<button type="button" id="btnCPDDetEnd" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconEdit', onClick: fCPDDetEnd">
+						Detalle Endosos</button>
+				</td><td>
+					<!-- Situacion de Cobranzas -->
+					<button type="button" id="btnCPDDetCob" data-dojo-type="dijit/form/Button"
+						data-dojo-props="iconClass:'dijitIconFile', onClick: fCPDDetCob">
+						Cobranza</button>
+				</td></tr>
+			</table>
+		</td><td></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCPDCont" data-dojo-type="dijit/layout/ContentPane" style="height:360px;width:970px;">
+		<div>
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		        	<!-- Datos Principales -->
+		    		<table width="100%"><tr class="filaOsc">
+		    			<td width="300px">
+		    				<label id="lblCPDCompania" style="font-weight: bold;">
+				        		&nbsp;Compa&ntilde;&iacute;a:</label>
+		    			</td><td width="230px">
+		    				<label id="lblCPDProducto" style="font-weight: bold;">
+				        		&nbsp;Producto:</label>
+		    			</td><td width="230px">
+		    				<label id="lblCPDSucursal" style="font-weight: bold;">
+				        		&nbsp;Sucursal:</label>
+		    			</td><td>
+		    				<label id="lblCPDCanal" style="font-weight: bold;">
+				        		&nbsp;Canal:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Compania -->
+		    				<label id="txtCPDCompania"></label>
+				        </td><td>
+				        	<!-- Producto -->
+		    				<label id="txtCPDProducto"></label>
+				        </td><td>
+				        	<!-- Sucursal -->
+		    				<label id="txtCPDSucursal"></label>
+				        </td><td>
+				        	<!-- Canal -->
+		    				<label id="txtCPDCanal"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCPDPoliza" style="font-weight: bold;">
+				        		&nbsp;N&uacute;mero de P&oacute;liza:</label>
+				        </td><td>
+		    				<label id="lblCPDEndoso" style="font-weight: bold;">
+				        		&nbsp;Endoso:</label>
+		    			</td><td>
+		    				<label id="lblCPDFechaEmision" style="font-weight: bold;">
+				        		&nbsp;Fecha de Emisi&oacute;n:</label>
+		    			</td><td>
+		    				<label id="lblCPDEstado" style="font-weight: bold;">
+				        		&nbsp;Estado:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Poliza -->
+		    				<label id="txtCPDPoliza"></label>
+		    			</td><td>
+				        	<!-- Endoso -->
+		    				<label id="txtCPDEndoso"></label>
+				        </td><td>
+				        	<!-- Fec.Emis. -->
+		    				<label id="txtCPDFechaEmision"></label>
+				        </td><td>
+				        	<!-- Estado -->
+		    				<label id="txtCPDEstado"></label>
+				        </td></tr><tr class="filaOsc"><td>
+		    				<label id="lblCPDTomador" style="font-weight: bold;">
+				        		&nbsp;Nombre y Apellido del Tomador:</label>
+		    			</td><td>
+		    				<label id="lblCPDDocumento" style="font-weight: bold;">
+				        		&nbsp;Documento del Tomador:</label>
+		    			</td><td colspan="2">
+		    				<label id="lblCPDVendedor" style="font-weight: bold;">
+				        		&nbsp;Vendedor:</label>
+		    			</td></tr><tr class="filaCla"><td>
+		    				<!-- Tomador -->
+		    				<label id="txtCPDTomador"></label>
+				        </td><td>
+				        	<!-- Documento -->
+		    				<label id="txtCPDDocumento"></label>
+				        </td><td colspan="2">
+				        	<!-- Vendedor -->
+		    				<label id="txtCPDVendedor"></label>
+				        </td></tr>
+					</table>
+		        <br/></td></tr>
+		    </table>
+		</div>
+		<div id="tpnCPDDatosPol" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de P&oacute;liza'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos de poliza -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblCPDOrden" style="font-weight: bold;">
+				        		N&uacute;mero de Orden:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDPremio" style="font-weight: bold;">
+				        		Premio:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Orden -->
+		    				<label id="txtCPDOrden"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Premio -->
+		    				<label id="txtCPDPremio"></label>
+				        </td></tr><tr class="filaOsc">
+		    			<td width="3%"></td><td>
+		    				<label id="lblCPDFechaRegistracion" style="font-weight: bold;">
+				        		Fecha de Registraci&oacute;n:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDVigencia" style="font-weight: bold;">
+				        		Fecha de Vigencia:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Fecha de Registracion -->
+		    				<label id="txtCPDFechaRegistracion"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Vigencia desde hasta -->
+		    				<label id="txtCPDVigencia"></label>
+				        </td></tr><tr class="filaOsc">
+		    			<td width="3%"></td><td>
+		    				<label id="lblCPDCampana" style="font-weight: bold;">
+				        		Campa&ntilde;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDCanalCobro" style="font-weight: bold;">
+				        		Canal de Cobro:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Campana -->
+		    				<label id="txtCPDCampana"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Canal de Cobro -->
+		    				<label id="txtCPDCanalCobro"></label>
+				        </td></tr><tr class="filaOsc">
+		    			<td width="3%"></td><td>
+		    				<label id="lblCPDTipCta" style="font-weight: bold;">
+				        		Tipo de Cuenta:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDNroCta" style="font-weight: bold;">
+				        		Nro. de Cuenta:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Tipo de cuenta -->
+		    				<label id="txtCPDTipCta"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Nro.de cta. -->
+		    				<label id="txtCPDNroCta"></label>
+				        </td></tr>
+					</table>
+				</td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCPDDatosAse" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Asegurado'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td>
+		    		<!-- Datos del asegurado -->
+		    		<table width="100%" cellspacing="0"><tr class="filaOsc">
+		    			<td width="3%"></td><td width="350px">
+		    				<label id="lblCPDAseNombre" style="font-weight: bold;">
+				        		Apellido y Nombre:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDAseDocumento" style="font-weight: bold;">
+				        		Tipo y Nro. de Documento:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Nombre -->
+		    				<label id="txtCPDAseNombre"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Documento -->
+		    				<label id="txtCPDAseDocumento"></label>
+				        </td></tr><tr class="filaOsc">
+		    			<td width="3%"></td><td>
+		    				<label id="lblCPDAseDomicilio" style="font-weight: bold;">
+				        		Domicilio:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDAseCodPost" style="font-weight: bold;">
+				        		C&oacute;digo Postal:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Domicilio -->
+		    				<label id="txtCPDAseDomicilio"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Codigo Postal -->
+		    				<label id="txtCPDAseCodPost"></label>
+				        </td></tr><tr class="filaOsc">
+		    			<td width="3%"></td><td>
+		    				<label id="lblCPDAseLocalidad" style="font-weight: bold;">
+				        		Localidad:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCPDAseProvincia" style="font-weight: bold;">
+				        		Provincia:</label>
+		    			</td></tr><tr class="filaCla"><td></td><td>
+		    				<!-- Localidad -->
+		    				<label id="txtCPDAseLocalidad"></label>
+				        </td><td>&nbsp;</td><td>
+				        	<!-- Provincia -->
+		    				<label id="txtCPDAseProvincia"></label>
+				        </td></tr>
+					</table>
+				<br/></td></tr>
+				<tr class="trOscuro"><td>
+					<!-- Listado de Asegurados Adicionales -->
+		    		<table><tr>
+		    			<td width="24px"></td><td>
+		    				<label id="lblCPDAseAdiList" style="font-weight: bold;">Asegurados Adicionales</label>
+		    			</td></tr><tr id="trCPDAseAdiGrid" style="display: none;"><td></td><td>
+		    				<div id="_divCPDAseAdiList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr><tr id="trCPDAseAdiLeye" style="display: none;"><td></td><td>
+		    				<label>NO POSEE</label>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCPDDatosBen" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos de los Beneficiarios'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trClaro" ><td width="24px"></td><td>
+		    		<!-- Leyenda unica -->
+		    		<label id="txtCPDLeyeBenef"></label>
+				<br/><br/></td></tr>
+				<tr class="trOscuro" id="trCPDBenGrid" style="display: none;"><td></td><td>
+					<!-- Listado de Beneficiarios -->
+		    		<table><tr><td>
+		    				<label id="lblCPDBenList" style="font-weight: bold;">Beneficiarios</label>
+		    			</td></tr><tr><td>
+		    				<div id="_divCPDBenList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCPDDatosCob" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Detalle de Coberturas'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Detalle de Coberturas -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divCPDCobList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCPDDatosRie" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Datos del Riesgo'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Datos del Riesgo -->
+					<table><tr>
+		    			<td width="24px"></td><td>
+		    				<div id="_divCPDRieList" style="width: 575px; height: 100px;">
+							</div>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidCPDCompaniaCod" type="hidden" value="" />
+<input id="hidCPDCompaniaDes" type="hidden" value="" />
+<input id="hidCPDPoliza" type="hidden" value="" />
+<input id="hidCPDEndoso" type="hidden" value="" />
+
+<input id="hidCPDTipoInforme" type="hidden" value="" />
+<input id="hidCPDFechaDesde" type="hidden" value="" />
+<input id="hidCPDFechaHasta" type="hidden" value="" />
+<input id="hidCPDCompaniaPar" type="hidden" value="" />
+<input id="hidCPDProducto" type="hidden" value="" />
+<input id="hidCPDTipDoc" type="hidden" value="" />
+<input id="hidCPDNroDoc" type="hidden" value="" />
+<input id="hidCPDApellido" type="hidden" value="" />
+<input id="hidCPDPolizaPar" type="hidden" value="" />
+<input id="hidCPDParamStart" type="hidden" value="" />
+
+<input id="hidCPDEApyNom" type="hidden" value="" />

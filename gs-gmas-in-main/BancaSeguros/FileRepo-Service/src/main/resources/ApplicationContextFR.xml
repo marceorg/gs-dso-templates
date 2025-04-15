@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<jee:jndi-lookup id="dsSNCV_FR" jndi-name="jdbc/dsSNCV" />
+
+	<bean id="ParametersDao" class="com.hsbc.hbar.filerepo.dao.impl.ParametersDaoImpl">
+		<property name="dataSource" ref="dsSNCV_FR"></property>
+	</bean>
+
+	<bean id="UserValidationService"
+		class="com.hsbc.hbar.filerepo.service.impl.UserValidationServiceImpl">
+	</bean>
+
+	<bean id="ParametersService"
+		class="com.hsbc.hbar.filerepo.service.impl.ParametersServiceImpl">
+	</bean>
+
+	<bean id="OperationService"
+		class="com.hsbc.hbar.filerepo.service.impl.OperationServiceImpl">
+	</bean>
+
+	<bean id="MdwService" class="com.hsbc.hbar.filerepo.service.impl.MdwServiceImpl">
+	</bean>
+
+	<bean id="UtilCommService" class="com.hsbc.hbar.filerepo.service.impl.UtilCommServiceImpl">
+	</bean>
+
+	<bean id="BatchService" class="com.hsbc.hbar.filerepo.service.impl.BatchServiceImpl">
+	</bean>
+</beans>

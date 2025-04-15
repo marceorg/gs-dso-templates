@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hsbc.hbar.channel</groupId>
+	<artifactId>kycseg-parent</artifactId>
+	<version>${env.ArtifactVersion}</version>
+	<packaging>pom</packaging>
+	<name>LA-WM-ON-HBAR-INSURANCE_KS-AR</name>
+	<description>Proyecto agrupador</description>
+
+	<properties>
+		<sonar.exclusions>**/*.js,**/*.html,**/*.css,**/dojo/**</sonar.exclusions>
+	</properties>
+
+	<modules>
+		<module>../KYCSeguros-Service</module>
+		<module>../KYCSeguros-Front</module>
+		<module>../KYCSegurosEAR</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>${env.Ambiente}</id>
+			<url>https://${env.NX3_INSTANCE}.systems.uk.hsbc:8081/nexus/repository/maven-hsbc-internal-${env.Ambiente}_n3p/</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>https://nexus.gmas.com.ar/repository/maven-snapshots/</url>
+			<layout>default</layout>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

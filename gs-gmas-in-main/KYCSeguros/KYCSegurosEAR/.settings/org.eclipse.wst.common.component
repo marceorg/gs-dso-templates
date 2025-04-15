@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="KYCSegurosEAR">
+        <dependent-module archiveName="KYCSeguros-Service.jar" deploy-path="/lib" handle="module:/resource/KYCSeguros-Service/KYCSeguros-Service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="KYCSeguros-Front.war" deploy-path="/" handle="module:/resource/KYCSeguros-Front/KYCSeguros-Front">
+            <dependent-object>Module_1389014323241</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,101 @@
+<!-- Cabecera y Opciones -->
+<div>
+	<table width="100%">
+		<tr><td>
+			<p style="margin-bottom: 0.5em; margin-top: 0.5em;">
+				<b><font color="red">Consulta de Operaciones Emitidas</font></b><br/>
+			</p>
+		</td>
+		<td width="40%" style="vertical-align: middle;text-align: center;">
+			&nbsp;
+		</td>
+		<td width="28%"></td></tr>
+	</table>
+</div>
+<table width="100%">
+	<tr><td>
+	<!-- Area de Trabajo -->
+	<div id="divCOECont" data-dojo-type="dijit/layout/ContentPane" style="height:320px;width:970px;">
+		<div id="tpnCOEParam" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Par&aacute;metros de la consulta'">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Parametros de la consulta -->
+		    		<table><tr>
+		    			<td width="3%"></td><td>
+		    				<label id="lblCOEFecDes" style="font-weight: bold;">
+				        		Fecha desde:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCOEFecHas" style="font-weight: bold;">
+				        		Fecha hasta:</label>
+				        </td><td>&nbsp;</td><td>
+		    				<label id="lblCOECompania" style="font-weight: bold;">
+				        		Compa&ntilde;&iacute;a:</label>
+		    			</td><td>&nbsp;</td><td>
+		    				<label id="lblCOEProducto" style="font-weight: bold;">
+				        		Producto:</label>
+		    			</td><td colspan="2"></td></tr><tr><td></td><td>
+		    				<!-- Fecha Desde -->
+							<input type="text" id="txtCOEFecDes" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>
+		    				<!-- Fecha Hasta -->
+							<input type="text" id="txtCOEFecHas" data-dojo-type="dijit/form/DateTextBox"  
+				      			data-dojo-props="style:'width: 110px;', constraints:{datePattern :'dd/MM/yyyy'}" />
+				      	</td><td></td><td>
+				      		<!-- Compania -->
+				      		<select id="cboCOECompania" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 240px; margin: 0px;', onChange:function(){fCOECiaSel(this.value);}">
+			       			</select>
+			       		</td><td></td><td>
+			       			<!-- Producto -->
+				      		<select id="cboCOEProducto" data-dojo-type="dijit/form/Select" 
+			     				data-dojo-props="style:'width: 240px; margin: 0px; overflow:hidden;', disabled:true, maxHeight:120, forceWidth:true">
+			       			</select>
+			       		</td><td>&nbsp;</td><td>
+			       			<button type="button" id="btnCOEBuscar" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCOEBuscar">
+								Buscar</button>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+		<br/>
+		<div id="tpnCOELista" data-dojo-type="dijit/TitlePane" 
+			data-dojo-props="title:'Listado de Operaciones Emitidas', open:false">
+			<table width="100%" cellspacing="0">
+		        <tr class="trOscuro" ><td><br/>
+		    		<!-- Listado de Operaciones Emitidas -->
+		    		<table><tr>
+		    			<td width="2%"></td><td colspan="3">
+		    				<div id="_divCOELista" style="width: 890px; height: 230px;">
+							</div>
+						</td></tr><tr><td></td><td>
+							<button type="button" id="btnCOEDetPol" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconCopy', onClick: fCOEDetPol">
+								Detalle P&oacute;liza</button>
+							<button type="button" id="btnCOEDetCli" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconUsers', onClick: fCOEDetCli">
+								Detalle Cliente</button>
+						</td><td>
+							<button type="button" id="btnCOEPagSig" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconSearch', onClick: fCOEPagSig">
+								Siguiente</button>
+						</td><td align="right">
+		    				<button type="button" id="btnCOEExcel" data-dojo-type="dijit/form/Button"
+								data-dojo-props="iconClass:'dijitIconDocuments', onClick: fCOEExcel">
+								Exportar a Excel</button>
+						</td></tr>
+					</table>
+				<br/></td></tr>
+		    </table>
+		</div>
+	</div>
+	</td></tr>
+</table>
+
+<!-- Hidden -->
+<input id="hidCOEFechaHoy" type="hidden" value="" />
+<input id="hidCOEParamStart" type="hidden" value="" />
+<input id="hidCOEParamStartAnt" type="hidden" value="" />
