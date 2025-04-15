@@ -7,9 +7,9 @@ on:
       - gs-gmas-in-main/settings.xml
       - gs-gmas-in-main/BancaSeguros/**/*
 
-defaults:
- run:
-  working-directory: ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
+# defaults:
+#  run:
+#   working-directory: ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
 
 env:
   artifact_version: 1.0.0-SNAPSHOT
@@ -41,11 +41,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Install dependencies
-        run: mvn package -DskipTests
+        run: |
+          cd ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
+          mvn package -DskipTests
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "/gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
+          artifacts: "./gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
           tag: "v${{env.artifact_version}}"
           
 
