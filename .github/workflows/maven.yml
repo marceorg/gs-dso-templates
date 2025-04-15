@@ -4,9 +4,9 @@ on:
   push:
     branches: [ master ]
     paths:
-      - gs-gmas-in-main/**
-      - '!gs-gmas-in-main/Pepe'
-
+      - gs-gmas-in-main/settings.xml
+      - gs-gmas-in-main/BancaSeguros/**/*
+      
 
 jobs:
   build_and_test:
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            gs-gmas-in-main/settings.xml
+            .github
             gs-gmas-in-main/BancaSeguros
 
       - uses: cschleiden/replace-tokens@v1
