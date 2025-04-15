@@ -41,11 +41,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Install dependencies
+        if: success()
         run: |
           cd ./gs-gmas-in-main/BancaSeguros/BancaSeguros-Parent
           mvn package -DskipTests
 
       - uses: ncipollo/release-action@v1
+        if: success()
         with:
           artifacts: "./gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
           tag: "v${{env.artifact_version}}"
