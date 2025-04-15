@@ -54,6 +54,7 @@ jobs:
         with:
           artifacts: "./gs-gmas-in-main/BancaSeguros/BancaSegurosEAR/target/bcaseg-ear-${{env.artifact_version}}.ear"
           tag: "v${{env.artifact_version}}"
+          name: "BancaSegurosEAR"
           
 
       # - name: Build with Maven
