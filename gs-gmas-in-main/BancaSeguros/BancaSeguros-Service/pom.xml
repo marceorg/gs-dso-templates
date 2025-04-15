@@ -96,7 +96,7 @@
 		</dependency>
 	</dependencies>
 
-	<distributionManagement>
+	<!-- <distributionManagement>
 		<repository>
 			<id>releases</id>
 			<url>https://nexus.gmas.com.ar/repository/maven-releases/</url>
@@ -108,5 +108,5 @@
 			<layout>default</layout>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
 </project>
