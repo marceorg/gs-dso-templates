@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsbc.hbar.channel</groupId>
 	<artifactId>filerepo-front</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>#{ARTIFACT_VERSION}#</version>
 	<packaging>war</packaging>
 	<name>filerepo-front</name>
 	<url>http://maven.apache.org</url>
@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>com.hsbc.hbar.business</groupId>
 			<artifactId>filerepo-business</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>#{ARTIFACT_VERSION}#</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>

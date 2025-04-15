@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hsbc.hbar.channel</groupId>
 	<artifactId>bcaseg-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>#{ARTIFACT_VERSION}#</version>
 	<packaging>pom</packaging>
 	<name>LA-WM-ON-HBAR-INSURANCE_BS-AR</name>
 	<description>Proyecto agrupador</description>
