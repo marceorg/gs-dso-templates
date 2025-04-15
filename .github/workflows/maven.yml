@@ -4,8 +4,8 @@ on:
   push:
     branches: [ master ]
     paths:
-      - gs-gmas-in-main/settings.xml
-      - gs-gmas-in-main/BancaSeguros/**
+      - gs-gmas-in-main/**
+      - '!gs-gmas-in-main/Pepe'
 
 
 jobs:
